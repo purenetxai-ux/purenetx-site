@@ -1,106 +1,1407 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="purenetX builds privacy-first, on-device AI to prevent harmful visual exposure before it happens. Cameras should be safe by default." />
   <title>purenetX – Privacy-First On-Device AI for Camera Safety</title>
-  <meta name="description" content="purenetX builds privacy-first, on-device AI to prevent harmful visual exposure before it happens. Cameras should be safe by default.">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-</head>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── RESET & ROOT ─── */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg:       #050810;
+      --bg2:      #080d1a;
+      --surface:  rgba(255,255,255,0.04);
+      --border:   rgba(255,255,255,0.08);
+      --border-h: rgba(99,202,255,0.35);
+      --cyan:     #63caff;
+      --cyan2:    #3af0d0;
+      --blue:     #2563eb;
+      --text:     #e8edf5;
+      --muted:    #7a8598;
+      --card-bg:  rgba(10,18,40,0.7);
+      --glow:     0 0 40px rgba(99,202,255,0.18);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+      line-height: 1.6;
+      cursor: none;
+    }
+
+    /* ─── CUSTOM CURSOR ─── */
+    #cursor {
+      width: 10px; height: 10px;
+      background: var(--cyan);
+      border-radius: 50%;
+      position: fixed; top: 0; left: 0;
+      pointer-events: none; z-index: 9999;
+      transform: translate(-50%,-50%);
+      transition: transform .1s, width .25s, height .25s, background .25s;
+      mix-blend-mode: screen;
+    }
+    #cursor-ring {
+      width: 36px; height: 36px;
+      border: 1px solid rgba(99,202,255,0.45);
+      border-radius: 50%;
+      position: fixed; top: 0; left: 0;
+      pointer-events: none; z-index: 9998;
+      transform: translate(-50%,-50%);
+      transition: transform .18s ease, width .3s, height .3s, opacity .3s;
+    }
+    body:has(a:hover) #cursor { width: 14px; height: 14px; background: var(--cyan2); }
+    body:has(a:hover) #cursor-ring { width: 50px; height: 50px; border-color: rgba(58,240,208,0.3); }
+
+    /* ─── SCROLLBAR ─── */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: linear-gradient(var(--cyan), var(--cyan2)); border-radius: 2px; }
+
+    /* ─── NOISE OVERLAY ─── */
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+      opacity: 0.025;
+      pointer-events: none;
+      z-index: 1000;
+    }
+
+    /* ─── AMBIENT BG ORBS ─── */
+    .orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(100px);
+      pointer-events: none;
+      z-index: 0;
+      animation: drift 18s ease-in-out infinite alternate;
+    }
+    .orb-1 {
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(37,99,235,0.15) 0%, transparent 70%);
+      top: -150px; left: -150px;
+      animation-delay: 0s;
+    }
+    .orb-2 {
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(99,202,255,0.1) 0%, transparent 70%);
+      bottom: -100px; right: -100px;
+      animation-delay: -6s;
+    }
+    .orb-3 {
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(58,240,208,0.07) 0%, transparent 70%);
+      top: 50%; left: 50%;
+      transform: translate(-50%,-50%);
+      animation-delay: -12s;
+    }
+    @keyframes drift {
+      0% { transform: translate(0,0) scale(1); }
+      100% { transform: translate(40px,30px) scale(1.08); }
+    }
+
+    /* ─── GRID BG ─── */
+    .grid-bg {
+      position: fixed; inset: 0;
+      background-image:
+        linear-gradient(rgba(99,202,255,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(99,202,255,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+      z-index: 0;
+      pointer-events: none;
+      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 20%, transparent 100%);
+    }
+
+    /* ─── NAVBAR ─── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 500;
+      padding: 0 clamp(1.5rem, 5vw, 4rem);
+      height: 70px;
+      display: flex; align-items: center; justify-content: space-between;
+      background: rgba(5,8,16,0.6);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-bottom: 1px solid var(--border);
+      transition: border-color .3s;
+    }
+    nav.scrolled { border-bottom-color: rgba(99,202,255,0.15); }
+
+    .nav-logo {
+      display: flex; align-items: center; gap: .6rem;
+      text-decoration: none;
+    }
+    .nav-logo img {
+      height: 32px; width: auto;
+      mix-blend-mode: screen;
+      filter: brightness(1.4) contrast(1.1) drop-shadow(0 0 8px rgba(99,202,255,0.5));
+    }
+
+    .nav-links {
+      display: flex; align-items: center; gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: .85rem;
+      font-weight: 500;
+      letter-spacing: .03em;
+      text-transform: uppercase;
+      transition: color .25s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute; left: 0; bottom: -4px;
+      height: 1px; width: 0;
+      background: var(--cyan);
+      transition: width .3s;
+    }
+    .nav-links a:hover { color: var(--cyan); }
+    .nav-links a:hover::after { width: 100%; }
+
+    /* ─── HERO ─── */
+    #hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center;
+      padding: 120px clamp(1.5rem, 6vw, 5rem) 80px;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .35rem 1rem;
+      border: 1px solid rgba(99,202,255,0.25);
+      border-radius: 100px;
+      background: rgba(99,202,255,0.07);
+      font-size: .75rem;
+      font-weight: 500;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--cyan);
+      margin-bottom: 2rem;
+      opacity: 0;
+      animation: fadeUp .8s .2s forwards;
+    }
+    .hero-badge-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--cyan2);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: .5; transform: scale(.7); }
+    }
+
+    h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2.8rem, 7vw, 6.5rem);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -.02em;
+      max-width: 900px;
+      background: linear-gradient(135deg, #ffffff 0%, #c8deff 40%, var(--cyan) 70%, var(--cyan2) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      opacity: 0;
+      animation: fadeUp .9s .4s forwards;
+    }
+
+    .hero-sub {
+      max-width: 560px;
+      font-size: clamp(1rem, 2vw, 1.15rem);
+      color: var(--muted);
+      font-weight: 300;
+      margin: 1.8rem auto 0;
+      line-height: 1.75;
+      opacity: 0;
+      animation: fadeUp .9s .6s forwards;
+    }
+
+    .hero-cta {
+      margin-top: 2.5rem;
+      display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp .9s .8s forwards;
+    }
+
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .75rem 1.8rem;
+      border-radius: 8px;
+      background: linear-gradient(135deg, var(--blue), #1d4ed8);
+      color: #fff;
+      font-size: .9rem;
+      font-weight: 600;
+      text-decoration: none;
+      letter-spacing: .02em;
+      border: 1px solid rgba(99,202,255,0.2);
+      position: relative; overflow: hidden;
+      transition: transform .25s, box-shadow .25s;
+      cursor: none;
+    }
+    .btn-primary::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(99,202,255,0.2), transparent);
+      opacity: 0;
+      transition: opacity .3s;
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(37,99,235,0.4); }
+    .btn-primary:hover::before { opacity: 1; }
+
+    .btn-ghost {
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .75rem 1.8rem;
+      border-radius: 8px;
+      background: transparent;
+      color: var(--muted);
+      font-size: .9rem;
+      font-weight: 500;
+      text-decoration: none;
+      border: 1px solid var(--border);
+      transition: color .25s, border-color .25s, transform .25s;
+      cursor: none;
+    }
+    .btn-ghost:hover { color: var(--text); border-color: rgba(99,202,255,0.3); transform: translateY(-2px); }
+
+    /* Animated scan line hero decoration */
+    .hero-scan {
+      position: absolute;
+      left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+      opacity: 0;
+      animation: scan 4s 1.5s ease-in-out infinite;
+    }
+    @keyframes scan {
+      0% { top: 20%; opacity: 0; }
+      10% { opacity: .4; }
+      90% { opacity: .4; }
+      100% { top: 80%; opacity: 0; }
+    }
+
+    /* ─── SECTION SHARED ─── */
+    section {
+      position: relative; z-index: 1;
+      padding: clamp(4rem, 10vw, 8rem) clamp(1.5rem, 6vw, 5rem);
+    }
+
+    .section-label {
+      display: inline-block;
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--cyan);
+      margin-bottom: 1rem;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 700;
+      letter-spacing: -.02em;
+      line-height: 1.15;
+      color: var(--text);
+    }
+
+    .section-sub {
+      color: var(--muted);
+      font-size: 1.05rem;
+      font-weight: 300;
+      max-width: 520px;
+      margin-top: .75rem;
+      line-height: 1.75;
+    }
+
+    /* ─── WHY SECTION ─── */
+    #why {
+      background: linear-gradient(180deg, transparent 0%, rgba(10,16,35,0.6) 50%, transparent 100%);
+    }
+    #why .inner {
+      max-width: 1100px; margin: 0 auto;
+    }
+    #why .header { margin-bottom: 4rem; }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem 2rem 2.2rem;
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      transition: border-color .35s, transform .35s, box-shadow .35s;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    .card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+      opacity: 0;
+      transition: opacity .35s;
+    }
+    .card:hover {
+      border-color: var(--border-h);
+      transform: translateY(-6px);
+      box-shadow: 0 20px 60px rgba(99,202,255,0.1), var(--glow);
+    }
+    .card:hover::before { opacity: 1; }
+
+    .card-icon {
+      width: 48px; height: 48px;
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+    .card-icon.red   { background: rgba(239,68,68,0.12); border: 1px solid rgba(239,68,68,0.2); }
+    .card-icon.cyan  { background: rgba(99,202,255,0.12); border: 1px solid rgba(99,202,255,0.2); }
+    .card-icon.green { background: rgba(58,240,208,0.12); border: 1px solid rgba(58,240,208,0.2); }
+
+    .card h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: .6rem;
+      color: var(--text);
+    }
+    .card p { color: var(--muted); font-size: .92rem; line-height: 1.7; }
+
+    /* ─── FOUNDER ─── */
+    #founder {
+      display: flex; align-items: center; justify-content: center;
+    }
+    .founder-card {
+      max-width: 680px; width: 100%;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: clamp(2rem, 5vw, 3.5rem);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      display: flex; gap: 2.5rem; align-items: flex-start;
+      position: relative; overflow: hidden;
+      transition: border-color .35s, box-shadow .35s;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    .founder-card::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 60% at 80% 20%, rgba(99,202,255,0.06), transparent);
+      pointer-events: none;
+    }
+    .founder-card:hover {
+      border-color: rgba(99,202,255,0.25);
+      box-shadow: 0 30px 80px rgba(99,202,255,0.08);
+    }
+
+    .founder-photo-wrap {
+      flex-shrink: 0;
+      position: relative;
+    }
+    .founder-photo-wrap::after {
+      content: '';
+      position: absolute; inset: -3px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--cyan), var(--cyan2));
+      z-index: -1;
+      opacity: .6;
+      animation: spinSlow 6s linear infinite;
+    }
+    @keyframes spinSlow {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+    .founder-photo {
+      width: 90px; height: 90px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--bg);
+      display: block;
+    }
+
+    .founder-info h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(1.6rem, 3vw, 2rem);
+      font-weight: 700;
+      margin-bottom: .1rem;
+    }
+    .founder-title {
+      font-size: .82rem;
+      font-weight: 500;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--cyan);
+      margin-bottom: 1rem;
+    }
+    .founder-bio {
+      color: var(--muted);
+      font-size: .93rem;
+      line-height: 1.75;
+      margin-bottom: 1.5rem;
+    }
+    .founder-links {
+      display: flex; gap: .75rem;
+    }
+    .founder-links a {
+      display: inline-flex; align-items: center; gap: .4rem;
+      padding: .45rem 1rem;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      text-decoration: none;
+      font-size: .8rem;
+      font-weight: 500;
+      transition: color .25s, border-color .25s, background .25s;
+    }
+    .founder-links a:hover {
+      color: var(--text);
+      border-color: rgba(99,202,255,0.3);
+      background: rgba(99,202,255,0.05);
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      position: relative; z-index: 1;
+      border-top: 1px solid var(--border);
+      padding: 3rem clamp(1.5rem, 6vw, 5rem);
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 1.5rem;
+      background: rgba(5,8,16,0.7);
+      backdrop-filter: blur(20px);
+    }
+    .footer-logo {
+      display: flex; align-items: center; gap: .6rem;
+    }
+    .footer-logo img {
+      height: 28px;
+      mix-blend-mode: screen;
+      filter: brightness(1.4) contrast(1.1) drop-shadow(0 0 6px rgba(99,202,255,0.4));
+    }
+    .footer-copy {
+      font-size: .8rem;
+      color: var(--muted);
+    }
+    .footer-links {
+      display: flex; gap: 1.5rem; list-style: none;
+    }
+    .footer-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: .82rem;
+      transition: color .25s;
+    }
+    .footer-links a:hover { color: var(--cyan); }
+
+    /* ─── DIVIDER LINE ─── */
+    .h-divider {
+      width: 100%; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border), transparent);
+      margin: 0;
+    }
+
+    /* ─── ANIMATIONS ─── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    .card.visible { opacity: 1; transform: translateY(0); }
+    .founder-card.visible { opacity: 1; transform: translateY(0); }
+
+    /* ─── FLOATING SHAPES ─── */
+    .float-shape {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      opacity: .18;
+      animation: floatShape 8s ease-in-out infinite alternate;
+    }
+    .float-shape-1 {
+      width: 200px; height: 200px;
+      background: radial-gradient(var(--cyan), transparent 70%);
+      top: 15%; right: 8%;
+      animation-delay: 0s;
+      filter: blur(40px);
+    }
+    .float-shape-2 {
+      width: 150px; height: 150px;
+      background: radial-gradient(var(--cyan2), transparent 70%);
+      bottom: 20%; left: 5%;
+      animation-delay: -4s;
+      filter: blur(30px);
+    }
+    @keyframes floatShape {
+      from { transform: translateY(0) scale(1); }
+      to   { transform: translateY(-30px) scale(1.1); }
+    }
+
+    /* ─── SCANNING RING HERO ─── */
+    .hero-ring {
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid rgba(99,202,255,0.1);
+      pointer-events: none;
+      animation: expandRing 4s ease-out infinite;
+    }
+    .hero-ring:nth-child(1) { width: 400px; height: 400px; animation-delay: 0s; }
+    .hero-ring:nth-child(2) { width: 600px; height: 600px; animation-delay: 1.3s; }
+    .hero-ring:nth-child(3) { width: 800px; height: 800px; animation-delay: 2.6s; }
+    @keyframes expandRing {
+      0%   { transform: translate(-50%,-50%) scale(.6); opacity: .6; }
+      100% { transform: translate(-50%,-50%) scale(1.3); opacity: 0; }
+    }
+    .rings-wrap {
+      position: absolute;
+      top: 50%; left: 50%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ─── HERO SHIELD GRAPHIC ─── */
+    .hero-graphic {
+      position: relative;
+      width: 220px; height: 220px;
+      margin: 3rem auto 0;
+      opacity: 0;
+      animation: fadeUp .9s 1s forwards;
+    }
+
+    /* Shield outer ring */
+    .shield-outer {
+      position: absolute; inset: 0;
+      border-radius: 50%;
+      border: 1px solid rgba(99,202,255,0.2);
+      animation: rotateRing 18s linear infinite;
+    }
+    .shield-outer::before {
+      content: '';
+      position: absolute;
+      top: -3px; left: 50%; transform: translateX(-50%);
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--cyan);
+      box-shadow: 0 0 10px var(--cyan), 0 0 20px var(--cyan);
+    }
+
+    .shield-mid {
+      position: absolute; inset: 20px;
+      border-radius: 50%;
+      border: 1px solid rgba(99,202,255,0.1);
+      animation: rotateRing 12s linear infinite reverse;
+    }
+    .shield-mid::before {
+      content: '';
+      position: absolute;
+      bottom: -3px; left: 50%; transform: translateX(-50%);
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--cyan2);
+      box-shadow: 0 0 8px var(--cyan2), 0 0 16px var(--cyan2);
+    }
+
+    @keyframes rotateRing {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+
+    /* Shield body */
+    .shield-body {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100px; height: 115px;
+    }
+    .shield-svg { width: 100%; height: 100%; }
+
+    /* Camera lens inside shield */
+    .lens-wrap {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -52%);
+      width: 54px; height: 54px;
+    }
+    .lens-outer {
+      width: 54px; height: 54px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 38% 38%, rgba(99,202,255,0.18), rgba(10,18,40,0.95));
+      border: 1.5px solid rgba(99,202,255,0.4);
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 0 20px rgba(99,202,255,0.15), inset 0 0 12px rgba(99,202,255,0.08);
+      animation: lensGlow 3s ease-in-out infinite alternate;
+    }
+    @keyframes lensGlow {
+      from { box-shadow: 0 0 12px rgba(99,202,255,0.1), inset 0 0 8px rgba(99,202,255,0.05); }
+      to   { box-shadow: 0 0 28px rgba(99,202,255,0.3), inset 0 0 16px rgba(99,202,255,0.15); }
+    }
+    .lens-inner {
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 35%, rgba(99,202,255,0.3), rgba(5,8,16,0.9));
+      border: 1px solid rgba(99,202,255,0.3);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .lens-core {
+      width: 14px; height: 14px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 35%, var(--cyan2), var(--cyan));
+      box-shadow: 0 0 8px var(--cyan), 0 0 16px rgba(99,202,255,0.5);
+    }
+    /* Lens flare dots */
+    .lens-flare {
+      position: absolute;
+      width: 4px; height: 4px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.7);
+      top: 10px; left: 12px;
+    }
+
+    /* Scan line that moves through the shield */
+    .shield-scan {
+      position: absolute;
+      left: 8px; right: 8px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(99,202,255,0.6), transparent);
+      animation: shieldScan 3.5s ease-in-out infinite;
+      clip-path: polygon(0 -40px, 100% -40px, 100% 100px, 0 100px);
+      overflow: hidden;
+    }
+    @keyframes shieldScan {
+      0%   { top: 18%; opacity: 0; }
+      15%  { opacity: 1; }
+      85%  { opacity: 1; }
+      100% { top: 82%; opacity: 0; }
+    }
+
+    /* Data dots orbiting */
+    .orbit-dot {
+      position: absolute;
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--cyan);
+      box-shadow: 0 0 6px var(--cyan);
+      top: 50%; left: 50%;
+      transform-origin: 0 0;
+      animation: orbitDot 6s linear infinite;
+    }
+    .orbit-dot:nth-child(2) {
+      background: var(--cyan2);
+      box-shadow: 0 0 6px var(--cyan2);
+      animation-duration: 9s;
+      animation-delay: -3s;
+      width: 4px; height: 4px;
+    }
+    .orbit-dot:nth-child(3) {
+      background: rgba(99,202,255,0.5);
+      animation-duration: 12s;
+      animation-delay: -5s;
+      width: 3px; height: 3px;
+    }
+    @keyframes orbitDot {
+      from { transform: rotate(0deg) translateX(100px) translateY(-2.5px); }
+      to   { transform: rotate(360deg) translateX(100px) translateY(-2.5px); }
+    }
+
+    /* ─── HOW IT WORKS — CSS FLOW GRAPHIC ─── */
+    .flow-graphic {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      margin: 3.5rem auto 0;
+      max-width: 900px;
+      flex-wrap: wrap;
+      row-gap: 2rem;
+    }
+
+    .flow-node {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .75rem;
+      width: 160px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity .6s, transform .6s;
+    }
+    .flow-node.visible { opacity: 1; transform: translateY(0); }
+
+    .flow-icon-wrap {
+      width: 64px; height: 64px;
+      border-radius: 18px;
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+      border: 1px solid var(--border);
+      background: var(--card-bg);
+      backdrop-filter: blur(10px);
+      transition: border-color .3s, box-shadow .3s, transform .3s;
+    }
+    .flow-node:hover .flow-icon-wrap {
+      border-color: var(--border-h);
+      box-shadow: 0 0 30px rgba(99,202,255,0.15);
+      transform: translateY(-3px);
+    }
+    .flow-icon-wrap::after {
+      content: '';
+      position: absolute; inset: -1px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, rgba(99,202,255,0.15), transparent);
+      opacity: 0;
+      transition: opacity .3s;
+    }
+    .flow-node:hover .flow-icon-wrap::after { opacity: 1; }
+
+    /* CSS-drawn icons */
+    /* Camera icon */
+    .icon-camera {
+      position: relative;
+      width: 30px; height: 22px;
+    }
+    .icon-camera::before {
+      content: '';
+      position: absolute; inset: 0;
+      border: 2px solid var(--cyan);
+      border-radius: 4px;
+    }
+    .icon-camera::after {
+      content: '';
+      position: absolute;
+      top: -6px; left: 50%; transform: translateX(-50%);
+      width: 10px; height: 6px;
+      border: 2px solid var(--cyan);
+      border-radius: 2px 2px 0 0;
+    }
+    .icon-camera-lens {
+      position: absolute;
+      top: 50%; left: 50%; transform: translate(-50%, -50%);
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      border: 1.5px solid var(--cyan);
+      background: rgba(99,202,255,0.1);
+    }
+
+    /* AI chip icon */
+    .icon-chip {
+      position: relative;
+      width: 28px; height: 28px;
+      border: 2px solid var(--cyan2);
+      border-radius: 4px;
+      background: rgba(58,240,208,0.05);
+    }
+    .icon-chip::before {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%; transform: translate(-50%,-50%);
+      width: 14px; height: 14px;
+      border-radius: 2px;
+      background: rgba(58,240,208,0.2);
+      border: 1px solid rgba(58,240,208,0.4);
+    }
+    .chip-pin {
+      position: absolute;
+      background: var(--cyan2);
+      border-radius: 1px;
+    }
+    .chip-pin.top    { top: -5px;    left: 50%; transform: translateX(-50%); width: 2px; height: 5px; }
+    .chip-pin.bottom { bottom: -5px; left: 50%; transform: translateX(-50%); width: 2px; height: 5px; }
+    .chip-pin.left   { left: -5px;   top: 50%;  transform: translateY(-50%); width: 5px; height: 2px; }
+    .chip-pin.right  { right: -5px;  top: 50%;  transform: translateY(-50%); width: 5px; height: 2px; }
+
+    /* Lock icon */
+    .icon-lock {
+      position: relative;
+      width: 22px; height: 26px;
+    }
+    .icon-lock-body {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 16px;
+      border: 2px solid var(--cyan);
+      border-radius: 3px;
+      background: rgba(99,202,255,0.05);
+    }
+    .icon-lock-body::after {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%; transform: translate(-50%, -50%);
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--cyan);
+      box-shadow: 0 0 6px var(--cyan);
+    }
+    .icon-lock-shackle {
+      position: absolute;
+      top: 0; left: 3px;
+      width: 16px; height: 12px;
+      border: 2px solid var(--cyan);
+      border-bottom: none;
+      border-radius: 8px 8px 0 0;
+    }
+
+    /* Shield check icon */
+    .icon-shield-check {
+      position: relative;
+      width: 28px; height: 32px;
+    }
+    .icon-shield-path {
+      position: absolute; inset: 0;
+      border: 2px solid #3af0d0;
+      border-radius: 6px 6px 50% 50% / 6px 6px 40% 40%;
+      background: rgba(58,240,208,0.05);
+    }
+    .icon-shield-check-mark {
+      position: absolute;
+      top: 52%; left: 50%;
+      transform: translate(-50%,-50%) rotate(-45deg);
+      width: 10px; height: 6px;
+      border-left: 2px solid var(--cyan2);
+      border-bottom: 2px solid var(--cyan2);
+    }
+
+    .flow-label {
+      font-family: 'Syne', sans-serif;
+      font-size: .8rem;
+      font-weight: 600;
+      text-align: center;
+      color: var(--muted);
+      letter-spacing: .04em;
+    }
+
+    /* Arrow between nodes */
+    .flow-arrow {
+      width: 60px;
+      display: flex; align-items: center; justify-content: center;
+      padding-bottom: 1.5rem; /* align with icon center */
+      flex-shrink: 0;
+    }
+    .flow-arrow-line {
+      position: relative;
+      width: 40px; height: 2px;
+      background: linear-gradient(90deg, rgba(99,202,255,0.3), rgba(99,202,255,0.6));
+    }
+    .flow-arrow-line::after {
+      content: '';
+      position: absolute;
+      right: -5px; top: 50%; transform: translateY(-50%);
+      width: 0; height: 0;
+      border-top: 5px solid transparent;
+      border-bottom: 5px solid transparent;
+      border-left: 7px solid rgba(99,202,255,0.6);
+    }
+    /* Data packet animation on arrow */
+    .flow-arrow-line::before {
+      content: '';
+      position: absolute;
+      left: -4px; top: 50%; transform: translateY(-50%);
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--cyan);
+      box-shadow: 0 0 6px var(--cyan);
+      animation: packetMove 2s ease-in-out infinite;
+    }
+    @keyframes packetMove {
+      0%   { left: -4px; opacity: 1; }
+      80%  { left: 38px; opacity: 1; }
+      81%  { opacity: 0; left: 38px; }
+      100% { left: -4px; opacity: 0; }
+    }
+
+    /* ─── STAT STRIP ─── */
+    .stat-strip {
+      display: flex;
+      justify-content: center;
+      gap: clamp(2rem, 6vw, 5rem);
+      padding: 3rem clamp(1.5rem, 6vw, 5rem);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      flex-wrap: wrap;
+      row-gap: 1.5rem;
+    }
+    .stat-item {
+      display: flex; flex-direction: column; align-items: center; gap: .2rem;
+      opacity: 0; transform: translateY(16px);
+      transition: opacity .6s, transform .6s;
+    }
+    .stat-item.visible { opacity: 1; transform: translateY(0); }
+    .stat-icon-row {
+      display: flex; gap: 4px; margin-bottom: .4rem;
+    }
+    .stat-pip {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--border);
+    }
+    .stat-pip.active { background: var(--cyan); box-shadow: 0 0 5px var(--cyan); }
+    .stat-label {
+      font-size: .75rem;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .stat-value {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    /* ─── MOBILE ─── */
+    @media (max-width: 640px) {
+      .nav-links { gap: 1.2rem; }
+      .founder-card { flex-direction: column; gap: 1.5rem; }
+      .founder-photo { width: 72px; height: 72px; }
+      footer { justify-content: center; text-align: center; }
+      .footer-links { justify-content: center; }
+    }
+
+    /* ─── LOADING SCREEN ─── */
+    #loader {
+      position: fixed; inset: 0;
+      background: var(--bg);
+      z-index: 9000;
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column; gap: 1.5rem;
+      transition: opacity .6s, visibility .6s;
+    }
+    #loader.done { opacity: 0; visibility: hidden; }
+    .loader-logo {
+      height: 40px;
+      mix-blend-mode: screen;
+      filter: brightness(1.5) contrast(1.1) drop-shadow(0 0 12px rgba(99,202,255,0.7));
+      animation: logoPulse 1s ease-in-out infinite alternate;
+    }
+    @keyframes logoPulse {
+      from { filter: brightness(1) drop-shadow(0 0 4px rgba(99,202,255,0.4)); }
+      to   { filter: brightness(1.5) drop-shadow(0 0 16px rgba(99,202,255,0.9)); }
+    }
+    .loader-bar-wrap {
+      width: 160px; height: 2px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 2px; overflow: hidden;
+    }
+    .loader-bar {
+      height: 100%;
+      background: linear-gradient(90deg, var(--cyan), var(--cyan2));
+      border-radius: 2px;
+      animation: loadFill 1.4s ease-out forwards;
+    }
+    @keyframes loadFill {
+      from { width: 0; }
+      to   { width: 100%; }
+    }
+
+    /* glitch text */
+    .glitch {
+      position: relative;
+    }
+    .glitch::before, .glitch::after {
+      content: attr(data-text);
+      position: absolute; top: 0; left: 0;
+      background: linear-gradient(135deg, #ffffff 0%, #c8deff 40%, var(--cyan) 70%, var(--cyan2) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .glitch::before {
+      animation: glitch1 4s 2s infinite;
+      clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
+    }
+    .glitch::after {
+      animation: glitch2 4s 2s infinite;
+      clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
+    }
+    @keyframes glitch1 {
+      0%,94%,100% { transform: none; opacity: 0; }
+      95% { transform: translate(-2px,1px); opacity: .7; }
+      97% { transform: translate(2px,-1px); opacity: .7; }
+    }
+    @keyframes glitch2 {
+      0%,94%,100% { transform: none; opacity: 0; }
+      96% { transform: translate(2px,1px); opacity: .5; }
+      98% { transform: translate(-2px,0); opacity: .5; }
+    }
+  </style>
+</head>
 <body>
 
-<!-- HEADER -->
-<header class="navbar">
-  <img src="logo.png" alt="purenetX logo" class="logo">
-  <nav>
-    <a href="about.html">About</a>
-    <a href="privacy-policy.html">Privacy</a>
-    <a href="terms.html">Terms</a>
-  </nav>
-</header>
+<!-- CURSOR -->
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
 
-<!-- HERO -->
-<section class="hero">
-  <h1>Making Cameras Safe by Default</h1>
-  <p>
+<!-- LOADER -->
+<div id="loader">
+  <img src="https://www.purenetx.com/logo.png" alt="purenetX" class="loader-logo" />
+  <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+</div>
+
+<!-- AMBIENT -->
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="orb orb-3"></div>
+<div class="grid-bg"></div>
+
+<!-- ─── NAV ─── -->
+<nav id="navbar">
+  <a href="/" class="nav-logo">
+    <img src="https://www.purenetx.com/logo.png" alt="purenetX" />
+  </a>
+  <ul class="nav-links">
+    <li><a href="/about.html">About</a></li>
+    <li><a href="/privacy-policy.html">Privacy</a></li>
+    <li><a href="/terms.html">Terms</a></li>
+  </ul>
+</nav>
+
+<!-- ─── HERO ─── -->
+<section id="hero">
+  <div class="rings-wrap">
+    <div class="hero-ring"></div>
+    <div class="hero-ring"></div>
+    <div class="hero-ring"></div>
+  </div>
+  <div class="float-shape float-shape-1"></div>
+  <div class="float-shape float-shape-2"></div>
+  <div class="hero-scan"></div>
+
+  <span class="hero-badge">
+    <span class="hero-badge-dot"></span>
+    Building in Public &nbsp;·&nbsp; Early Stage
+  </span>
+
+  <h1 class="glitch" data-text="Making Cameras Safe by Default">Making Cameras Safe by Default</h1>
+
+  <p class="hero-sub">
     purenetX is building privacy-first, on-device AI to prevent harmful visual
     exposure before it happens — without sending data to the cloud.
   </p>
-  <span class="badge">Building in Public • Early Stage</span>
+
+  <div class="hero-cta">
+    <a href="/about.html" class="btn-primary">Learn More →</a>
+    <a href="https://x.com/purenetX" class="btn-ghost" target="_blank" rel="noopener">Follow @purenetX</a>
+  </div>
+
+  <!-- CSS Hero Graphic: Shielded Camera -->
+  <div class="hero-graphic">
+    <div class="orbit-dot"></div>
+    <div class="orbit-dot"></div>
+    <div class="orbit-dot"></div>
+    <div class="shield-outer"></div>
+    <div class="shield-mid"></div>
+    <div class="shield-body">
+      <svg class="shield-svg" viewBox="0 0 100 115" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="shieldGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="rgba(99,202,255,0.18)"/>
+            <stop offset="100%" stop-color="rgba(37,99,235,0.08)"/>
+          </linearGradient>
+          <linearGradient id="shieldStroke" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="rgba(99,202,255,0.9)"/>
+            <stop offset="100%" stop-color="rgba(58,240,208,0.5)"/>
+          </linearGradient>
+        </defs>
+        <path d="M50 4 L92 20 L92 58 C92 82 72 102 50 111 C28 102 8 82 8 58 L8 20 Z"
+              fill="url(#shieldGrad)" stroke="url(#shieldStroke)" stroke-width="1.5"/>
+        <path d="M50 10 L86 24 L86 58 C86 79 68 97 50 105 C32 97 14 79 14 58 L14 24 Z"
+              fill="none" stroke="rgba(99,202,255,0.12)" stroke-width="1"/>
+      </svg>
+    </div>
+    <div class="lens-wrap">
+      <div class="lens-outer">
+        <div class="lens-inner">
+          <div class="lens-core"></div>
+        </div>
+        <div class="lens-flare"></div>
+      </div>
+    </div>
+    <div class="shield-scan"></div>
+  </div>
 </section>
 
-<!-- WHY PURENETX -->
-<section class="section">
-  <h2>Why purenetX</h2>
-  <p>
-    Visual harm happens instantly. Most safety systems react too late or compromise privacy.
-  </p>
+<!-- ─── STAT STRIP ─── -->
+<div class="stat-strip">
+  <div class="stat-item">
+    <div class="stat-icon-row">
+      <div class="stat-pip active"></div>
+      <div class="stat-pip active"></div>
+      <div class="stat-pip active"></div>
+      <div class="stat-pip"></div>
+      <div class="stat-pip"></div>
+    </div>
+    <div class="stat-value">On-Device</div>
+    <div class="stat-label">No Cloud Upload</div>
+  </div>
+  <div class="stat-item" style="transition-delay:.1s">
+    <div class="stat-icon-row">
+      <div class="stat-pip active"></div>
+      <div class="stat-pip active"></div>
+      <div class="stat-pip active"></div>
+      <div class="stat-pip active"></div>
+      <div class="stat-pip active"></div>
+    </div>
+    <div class="stat-value">Real-Time</div>
+    <div class="stat-label">Before Exposure</div>
+  </div>
+  <div class="stat-item" style="transition-delay:.2s">
+    <div class="stat-icon-row">
+      <div class="stat-pip active"></div>
+      <div class="stat-pip active"></div>
+      <div class="stat-pip active"></div>
+      <div class="stat-pip active"></div>
+      <div class="stat-pip"></div>
+    </div>
+    <div class="stat-value">Zero Logs</div>
+    <div class="stat-label">No Tracking</div>
+  </div>
+  <div class="stat-item" style="transition-delay:.3s">
+    <div class="stat-icon-row">
+      <div class="stat-pip active"></div>
+      <div class="stat-pip active"></div>
+      <div class="stat-pip active"></div>
+      <div class="stat-pip active"></div>
+      <div class="stat-pip active"></div>
+    </div>
+    <div class="stat-value">Privacy First</div>
+    <div class="stat-label">By Design</div>
+  </div>
+</div>
 
-  <div class="cards">
-    <div class="card">
-      <h3>The Problem</h3>
-      <p>
-        Harmful visual content spreads faster than ever.
-        Cloud-based moderation reacts only after exposure.
-      </p>
+<div class="h-divider"></div>
+
+<!-- ─── WHY PURENETX ─── -->
+<section id="why">
+  <div class="inner">
+    <div class="header">
+      <span class="section-label reveal">Why purenetX</span>
+      <h2 class="reveal" style="transition-delay:.1s">Visual harm happens instantly.<br><span style="color:var(--muted);font-weight:300;">Most safety systems react too late.</span></h2>
     </div>
 
-    <div class="card">
-      <h3>Our Approach</h3>
-      <p>
-        Real-time, on-device AI that blocks unsafe visuals
-        before exposure — without sending data anywhere.
-      </p>
+    <div class="cards-grid">
+      <!-- Card 1 -->
+      <div class="card" style="transition-delay:.1s">
+        <div class="card-icon red" style="font-size:0;display:flex;align-items:center;justify-content:center;">
+          <!-- CSS lightning bolt -->
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+            <polygon points="13,2 5,13 10,13 9,20 17,9 12,9" fill="rgba(239,68,68,0.9)" stroke="rgba(239,68,68,0.5)" stroke-width="0.5"/>
+          </svg>
+        </div>
+        <h3>The Problem</h3>
+        <p>Harmful visual content spreads faster than ever. Cloud-based moderation reacts only after exposure.</p>
+      </div>
+      <!-- Card 2 -->
+      <div class="card" style="transition-delay:.22s">
+        <div class="card-icon cyan" style="font-size:0;display:flex;align-items:center;justify-content:center;">
+          <!-- CSS shield -->
+          <svg width="22" height="26" viewBox="0 0 22 26" fill="none">
+            <path d="M11 1 L21 5 L21 14 C21 20 16 24 11 25 C6 24 1 20 1 14 L1 5 Z" fill="rgba(99,202,255,0.2)" stroke="rgba(99,202,255,0.8)" stroke-width="1.2"/>
+            <path d="M7 13 L10 16 L15 10" stroke="rgba(99,202,255,0.9)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </svg>
+        </div>
+        <h3>Our Approach</h3>
+        <p>Real-time, on-device AI that blocks unsafe visuals before exposure — without sending data anywhere.</p>
+      </div>
+      <!-- Card 3 -->
+      <div class="card" style="transition-delay:.34s">
+        <div class="card-icon green" style="font-size:0;display:flex;align-items:center;justify-content:center;">
+          <!-- CSS lock -->
+          <svg width="18" height="22" viewBox="0 0 18 22" fill="none">
+            <rect x="1" y="10" width="16" height="11" rx="3" fill="rgba(58,240,208,0.15)" stroke="rgba(58,240,208,0.8)" stroke-width="1.2"/>
+            <path d="M4 10 L4 7 C4 4.2 14 4.2 14 7 L14 10" stroke="rgba(58,240,208,0.8)" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+            <circle cx="9" cy="15.5" r="2" fill="rgba(58,240,208,0.8)"/>
+          </svg>
+        </div>
+        <h3>Privacy First</h3>
+        <p>No uploads. No storage. No tracking. Your camera stays private.</p>
+      </div>
     </div>
 
-    <div class="card">
-      <h3>Privacy First</h3>
-      <p>
-        No uploads. No storage. No tracking.
-        Your camera stays private.
+    <!-- CSS Flow: How it works -->
+    <div class="flow-graphic">
+      <div class="flow-node" style="transition-delay:.1s">
+        <div class="flow-icon-wrap">
+          <svg width="28" height="22" viewBox="0 0 28 22" fill="none">
+            <rect x="1" y="4" width="20" height="16" rx="3" stroke="rgba(99,202,255,0.7)" stroke-width="1.4" fill="rgba(99,202,255,0.07)"/>
+            <path d="M21 9 L27 6 L27 16 L21 13 Z" stroke="rgba(99,202,255,0.7)" stroke-width="1.2" fill="rgba(99,202,255,0.07)" stroke-linejoin="round"/>
+            <circle cx="11" cy="12" r="4" stroke="rgba(99,202,255,0.6)" stroke-width="1.2" fill="rgba(99,202,255,0.12)"/>
+            <circle cx="11" cy="12" r="1.5" fill="rgba(99,202,255,0.9)"/>
+          </svg>
+        </div>
+        <div class="flow-label">Camera<br>Captures</div>
+      </div>
+      <div class="flow-arrow"><div class="flow-arrow-line"></div></div>
+      <div class="flow-node" style="transition-delay:.22s">
+        <div class="flow-icon-wrap">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+            <rect x="5" y="5" width="18" height="18" rx="3" stroke="rgba(58,240,208,0.7)" stroke-width="1.4" fill="rgba(58,240,208,0.07)"/>
+            <rect x="9" y="9" width="10" height="10" rx="2" stroke="rgba(58,240,208,0.5)" stroke-width="1" fill="rgba(58,240,208,0.12)"/>
+            <line x1="14" y1="2" x2="14" y2="5" stroke="rgba(58,240,208,0.6)" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="14" y1="23" x2="14" y2="26" stroke="rgba(58,240,208,0.6)" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="2" y1="14" x2="5" y2="14" stroke="rgba(58,240,208,0.6)" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="23" y1="14" x2="26" y2="14" stroke="rgba(58,240,208,0.6)" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="flow-label">On-Device<br>AI Analyzes</div>
+      </div>
+      <div class="flow-arrow"><div class="flow-arrow-line"></div></div>
+      <div class="flow-node" style="transition-delay:.34s">
+        <div class="flow-icon-wrap">
+          <svg width="26" height="30" viewBox="0 0 26 30" fill="none">
+            <path d="M13 1 L25 6 L25 17 C25 23 19.5 28 13 29 C6.5 28 1 23 1 17 L1 6 Z" stroke="rgba(99,202,255,0.7)" stroke-width="1.4" fill="rgba(99,202,255,0.08)"/>
+            <path d="M8 15 L12 19 L18 11" stroke="rgba(99,202,255,0.9)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </svg>
+        </div>
+        <div class="flow-label">Blocked<br>Before Exposure</div>
+      </div>
+      <div class="flow-arrow"><div class="flow-arrow-line"></div></div>
+      <div class="flow-node" style="transition-delay:.46s">
+        <div class="flow-icon-wrap">
+          <svg width="20" height="26" viewBox="0 0 20 26" fill="none">
+            <rect x="1" y="12" width="18" height="13" rx="3" stroke="rgba(58,240,208,0.7)" stroke-width="1.4" fill="rgba(58,240,208,0.07)"/>
+            <path d="M4 12 L4 8 C4 4.7 16 4.7 16 8 L16 12" stroke="rgba(58,240,208,0.7)" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+            <circle cx="10" cy="18" r="2.5" fill="rgba(58,240,208,0.85)"/>
+            <line x1="10" y1="20.5" x2="10" y2="23" stroke="rgba(58,240,208,0.85)" stroke-width="1.4" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="flow-label">Stays<br>Private</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="h-divider"></div>
+
+<!-- ─── FOUNDER ─── -->
+<section id="founder">
+  <div class="founder-card">
+    <div class="founder-photo-wrap">
+      <img src="https://www.purenetx.com/founder.jpg" alt="Victor – Founder of purenetX" class="founder-photo" />
+    </div>
+    <div class="founder-info">
+      <span class="section-label" style="margin-bottom:.4rem;">Founder</span>
+      <h2>Kaushik A</h2>
+      <p class="founder-title">Founder &amp; Builder, purenetX</p>
+      <p class="founder-bio">
+        Engineering graduate building privacy-first, on-device AI systems
+        focused on preventing accidental exposure to unsafe visual content.
+        Passionate about AI safety, user privacy, and responsible technology.
       </p>
+      <div class="founder-links">
+        <a href="https://www.linkedin.com/in/kaushik107/" target="_blank" rel="noopener">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452H16.89v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a1.98 1.98 0 0 1-1.98-1.98c0-1.093.887-1.98 1.98-1.98s1.98.887 1.98 1.98-.887 1.98-1.98 1.98zm1.767 13.019H3.57V9h3.534v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+        <a href="https://x.com/purenetX" target="_blank" rel="noopener">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.736-8.856L1.875 2.25h6.972l4.265 5.633L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/></svg>
+          X (Twitter)
+        </a>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- FOUNDER -->
-<section class="section founder">
-  <h2>Founder</h2>
-
-  <img 
-    src="founder.jpg" 
-    class="founder-img" 
-    alt="Victor – Founder of purenetX"
-  >
-
-  <p>
-    <strong>Victor</strong><br>
-    Founder & Builder, purenetX
-  </p>
-
-  <p>
-    Engineering graduate building privacy-first, on-device AI systems
-    focused on preventing accidental exposure to unsafe visual content.
-    Passionate about AI safety, user privacy, and responsible technology.
-  </p>
-
-  <p style="margin-top: 12px;">
-    <a href="https://www.linkedin.com/in/YOUR_LINKEDIN" target="_blank">
-      LinkedIn
-    </a>
-    ·
-    <a href="https://x.com/purenetX" target="_blank">
-      X (Twitter)
-    </a>
-  </p>
-</section>
-
-<!-- FOOTER -->
+<!-- ─── FOOTER ─── -->
 <footer>
-  <img src="logo.png" class="footer-logo">
-  <p>© 2026 purenetX. All rights reserved.</p>
+  <div class="footer-logo">
+    <img src="https://www.purenetx.com/logo.png" alt="purenetX" />
+  </div>
+  <p class="footer-copy">© 2026 purenetX. All rights reserved.</p>
+  <ul class="footer-links">
+    <li><a href="/about.html">About</a></li>
+    <li><a href="/privacy-policy.html">Privacy</a></li>
+    <li><a href="/terms.html">Terms</a></li>
+  </ul>
 </footer>
 
+<script>
+  /* ─ LOADER ─ */
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      document.getElementById('loader').classList.add('done');
+    }, 1600);
+  });
+
+  /* ─ CURSOR ─ */
+  const cur = document.getElementById('cursor');
+  const ring = document.getElementById('cursor-ring');
+  let mx = 0, my = 0, rx = 0, ry = 0;
+  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+  function animateCursor() {
+    cur.style.left = mx + 'px'; cur.style.top = my + 'px';
+    rx += (mx - rx) * .12; ry += (my - ry) * .12;
+    ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+    requestAnimationFrame(animateCursor);
+  }
+  animateCursor();
+
+  /* ─ NAVBAR SCROLL ─ */
+  const nav = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  }, { passive: true });
+
+  /* ─ SCROLL REVEAL ─ */
+  const revealEls = document.querySelectorAll('.reveal, .card, .founder-card, .stat-item, .flow-node');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        const delay = parseFloat(entry.target.style.transitionDelay || 0);
+        setTimeout(() => entry.target.classList.add('visible'), delay * 1000);
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => io.observe(el));
+
+  /* ─ PARALLAX HERO RINGS ─ */
+  document.addEventListener('mousemove', e => {
+    const pct = { x: (e.clientX / window.innerWidth - .5), y: (e.clientY / window.innerHeight - .5) };
+    document.querySelectorAll('.float-shape-1').forEach(el => {
+      el.style.transform = `translate(${pct.x * 20}px, ${pct.y * 20}px)`;
+    });
+    document.querySelectorAll('.float-shape-2').forEach(el => {
+      el.style.transform = `translate(${pct.x * -15}px, ${pct.y * -15}px)`;
+    });
+  });
+</script>
 </body>
 </html>
