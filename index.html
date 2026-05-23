@@ -6,6 +6,20 @@
   <meta name="description" content="purenetX builds privacy-first, on-device AI to prevent harmful visual exposure before it happens. Cameras should be safe by default." />
   <title>purenetX – Privacy-First On-Device AI for Camera Safety</title>
 
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png" />
+  <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <!-- Social preview -->
+  <meta property="og:title" content="purenetX – Privacy-First On-Device AI for Camera Safety" />
+  <meta property="og:description" content="purenetX builds privacy-first, on-device AI to prevent harmful visual exposure before it happens." />
+  <meta property="og:image" content="https://www.purenetx.com/android-chrome-512x512.png" />
+  <meta property="og:url" content="https://www.purenetx.com/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://www.purenetx.com/android-chrome-512x512.png" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
@@ -598,148 +612,64 @@
       z-index: 0;
     }
 
-    /* ─── HERO SHIELD GRAPHIC ─── */
+    /* ─── NEON CITY SHIELD HERO GRAPHIC ─── */
     .hero-graphic {
       position: relative;
-      width: 220px; height: 220px;
-      margin: 3rem auto 0;
+      width: min(820px, 96vw);
+      height: clamp(260px, 38vw, 380px);
+      margin: 3.5rem auto 0;
       opacity: 0;
       animation: fadeUp .9s 1s forwards;
-    }
-
-    /* Shield outer ring */
-    .shield-outer {
-      position: absolute; inset: 0;
-      border-radius: 50%;
-      border: 1px solid rgba(99,202,255,0.2);
-      animation: rotateRing 18s linear infinite;
-    }
-    .shield-outer::before {
-      content: '';
-      position: absolute;
-      top: -3px; left: 50%; transform: translateX(-50%);
-      width: 6px; height: 6px;
-      border-radius: 50%;
-      background: var(--cyan);
-      box-shadow: 0 0 10px var(--cyan), 0 0 20px var(--cyan);
-    }
-
-    .shield-mid {
-      position: absolute; inset: 20px;
-      border-radius: 50%;
-      border: 1px solid rgba(99,202,255,0.1);
-      animation: rotateRing 12s linear infinite reverse;
-    }
-    .shield-mid::before {
-      content: '';
-      position: absolute;
-      bottom: -3px; left: 50%; transform: translateX(-50%);
-      width: 5px; height: 5px;
-      border-radius: 50%;
-      background: var(--cyan2);
-      box-shadow: 0 0 8px var(--cyan2), 0 0 16px var(--cyan2);
-    }
-
-    @keyframes rotateRing {
-      from { transform: rotate(0deg); }
-      to   { transform: rotate(360deg); }
-    }
-
-    /* Shield body */
-    .shield-body {
-      position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      width: 100px; height: 115px;
-    }
-    .shield-svg { width: 100%; height: 100%; }
-
-    /* Camera lens inside shield */
-    .lens-wrap {
-      position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -52%);
-      width: 54px; height: 54px;
-    }
-    .lens-outer {
-      width: 54px; height: 54px;
-      border-radius: 50%;
-      background: radial-gradient(circle at 38% 38%, rgba(99,202,255,0.18), rgba(10,18,40,0.95));
-      border: 1.5px solid rgba(99,202,255,0.4);
-      display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 0 20px rgba(99,202,255,0.15), inset 0 0 12px rgba(99,202,255,0.08);
-      animation: lensGlow 3s ease-in-out infinite alternate;
-    }
-    @keyframes lensGlow {
-      from { box-shadow: 0 0 12px rgba(99,202,255,0.1), inset 0 0 8px rgba(99,202,255,0.05); }
-      to   { box-shadow: 0 0 28px rgba(99,202,255,0.3), inset 0 0 16px rgba(99,202,255,0.15); }
-    }
-    .lens-inner {
-      width: 32px; height: 32px;
-      border-radius: 50%;
-      background: radial-gradient(circle at 35% 35%, rgba(99,202,255,0.3), rgba(5,8,16,0.9));
-      border: 1px solid rgba(99,202,255,0.3);
-      display: flex; align-items: center; justify-content: center;
-    }
-    .lens-core {
-      width: 14px; height: 14px;
-      border-radius: 50%;
-      background: radial-gradient(circle at 35% 35%, var(--cyan2), var(--cyan));
-      box-shadow: 0 0 8px var(--cyan), 0 0 16px rgba(99,202,255,0.5);
-    }
-    /* Lens flare dots */
-    .lens-flare {
-      position: absolute;
-      width: 4px; height: 4px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.7);
-      top: 10px; left: 12px;
-    }
-
-    /* Scan line that moves through the shield */
-    .shield-scan {
-      position: absolute;
-      left: 8px; right: 8px;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(99,202,255,0.6), transparent);
-      animation: shieldScan 3.5s ease-in-out infinite;
-      clip-path: polygon(0 -40px, 100% -40px, 100% 100px, 0 100px);
+      border-radius: 20px;
+      border: 1px solid rgba(99,202,255,0.14);
+      background: rgba(2,5,18,0.92);
+      backdrop-filter: blur(16px);
       overflow: hidden;
     }
-    @keyframes shieldScan {
-      0%   { top: 18%; opacity: 0; }
-      15%  { opacity: 1; }
-      85%  { opacity: 1; }
-      100% { top: 82%; opacity: 0; }
+    .hero-graphic::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(99,202,255,0.6), transparent);
+      z-index: 2;
     }
-
-    /* Data dots orbiting */
-    .orbit-dot {
+    .hero-graphic::after {
+      content: '';
+      position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(58,240,208,0.3), transparent);
+      z-index: 2;
+    }
+    #cityCanvas {
+      display: block;
+      width: 100%; height: 100%;
+    }
+    .city-badge {
       position: absolute;
-      width: 5px; height: 5px;
-      border-radius: 50%;
-      background: var(--cyan);
-      box-shadow: 0 0 6px var(--cyan);
-      top: 50%; left: 50%;
-      transform-origin: 0 0;
-      animation: orbitDot 6s linear infinite;
+      font-family: 'DM Sans', sans-serif;
+      font-size: .62rem;
+      font-weight: 700;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+      padding: .25rem .75rem;
+      border-radius: 100px;
+      pointer-events: none;
+      z-index: 3;
     }
-    .orbit-dot:nth-child(2) {
-      background: var(--cyan2);
-      box-shadow: 0 0 6px var(--cyan2);
-      animation-duration: 9s;
-      animation-delay: -3s;
-      width: 4px; height: 4px;
+    .city-badge-shield {
+      top: 14px; left: 50%; transform: translateX(-50%);
+      background: rgba(99,202,255,0.08);
+      border: 1px solid rgba(99,202,255,0.3);
+      color: rgba(99,202,255,0.95);
+      animation: badgePulse 2.5s ease-in-out infinite;
     }
-    .orbit-dot:nth-child(3) {
-      background: rgba(99,202,255,0.5);
-      animation-duration: 12s;
-      animation-delay: -5s;
-      width: 3px; height: 3px;
+    .city-badge-protected {
+      bottom: 14px; right: 18px;
+      background: rgba(58,240,208,0.08);
+      border: 1px solid rgba(58,240,208,0.3);
+      color: rgba(58,240,208,0.9);
     }
-    @keyframes orbitDot {
-      from { transform: rotate(0deg) translateX(100px) translateY(-2.5px); }
-      to   { transform: rotate(360deg) translateX(100px) translateY(-2.5px); }
+    @keyframes badgePulse {
+      0%,100% { box-shadow: 0 0 0 0 rgba(99,202,255,0); }
+      50%      { box-shadow: 0 0 12px 2px rgba(99,202,255,0.2); }
     }
 
     /* ─── HOW IT WORKS — CSS FLOW GRAPHIC ─── */
@@ -1120,40 +1050,11 @@
     <a href="https://x.com/purenetX" class="btn-ghost" target="_blank" rel="noopener">Follow @purenetX</a>
   </div>
 
-  <!-- CSS Hero Graphic: Shielded Camera -->
+  <!-- Neon City Shield Hero Graphic -->
   <div class="hero-graphic">
-    <div class="orbit-dot"></div>
-    <div class="orbit-dot"></div>
-    <div class="orbit-dot"></div>
-    <div class="shield-outer"></div>
-    <div class="shield-mid"></div>
-    <div class="shield-body">
-      <svg class="shield-svg" viewBox="0 0 100 115" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="shieldGrad" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stop-color="rgba(99,202,255,0.18)"/>
-            <stop offset="100%" stop-color="rgba(37,99,235,0.08)"/>
-          </linearGradient>
-          <linearGradient id="shieldStroke" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="rgba(99,202,255,0.9)"/>
-            <stop offset="100%" stop-color="rgba(58,240,208,0.5)"/>
-          </linearGradient>
-        </defs>
-        <path d="M50 4 L92 20 L92 58 C92 82 72 102 50 111 C28 102 8 82 8 58 L8 20 Z"
-              fill="url(#shieldGrad)" stroke="url(#shieldStroke)" stroke-width="1.5"/>
-        <path d="M50 10 L86 24 L86 58 C86 79 68 97 50 105 C32 97 14 79 14 58 L14 24 Z"
-              fill="none" stroke="rgba(99,202,255,0.12)" stroke-width="1"/>
-      </svg>
-    </div>
-    <div class="lens-wrap">
-      <div class="lens-outer">
-        <div class="lens-inner">
-          <div class="lens-core"></div>
-        </div>
-        <div class="lens-flare"></div>
-      </div>
-    </div>
-    <div class="shield-scan"></div>
+    <canvas id="cityCanvas"></canvas>
+    <span class="city-badge city-badge-shield">purenetX Shield Active</span>
+    <span class="city-badge city-badge-protected">Digital World Protected</span>
   </div>
 </section>
 
@@ -1391,6 +1292,251 @@
     });
   }, { threshold: 0.12 });
   revealEls.forEach(el => io.observe(el));
+
+  /* ─ NEON CITY SHIELD CANVAS ─ */
+  (function(){
+    const cv = document.getElementById('cityCanvas');
+    if (!cv) return;
+    const ctx = cv.getContext('2d');
+    let W, H, t = 0, groundY, domeR, cx, cy;
+
+    /* ── buildings ── */
+    let buildings = [];
+    function buildCity() {
+      buildings = [];
+      const count = Math.floor(W / 22);
+      for (let i = 0; i < count; i++) {
+        const x = (i / count) * W;
+        const w = 10 + Math.random() * 18;
+        const h = 18 + Math.random() * (groundY * 0.62);
+        const windows = [];
+        for (let wy = 4; wy < h - 4; wy += 9)
+          for (let wx = 3; wx < w - 3; wx += 7)
+            windows.push({ lx: wx, ly: wy, on: Math.random() > 0.38, flicker: Math.random() * Math.PI * 2, col: Math.random() > 0.75 ? '58,240,208' : '255,210,80' });
+        buildings.push({ x, w, h, windows });
+      }
+    }
+
+    /* ── threats ── */
+    let threats = [];
+    function spawnThreat() {
+      const side = Math.random() < 0.5 ? -1 : 1;
+      threats.push({
+        x: cx + side * (domeR * 0.9 + Math.random() * 80),
+        y: groundY - domeR * 0.15 - Math.random() * domeR * 0.6,
+        vx: side * -(1.2 + Math.random() * 1.2),
+        vy: 0.3 + Math.random() * 0.5,
+        size: 2.5 + Math.random() * 2,
+        life: 1, hit: false, hitT: 0,
+        trail: []
+      });
+    }
+
+    /* ── resize ── */
+    function resize() {
+      const rect = cv.parentElement.getBoundingClientRect();
+      W = rect.width; H = rect.height;
+      cv.width = W * devicePixelRatio; cv.height = H * devicePixelRatio;
+      ctx.scale(devicePixelRatio, devicePixelRatio);
+      cx = W / 2; cy = H / 2;
+      groundY = H * 0.72;
+      domeR = W * 0.42;
+      buildCity();
+    }
+    resize();
+    window.addEventListener('resize', () => { resize(); });
+
+    /* ── spawn loop ── */
+    setInterval(spawnThreat, 1400);
+
+    /* ── impact sparks ── */
+    let sparks = [];
+    function addImpact(x, y) {
+      for (let i = 0; i < 10; i++) {
+        const a = Math.random() * Math.PI * 2;
+        const spd = 1.5 + Math.random() * 3;
+        sparks.push({ x, y, vx: Math.cos(a) * spd, vy: Math.sin(a) * spd, life: 1, size: 1.5 + Math.random() * 2 });
+      }
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, W, H);
+      t += 0.016;
+
+      /* ── sky ── */
+      const sky = ctx.createLinearGradient(0, 0, 0, groundY);
+      sky.addColorStop(0, 'rgba(2,5,18,1)');
+      sky.addColorStop(0.6, 'rgba(5,10,28,1)');
+      sky.addColorStop(1, 'rgba(8,16,40,1)');
+      ctx.fillStyle = sky; ctx.fillRect(0, 0, W, groundY);
+
+      /* ── stars ── */
+      for (let i = 0; i < 80; i++) {
+        const sx = (i * 173.7) % W;
+        const sy = (i * 91.3) % (groundY * 0.85);
+        const twinkle = 0.15 + 0.2 * Math.sin(t * 0.8 + i);
+        ctx.beginPath(); ctx.arc(sx, sy, 0.7, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255,255,255,${twinkle})`; ctx.fill();
+      }
+
+      /* ── perspective ground grid ── */
+      ctx.save();
+      for (let gx = 0; gx <= 16; gx++) {
+        const prog = gx / 16;
+        const startX = prog * W;
+        ctx.beginPath(); ctx.moveTo(startX, groundY);
+        ctx.lineTo(cx + (startX - cx) * 0.05, H);
+        ctx.strokeStyle = 'rgba(99,202,255,0.07)'; ctx.lineWidth = 0.5; ctx.stroke();
+      }
+      for (let gy = 0; gy <= 8; gy++) {
+        const prog = gy / 8;
+        const y = groundY + (H - groundY) * prog;
+        ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y);
+        ctx.strokeStyle = `rgba(99,202,255,${0.04 + prog * 0.04})`; ctx.lineWidth = 0.5; ctx.stroke();
+      }
+      ctx.restore();
+
+      /* ── ground surface ── */
+      const gnd = ctx.createLinearGradient(0, groundY, 0, H);
+      gnd.addColorStop(0, 'rgba(6,12,30,1)');
+      gnd.addColorStop(1, 'rgba(3,6,18,1)');
+      ctx.fillStyle = gnd; ctx.fillRect(0, groundY, W, H - groundY);
+
+      /* ── dome layers (back to front) ── */
+      /* outer glow ring */
+      for (let r = 4; r >= 0; r--) {
+        ctx.beginPath(); ctx.arc(cx, groundY, domeR + r * 5, Math.PI, Math.PI * 2);
+        ctx.strokeStyle = `rgba(99,202,255,${0.03 - r * 0.005})`; ctx.lineWidth = 8 - r; ctx.stroke();
+      }
+      /* dome fill */
+      const domeFill = ctx.createRadialGradient(cx, groundY - domeR * 0.3, 10, cx, groundY, domeR);
+      domeFill.addColorStop(0, 'rgba(37,99,235,0.07)');
+      domeFill.addColorStop(0.5, 'rgba(99,202,255,0.04)');
+      domeFill.addColorStop(1, 'rgba(99,202,255,0.01)');
+      ctx.beginPath(); ctx.arc(cx, groundY, domeR, Math.PI, Math.PI * 2);
+      ctx.lineTo(cx - domeR, groundY); ctx.closePath();
+      ctx.fillStyle = domeFill; ctx.fill();
+      /* latitude arcs */
+      for (let la = 1; la <= 5; la++) {
+        const latR = domeR * (la / 5);
+        ctx.beginPath(); ctx.arc(cx, groundY, latR, Math.PI, Math.PI * 2);
+        ctx.strokeStyle = `rgba(99,202,255,${0.04 + 0.01 * Math.sin(t + la)})`; ctx.lineWidth = 0.6; ctx.stroke();
+      }
+      /* longitude lines */
+      for (let lo = 0; lo <= 10; lo++) {
+        const angle = Math.PI + lo * (Math.PI / 10);
+        ctx.beginPath(); ctx.moveTo(cx, groundY);
+        ctx.lineTo(cx + domeR * Math.cos(angle), groundY + domeR * Math.sin(angle));
+        ctx.strokeStyle = 'rgba(99,202,255,0.04)'; ctx.lineWidth = 0.5; ctx.stroke();
+      }
+      /* main dome edge */
+      ctx.beginPath(); ctx.arc(cx, groundY, domeR, Math.PI, Math.PI * 2);
+      const edgePulse = 0.55 + 0.2 * Math.sin(t * 1.8);
+      ctx.strokeStyle = `rgba(99,202,255,${edgePulse})`; ctx.lineWidth = 2; ctx.stroke();
+      /* dome top glow dot */
+      ctx.beginPath(); ctx.arc(cx, groundY - domeR, 5 + Math.sin(t * 2) * 1.5, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(99,202,255,${0.7 + 0.3 * Math.sin(t * 2)})`; ctx.fill();
+      const topGlow = ctx.createRadialGradient(cx, groundY - domeR, 0, cx, groundY - domeR, 30);
+      topGlow.addColorStop(0, 'rgba(99,202,255,0.3)'); topGlow.addColorStop(1, 'rgba(99,202,255,0)');
+      ctx.fillStyle = topGlow; ctx.fillRect(cx - 30, groundY - domeR - 30, 60, 60);
+
+      /* ── buildings ── */
+      buildings.forEach(b => {
+        const bx = b.x, by = groundY - b.h;
+        /* building body */
+        const bGrad = ctx.createLinearGradient(bx, by, bx + b.w, by);
+        bGrad.addColorStop(0, 'rgba(6,14,38,0.97)');
+        bGrad.addColorStop(0.5, 'rgba(10,20,52,0.97)');
+        bGrad.addColorStop(1, 'rgba(6,14,38,0.97)');
+        ctx.fillStyle = bGrad; ctx.fillRect(bx, by, b.w, b.h);
+        /* edge highlight */
+        ctx.strokeStyle = 'rgba(99,202,255,0.12)'; ctx.lineWidth = 0.5; ctx.strokeRect(bx, by, b.w, b.h);
+        /* rooftop glow */
+        ctx.fillStyle = 'rgba(99,202,255,0.1)'; ctx.fillRect(bx, by, b.w, 1);
+        /* windows */
+        b.windows.forEach(w => {
+          if (!w.on) return;
+          const flicker = Math.sin(t * 0.5 + w.flicker);
+          const alpha = 0.4 + flicker * 0.15;
+          ctx.fillStyle = `rgba(${w.col},${alpha})`;
+          ctx.fillRect(bx + w.lx, by + b.h - w.ly - 4, 4, 4);
+        });
+        /* building reflection */
+        const refAlpha = 0.04;
+        ctx.fillStyle = `rgba(99,202,255,${refAlpha})`;
+        ctx.fillRect(bx, groundY, b.w, Math.min(b.h * 0.2, 12));
+      });
+
+      /* ── ground glow line ── */
+      const groundGlow = ctx.createLinearGradient(0, groundY, 0, groundY + 4);
+      groundGlow.addColorStop(0, `rgba(99,202,255,${0.25 + 0.1 * Math.sin(t)})`);
+      groundGlow.addColorStop(1, 'rgba(99,202,255,0)');
+      ctx.fillStyle = groundGlow; ctx.fillRect(0, groundY - 1, W, 5);
+      /* ground dome base glow */
+      const baseGlow = ctx.createLinearGradient(cx - domeR, 0, cx + domeR, 0);
+      baseGlow.addColorStop(0, 'rgba(99,202,255,0)');
+      baseGlow.addColorStop(0.3, `rgba(99,202,255,${0.18 + 0.07 * Math.sin(t * 1.5)})`);
+      baseGlow.addColorStop(0.5, `rgba(58,240,208,${0.25 + 0.08 * Math.sin(t * 2)})`);
+      baseGlow.addColorStop(0.7, `rgba(99,202,255,${0.18 + 0.07 * Math.sin(t * 1.5)})`);
+      baseGlow.addColorStop(1, 'rgba(99,202,255,0)');
+      ctx.fillStyle = baseGlow; ctx.fillRect(cx - domeR, groundY - 2, domeR * 2, 6);
+
+      /* ── threats ── */
+      threats.forEach(th => {
+        if (th.hit) {
+          th.hitT += 0.08;
+          return;
+        }
+        th.trail.push({ x: th.x, y: th.y });
+        if (th.trail.length > 18) th.trail.shift();
+        th.x += th.vx; th.y += th.vy;
+        /* dome collision check */
+        const dx = th.x - cx, dy = th.y - groundY;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist <= domeR + 2 && th.y <= groundY) {
+          th.hit = true;
+          addImpact(th.x, th.y);
+        }
+        /* draw trail */
+        th.trail.forEach((pt, i) => {
+          const prog = i / th.trail.length;
+          ctx.beginPath(); ctx.arc(pt.x, pt.y, th.size * prog * 0.6, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(239,68,68,${prog * 0.4})`; ctx.fill();
+        });
+        /* threat dot */
+        ctx.beginPath(); ctx.arc(th.x, th.y, th.size, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(239,68,68,0.9)'; ctx.fill();
+        ctx.beginPath(); ctx.arc(th.x, th.y, th.size * 2.2, 0, Math.PI * 2);
+        ctx.strokeStyle = 'rgba(239,68,68,0.3)'; ctx.lineWidth = 1; ctx.stroke();
+      });
+      /* cleanup dead threats */
+      threats = threats.filter(th => !th.hit || th.hitT < 1);
+
+      /* ── impact sparks ── */
+      sparks.forEach(s => {
+        s.x += s.vx; s.y += s.vy; s.vy += 0.08; s.life -= 0.045;
+        ctx.beginPath(); ctx.arc(s.x, s.y, s.size * s.life, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(99,202,255,${s.life * 0.85})`; ctx.fill();
+        ctx.beginPath(); ctx.moveTo(s.x, s.y); ctx.lineTo(s.x - s.vx * 2.5, s.y - s.vy * 2.5);
+        ctx.strokeStyle = `rgba(99,202,255,${s.life * 0.4})`; ctx.lineWidth = s.size * s.life * 0.6; ctx.stroke();
+      });
+      sparks = sparks.filter(s => s.life > 0);
+
+      /* ── scan sweep inside dome ── */
+      const scanA = (t * 0.5) % (Math.PI);
+      const scanX = cx + domeR * Math.cos(Math.PI + scanA);
+      const scanY = groundY + domeR * Math.sin(Math.PI + scanA);
+      const scanGrad = ctx.createLinearGradient(cx, groundY, scanX, scanY);
+      scanGrad.addColorStop(0, 'rgba(58,240,208,0)');
+      scanGrad.addColorStop(0.7, `rgba(58,240,208,${0.04 + 0.02 * Math.sin(t * 3)})`);
+      scanGrad.addColorStop(1, 'rgba(58,240,208,0)');
+      ctx.beginPath(); ctx.moveTo(cx, groundY); ctx.lineTo(scanX, scanY);
+      ctx.strokeStyle = scanGrad; ctx.lineWidth = 2; ctx.stroke();
+
+      requestAnimationFrame(draw);
+    }
+    draw();
+  })();
 
   /* ─ PARALLAX HERO RINGS ─ */
   document.addEventListener('mousemove', e => {
