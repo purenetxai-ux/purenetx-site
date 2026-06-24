@@ -1,132 +1,184 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Privacy Policy – purenetX</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-    :root { --bg:#050810; --border:rgba(255,255,255,0.08); --border-h:rgba(99,202,255,0.35); --cyan:#63caff; --cyan2:#3af0d0; --text:#e8edf5; --muted:#7a8598; --card-bg:rgba(10,18,40,0.7); }
-    html { scroll-behavior: smooth; }
-    body { font-family:'DM Sans',sans-serif; background:var(--bg); color:var(--text); overflow-x:hidden; line-height:1.6; cursor:none; }
-    ::-webkit-scrollbar{width:4px} ::-webkit-scrollbar-track{background:var(--bg)} ::-webkit-scrollbar-thumb{background:linear-gradient(var(--cyan),var(--cyan2));border-radius:2px}
-    #cursor{width:10px;height:10px;background:var(--cyan);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:screen}
-    #cursor-ring{width:36px;height:36px;border:1px solid rgba(99,202,255,0.45);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:transform .18s ease}
-    body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");opacity:.025;pointer-events:none;z-index:1000}
-    .grid-bg{position:fixed;inset:0;background-image:linear-gradient(rgba(99,202,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(99,202,255,0.04) 1px,transparent 1px);background-size:60px 60px;z-index:0;pointer-events:none;mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 20%,transparent 100%)}
-    .orb{position:fixed;border-radius:50%;filter:blur(100px);pointer-events:none;z-index:0;animation:drift 18s ease-in-out infinite alternate}
-    .orb-1{width:500px;height:500px;background:radial-gradient(circle,rgba(37,99,235,0.12) 0%,transparent 70%);top:-100px;left:-100px}
-    .orb-2{width:400px;height:400px;background:radial-gradient(circle,rgba(99,202,255,0.08) 0%,transparent 70%);bottom:-80px;right:-80px;animation-delay:-9s}
-    @keyframes drift{0%{transform:translate(0,0) scale(1)}100%{transform:translate(40px,30px) scale(1.08)}}
-    nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:0 clamp(1.5rem,5vw,4rem);height:70px;display:flex;align-items:center;justify-content:space-between;background:rgba(5,8,16,0.6);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
-    .nav-logo{display:flex;align-items:center;gap:.6rem;text-decoration:none}
-    .nav-logo img{height:32px;width:auto;mix-blend-mode:screen;filter:brightness(1.4) contrast(1.1) drop-shadow(0 0 8px rgba(99,202,255,0.5))}
-    .nav-links{display:flex;align-items:center;gap:2rem;list-style:none}
-    .nav-links a{color:var(--muted);text-decoration:none;font-size:.85rem;font-weight:500;letter-spacing:.03em;text-transform:uppercase;transition:color .25s;position:relative}
-    .nav-links a::after{content:'';position:absolute;left:0;bottom:-4px;height:1px;width:0;background:var(--cyan);transition:width .3s}
-    .nav-links a:hover,.nav-links a.active{color:var(--cyan)}
-    .nav-links a:hover::after,.nav-links a.active::after{width:100%}
-    .page-wrap{position:relative;z-index:1;max-width:760px;margin:0 auto;padding:140px clamp(1.5rem,6vw,3rem) 100px}
-    .page-badge{display:inline-flex;align-items:center;gap:.5rem;padding:.35rem 1rem;border:1px solid rgba(99,202,255,0.25);border-radius:100px;background:rgba(99,202,255,0.07);font-size:.75rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--cyan);margin-bottom:2rem;opacity:0;animation:fadeUp .7s .2s forwards}
-    h1{font-family:'Syne',sans-serif;font-size:clamp(2.2rem,5vw,4rem);font-weight:800;line-height:1.1;letter-spacing:-.02em;background:linear-gradient(135deg,#ffffff 0%,#c8deff 40%,var(--cyan) 70%,var(--cyan2) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;opacity:0;animation:fadeUp .8s .35s forwards}
-    .divider-line{width:60px;height:2px;background:linear-gradient(90deg,var(--cyan),var(--cyan2));border-radius:2px;margin:2.5rem 0;opacity:0;animation:fadeUp .8s .5s forwards}
-    .policy-card{background:var(--card-bg);border:1px solid var(--border);border-radius:16px;padding:2rem 2.2rem;backdrop-filter:blur(16px);position:relative;overflow:hidden;margin-bottom:1.2rem;opacity:0;transform:translateY(20px);transition:border-color .3s,box-shadow .3s,opacity .6s,transform .6s}
-    .policy-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--cyan),transparent);opacity:.4}
-    .policy-card:hover{border-color:var(--border-h);box-shadow:0 20px 60px rgba(99,202,255,0.08)}
-    .policy-card.visible{opacity:1;transform:translateY(0)}
-    .policy-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:1rem;border:1px solid rgba(99,202,255,0.2);background:rgba(99,202,255,0.07)}
-    .policy-card p{color:var(--muted);font-size:.95rem;line-height:1.75;font-weight:300}
-    .back-link{display:inline-flex;align-items:center;gap:.5rem;color:var(--muted);text-decoration:none;font-size:.85rem;font-weight:500;margin-top:2rem;border:1px solid var(--border);border-radius:8px;padding:.6rem 1.2rem;transition:color .25s,border-color .25s,transform .25s;opacity:0;animation:fadeUp .8s .9s forwards}
-    .back-link:hover{color:var(--cyan);border-color:rgba(99,202,255,0.3);transform:translateX(-3px)}
-    footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:2.5rem clamp(1.5rem,6vw,5rem);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.5rem;background:rgba(5,8,16,0.7);backdrop-filter:blur(20px)}
-    .footer-logo img{height:28px;mix-blend-mode:screen;filter:brightness(1.4) contrast(1.1) drop-shadow(0 0 6px rgba(99,202,255,0.4))}
-    .footer-copy{font-size:.8rem;color:var(--muted)}
-    .footer-links{display:flex;gap:1.5rem;list-style:none}
-    .footer-links a{color:var(--muted);text-decoration:none;font-size:.82rem;transition:color .25s}
-    .footer-links a:hover{color:var(--cyan)}
-    @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-    @media(max-width:640px){footer{justify-content:center;text-align:center}.footer-links{justify-content:center}}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — purenetX</title>
+<meta name="description" content="purenetX Privacy Policy. We intercept, we don't collect.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 46'%3E%3Cpath d='M20 3L35 8.5V22C35 31 28.5 39 20 43C11.5 39 5 31 5 22V8.5L20 3Z' fill='%23020817' stroke='%23DC2626' stroke-width='2.5' stroke-linejoin='round'/%3E%3Crect x='11' y='19' width='18' height='8' rx='2' fill='white'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #020817; --surface: #0F172A; --border: rgba(148,163,184,0.1);
+    --text: #F8FAFC; --text-muted: #94A3B8; --text-subtle: #64748B;
+    --red: #DC2626; --red-light: #F87171;
+    --font-head: 'Space Grotesk', sans-serif; --font-body: 'DM Sans', sans-serif;
+  }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--text); font-family: var(--font-body); font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+
+  nav {
+    position: fixed; top: 16px; left: 50%; transform: translateX(-50%);
+    width: calc(100% - 48px); max-width: 1120px; height: 68px;
+    background: rgba(2,8,23,0.85); backdrop-filter: blur(20px);
+    border: 1px solid var(--border); border-radius: 20px;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 28px; z-index: 100;
+  }
+  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; font-family: var(--font-head); font-weight: 700; font-size: 18px; color: var(--text); }
+  .logo-mark { width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; }
+  .logo-mark svg { width: 32px; height: 32px; }
+  .x-red { color: var(--red); }
+  .nav-back { color: var(--text-muted); text-decoration: none; font-size: 14px; font-weight: 500; padding: 8px 16px; border: 1px solid var(--border); border-radius: 10px; transition: 0.2s ease; }
+  .nav-back:hover { color: var(--text); border-color: rgba(220,38,38,0.3); }
+
+  .page-wrap { max-width: 760px; margin: 0 auto; padding: 140px 24px 100px; }
+
+  .page-badge { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--red-light); margin-bottom: 20px; }
+  .page-badge::before { content: ''; display: block; width: 20px; height: 1px; background: var(--red-light); }
+
+  h1 { font-family: var(--font-head); font-size: clamp(32px, 5vw, 48px); font-weight: 700; letter-spacing: -1.5px; line-height: 1.1; margin-bottom: 12px; }
+  .page-date { font-size: 14px; color: var(--text-subtle); margin-bottom: 56px; padding-bottom: 32px; border-bottom: 1px solid var(--border); }
+
+  .toc { background: rgba(15,23,42,0.6); border: 1px solid var(--border); border-left: 3px solid var(--red); border-radius: 0 12px 12px 0; padding: 24px 28px; margin-bottom: 56px; }
+  .toc p { font-size: 13px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; color: var(--text-subtle); margin-bottom: 12px; }
+  .toc ol { padding-left: 20px; display: flex; flex-direction: column; gap: 6px; }
+  .toc a { color: var(--text-muted); text-decoration: none; font-size: 14px; transition: color 0.2s ease; }
+  .toc a:hover { color: var(--red-light); }
+
+  .doc-section { margin-bottom: 48px; }
+  .doc-section h2 { font-family: var(--font-head); font-size: 22px; font-weight: 700; letter-spacing: -0.3px; margin-bottom: 16px; padding-top: 8px; color: var(--text); }
+  .doc-section p { color: var(--text-muted); margin-bottom: 14px; }
+  .doc-section p:last-child { margin-bottom: 0; }
+  .doc-section ul { color: var(--text-muted); padding-left: 20px; display: flex; flex-direction: column; gap: 8px; margin-bottom: 14px; }
+  .doc-section ul li::marker { color: var(--red); }
+  .doc-section strong { color: var(--text); font-weight: 600; }
+
+  .highlight-box { background: rgba(220,38,38,0.06); border: 1px solid rgba(220,38,38,0.2); border-radius: 12px; padding: 24px 28px; margin: 24px 0; }
+  .highlight-box p { color: var(--text); margin: 0; font-weight: 500; }
+
+  footer { border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; }
+  footer p { font-size: 14px; color: var(--text-subtle); }
+  footer a { color: var(--red-light); text-decoration: none; }
+</style>
 </head>
 <body>
-  <div id="cursor"></div>
-  <div id="cursor-ring"></div>
-  <div class="orb orb-1"></div>
-  <div class="orb orb-2"></div>
-  <div class="grid-bg"></div>
 
-  <nav>
-    <a href="/" class="nav-logo"><img src="https://www.purenetx.com/logo.png" alt="purenetX" /></a>
-    <ul class="nav-links">
-      <li><a href="/about.html">About</a></li>
-      <li><a href="/privacy-policy.html" class="active">Privacy</a></li>
-      <li><a href="/terms.html">Terms</a></li>
-    </ul>
-  </nav>
-
-  <div class="page-wrap">
-    <span class="page-badge">Legal</span>
-    <h1>Privacy Policy</h1>
-    <div class="divider-line"></div>
-
-    <div class="policy-card">
-      <div class="policy-icon">
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-          <rect x="1" y="9" width="18" height="10" rx="3" stroke="rgba(99,202,255,0.8)" stroke-width="1.4" fill="rgba(99,202,255,0.07)"/>
-          <path d="M4 9 L4 6 C4 3.2 16 3.2 16 6 L16 9" stroke="rgba(99,202,255,0.8)" stroke-width="1.4" fill="none" stroke-linecap="round"/>
-          <circle cx="10" cy="14" r="2" fill="rgba(99,202,255,0.8)"/>
-        </svg>
-      </div>
-      <p>purenetX does not collect, store, or upload personal images or videos.</p>
+<nav>
+  <a href="index.html" class="nav-logo">
+    <div class="logo-mark">
+      <svg viewBox="0 0 40 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20 2L36 8V22C36 32 29 40 20 44C11 40 4 32 4 22V8L20 2Z" stroke="white" stroke-width="2.5" stroke-linejoin="round" fill="none"/>
+        <line x1="4" y1="16" x2="36" y2="16" stroke="white" stroke-width="1.2" opacity="0.4"/>
+        <line x1="4" y1="24" x2="36" y2="24" stroke="white" stroke-width="1.2" opacity="0.4"/>
+        <line x1="12" y1="8" x2="12" y2="42" stroke="white" stroke-width="1.2" opacity="0.4"/>
+        <line x1="20" y1="2" x2="20" y2="44" stroke="white" stroke-width="1.2" opacity="0.4"/>
+        <line x1="28" y1="8" x2="28" y2="42" stroke="white" stroke-width="1.2" opacity="0.4"/>
+        <rect x="11" y="19" width="18" height="8" rx="2" fill="white"/>
+      </svg>
     </div>
+    purenet<span class="x-red">X</span>
+  </a>
+  <a href="index.html" class="nav-back">← Back to home</a>
+</nav>
 
-    <div class="policy-card" style="transition-delay:.1s">
-      <div class="policy-icon">
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-          <rect x="3" y="3" width="14" height="14" rx="3" stroke="rgba(58,240,208,0.8)" stroke-width="1.4" fill="rgba(58,240,208,0.07)"/>
-          <rect x="7" y="7" width="6" height="6" rx="1.5" fill="rgba(58,240,208,0.5)"/>
-          <line x1="10" y1="1" x2="10" y2="3" stroke="rgba(58,240,208,0.7)" stroke-width="1.4" stroke-linecap="round"/>
-          <line x1="10" y1="17" x2="10" y2="19" stroke="rgba(58,240,208,0.7)" stroke-width="1.4" stroke-linecap="round"/>
-          <line x1="1" y1="10" x2="3" y2="10" stroke="rgba(58,240,208,0.7)" stroke-width="1.4" stroke-linecap="round"/>
-          <line x1="17" y1="10" x2="19" y2="10" stroke="rgba(58,240,208,0.7)" stroke-width="1.4" stroke-linecap="round"/>
-        </svg>
-      </div>
-      <p>All AI processing happens locally on the user's device.</p>
-    </div>
+<div class="page-wrap">
+  <div class="page-badge">Legal</div>
+  <h1>Privacy Policy</h1>
+  <p class="page-date">Last updated: June 2026</p>
 
-    <div class="policy-card" style="transition-delay:.2s">
-      <div class="policy-icon">
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-          <path d="M10 1 L19 5 L19 11 C19 15.5 14.5 19 10 19.5 C5.5 19 1 15.5 1 11 L1 5 Z" stroke="rgba(99,202,255,0.8)" stroke-width="1.4" fill="rgba(99,202,255,0.07)"/>
-          <path d="M6.5 10 L9 12.5 L13.5 8" stroke="rgba(99,202,255,0.9)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-        </svg>
-      </div>
-      <p>We do not sell or share user data.</p>
-    </div>
-
-    <a href="/" class="back-link">← Back to Home</a>
+  <div class="highlight-box">
+    <p>The short version: purenetX is built on a single principle — we never see your data. Our technology works on-device, intercepts content before capture, and uploads nothing. This policy explains how that works in practice.</p>
   </div>
 
-  <footer>
-    <div class="footer-logo"><img src="https://www.purenetx.com/logo.png" alt="purenetX" /></div>
-    <p class="footer-copy">© 2026 purenetX. All rights reserved.</p>
-    <ul class="footer-links">
-      <li><a href="/about.html">About</a></li>
-      <li><a href="/privacy-policy.html">Privacy</a></li>
-      <li><a href="/terms.html">Terms</a></li>
-    </ul>
-  </footer>
+  <div class="toc">
+    <p>Contents</p>
+    <ol>
+      <li><a href="#s1">What we collect</a></li>
+      <li><a href="#s2">What we never collect</a></li>
+      <li><a href="#s3">On-device processing</a></li>
+      <li><a href="#s4">Waitlist & contact data</a></li>
+      <li><a href="#s5">Cookies & analytics</a></li>
+      <li><a href="#s6">Third-party services</a></li>
+      <li><a href="#s7">Data retention</a></li>
+      <li><a href="#s8">Your rights</a></li>
+      <li><a href="#s9">Contact</a></li>
+    </ol>
+  </div>
 
-  <script>
-    const cur=document.getElementById('cursor'),ring=document.getElementById('cursor-ring');
-    let mx=0,my=0,rx=0,ry=0;
-    document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY});
-    (function tick(){cur.style.left=mx+'px';cur.style.top=my+'px';rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(tick)})();
-    const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}}),{threshold:.15});
-    document.querySelectorAll('.policy-card').forEach(el=>io.observe(el));
-  </script>
+  <div class="doc-section" id="s1">
+    <h2>1. What we collect</h2>
+    <p>When you interact with this website (purenetx.com), we may collect:</p>
+    <ul>
+      <li><strong>Email address</strong> — if you sign up for the waitlist or contact us directly</li>
+      <li><strong>Basic usage data</strong> — page views and referral source, if analytics are enabled, with no personally identifiable information</li>
+    </ul>
+    <p>That is the complete list.</p>
+  </div>
+
+  <div class="doc-section" id="s2">
+    <h2>2. What we never collect</h2>
+    <p>This is the part that matters most:</p>
+    <ul>
+      <li>We <strong>never collect images</strong>, video frames, or any visual data from a device camera</li>
+      <li>We <strong>never upload</strong> content from a user's device to our servers</li>
+      <li>We <strong>never log</strong> what content was intercepted or blocked</li>
+      <li>We <strong>never build</strong> a profile of what a user attempted to capture</li>
+    </ul>
+    <p>Our interception technology operates entirely locally. No data about camera activity, captured scenes, or blocked content ever leaves the device.</p>
+  </div>
+
+  <div class="doc-section" id="s3">
+    <h2>3. On-device processing</h2>
+    <p>purenetX's core technology runs a local AI model on the device itself. All analysis of camera context — the 40+ signals we evaluate — happens in memory on the device in real time.</p>
+    <p>When a capture is blocked, <strong>no record of that event is created, stored, or transmitted</strong>. Not locally. Not remotely. The image that would have been harmful simply never forms.</p>
+  </div>
+
+  <div class="doc-section" id="s4">
+    <h2>4. Waitlist & contact data</h2>
+    <p>If you submit your email address through this website, we store it securely for the sole purpose of contacting you about early access. We will not:</p>
+    <ul>
+      <li>Sell your email to any third party</li>
+      <li>Add you to unrelated marketing lists</li>
+      <li>Share your details without your explicit consent</li>
+    </ul>
+    <p>You can request removal at any time by emailing <strong>purenetx.ai@gmail.com</strong>.</p>
+  </div>
+
+  <div class="doc-section" id="s5">
+    <h2>5. Cookies & analytics</h2>
+    <p>This website uses minimal, privacy-respecting analytics only — no cross-site tracking cookies, no fingerprinting, no advertising pixels. If we integrate any analytics tool, it will be configured to anonymise all data at the point of collection.</p>
+  </div>
+
+  <div class="doc-section" id="s6">
+    <h2>6. Third-party services</h2>
+    <p>This website is hosted via Vercel. Email submissions may be processed via Formspree. Both are GDPR-compliant services. We do not use any social login, payment processing, or ad networks on this site.</p>
+  </div>
+
+  <div class="doc-section" id="s7">
+    <h2>7. Data retention</h2>
+    <p>Waitlist email addresses are retained until early access is extended or you request deletion. We do not retain any other personal data beyond the session in which it was submitted.</p>
+  </div>
+
+  <div class="doc-section" id="s8">
+    <h2>8. Your rights</h2>
+    <p>Depending on your jurisdiction, you may have the right to access, correct, or delete any personal data we hold about you. To exercise any of these rights, contact us at the address below. We will respond within 30 days.</p>
+  </div>
+
+  <div class="doc-section" id="s9">
+    <h2>9. Contact</h2>
+    <p>Privacy questions, data requests, or concerns:</p>
+    <p><strong>purenetX</strong><br>
+    <a href="mailto:purenetx.ai@gmail.com" style="color:#F87171;">purenetx.ai@gmail.com</a></p>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 purenetX. All rights reserved. &nbsp;·&nbsp; <a href="terms.html">Terms of Service</a> &nbsp;·&nbsp; <a href="index.html">Home</a></p>
+</footer>
+
 </body>
 </html>
