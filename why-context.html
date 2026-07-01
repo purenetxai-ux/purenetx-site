@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Why Context Intelligence — PureNetX</title>
+<meta name="description" content="Context changes everything. The same image can be appropriate or harmful depending entirely on context. Learn why PureNetX is building context intelligence.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 46'%3E%3Cpath d='M20 3L35 8.5V22C35 31 28.5 39 20 43C11.5 39 5 31 5 22V8.5L20 3Z' fill='%230A0E27' stroke='%23DC2626' stroke-width='2.5' stroke-linejoin='round'/%3E%3Crect x='11' y='19' width='18' height='8' rx='2' fill='white'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="logo-icon">
+        <svg viewBox="0 0 40 46" fill="none"><path d="M20 2L36 8V22C36 32 29 40 20 44C11 40 4 32 4 22V8L20 2Z" stroke="white" stroke-width="2.5" fill="none"/><line x1="4" y1="16" x2="36" y2="16" stroke="white" stroke-width="1" opacity="0.35"/><line x1="4" y1="24" x2="36" y2="24" stroke="white" stroke-width="1" opacity="0.35"/><line x1="13" y1="8" x2="13" y2="42" stroke="white" stroke-width="1" opacity="0.35"/><line x1="20" y1="2" x2="20" y2="44" stroke="white" stroke-width="1" opacity="0.35"/><line x1="27" y1="8" x2="27" y2="42" stroke="white" stroke-width="1" opacity="0.35"/><rect x="11" y="19" width="18" height="8" rx="1.5" fill="white"/></svg>
+      </div>
+      <span>PureNet<span style="color:#DC2626">X</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="why-context.html" class="active">Why Context</a></li>
+      <li><a href="technology.html">Technology</a></li>
+      <li><a href="who-we-build-for.html">Who We Build For</a></li>
+      <li><a href="research.html">Research</a></li>
+      <li><a href="current-status.html">Current Status</a></li>
+      <li><a href="future-roadmap.html">Roadmap</a></li>
+      <li><a href="company.html">Company</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="current-status.html" class="btn btn-secondary">Our Status</a>
+      <a href="contact.html" class="btn btn-primary">Request Demo</a>
+    </div>
+    <button class="nav-menu-btn" id="menuBtn" onclick="toggleMenu()" aria-label="Open menu">☰</button>
+  </div>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <a href="why-context.html">Why Context Intelligence</a>
+  <a href="technology.html">Technology</a>
+  <a href="who-we-build-for.html">Who We Build For</a>
+  <a href="research.html">Research</a>
+  <a href="current-status.html">Current Status</a>
+  <a href="future-roadmap.html">Future Roadmap</a>
+  <a href="company.html">Company</a>
+  <a href="contact.html" class="btn btn-primary">Request Demo</a>
+</div>
+
+<div class="page">
+
+  <section class="page-header">
+    <div class="container">
+      <div class="label">The Case For Context Intelligence</div>
+      <h1>Why Context Changes Everything</h1>
+      <p>AI systems today see pixels. They don't understand meaning. The same image can be a medical document, a creative work, or a violation — and traditional systems treat them all the same.</p>
+    </div>
+  </section>
+
+  <!-- THE PROBLEM -->
+  <section class="section">
+    <div class="container">
+      <div class="label">The Problem</div>
+      <h2 class="mb-12">Current Reality: Context Blindness</h2>
+      <p class="mb-48" style="max-width:600px">Traditional AI moderation systems are trained to detect visual patterns — skin tone, proximity, body position. They have no model of what is actually happening in the scene.</p>
+
+      <div class="grid-3 mb-48">
+        <div class="card">
+          <div class="badge badge-red mb-16">False Positive</div>
+          <h4 class="mb-8">Professional Model</h4>
+          <p style="font-size:14px">Traditional AI: "High skin exposure = BLOCK"</p>
+          <p style="font-size:14px;margin-top:8px">What's actually happening: Professional photoshoot, licensed studio, consenting adult.</p>
+          <p style="font-size:14px;margin-top:8px;color:var(--red-light)">Result: Legitimate creator wrongfully blocked.</p>
+        </div>
+        <div class="card">
+          <div class="badge badge-red mb-16">False Positive</div>
+          <h4 class="mb-8">Medical Context</h4>
+          <p style="font-size:14px">Traditional AI: "Nudity = BLOCK"</p>
+          <p style="font-size:14px;margin-top:8px">What's actually happening: Healthcare worker documenting patient condition for clinical records.</p>
+          <p style="font-size:14px;margin-top:8px;color:var(--red-light)">Result: Legitimate medical content removed.</p>
+        </div>
+        <div class="card">
+          <div class="badge badge-red mb-16">False Positive</div>
+          <h4 class="mb-8">Couple Recording</h4>
+          <p style="font-size:14px">Traditional AI: "Intimate recording = BLOCK"</p>
+          <p style="font-size:14px;margin-top:8px">What's actually happening: Consensual moment between partners in a private setting.</p>
+          <p style="font-size:14px;margin-top:8px;color:var(--red-light)">Result: Legitimate relationship privacy violated.</p>
+        </div>
+      </div>
+
+      <div class="card" style="border-color:rgba(198,40,40,0.3);background:rgba(198,40,40,0.04)">
+        <h4 class="mb-8 text-white">The Root Cause: Context Blindness</h4>
+        <p>AI systems see pixels, not meaning. They have no model of the event, relationship, intent, or platform — the four dimensions that make any visual content appropriate or harmful. Without context, every ambiguous image is treated as a threat.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CONTEXT MATTERS -->
+  <section class="section" style="background:var(--bg-2)">
+    <div class="container">
+      <div class="label">The Core Insight</div>
+      <h2 class="mb-12">Context Changes the Meaning of Content</h2>
+      <p class="mb-48" style="max-width:600px">The same visual content carries entirely different meaning depending on who, where, why, and for whom it is captured. This is what humans understand naturally — and what AI systems must learn.</p>
+
+      <div class="compare-wrap mb-32">
+        <div class="compare-row compare-header">
+          <div class="compare-cell">Without Context Intelligence</div>
+          <div class="compare-divider"></div>
+          <div class="compare-cell">With Context Intelligence</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-cell">Celebration moment → BLOCKED (Skin contact detected, Proximity flagged)</div>
+          <div class="compare-divider"></div>
+          <div class="compare-cell">Celebration moment → ALLOWED (Event context detected, Celebratory intent recognized)</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-cell">Medical exam → BLOCKED (nudity)</div>
+          <div class="compare-divider"></div>
+          <div class="compare-cell">Medical exam → ALLOWED (clinical context)</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-cell">Secret recording → May pass (low exposure)</div>
+          <div class="compare-divider"></div>
+          <div class="compare-cell">Secret recording → BLOCKED (non-consensual intent)</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-cell">Gym workout → BLOCKED (skin exposure)</div>
+          <div class="compare-divider"></div>
+          <div class="compare-cell">Gym workout → ALLOWED (fitness context)</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-cell">Harassment → May pass (no skin detection)</div>
+          <div class="compare-divider"></div>
+          <div class="compare-cell">Harassment → WARN (risk factors detected)</div>
+        </div>
+      </div>
+
+      <p class="text-center" style="font-size:15px;color:var(--text-subtle)">Context intelligence means understanding <em>what's happening</em>, not just <em>what's visible</em>.</p>
+    </div>
+  </section>
+
+  <!-- HOW WE DEFINE CONTEXT -->
+  <section class="section">
+    <div class="container">
+      <div class="label">Our Approach</div>
+      <h2 class="mb-12">The Dimensions of Context</h2>
+      <p class="mb-48" style="max-width:580px">PureNetX analyzes multiple dimensions of understanding simultaneously to form a complete picture of what is happening in any visual scene.</p>
+
+      <div class="grid-3">
+        <div class="card card-sm">
+          <h4 class="mb-8">Scene Type</h4>
+          <p style="font-size:14px">What setting is this? Wedding, gym, beach, office, bedroom, hospital, street. Each setting carries inherent context about what is normal and expected.</p>
+        </div>
+        <div class="card card-sm">
+          <h4 class="mb-8">Activity Context</h4>
+          <p style="font-size:14px">What is the activity? Celebration, sport, medical procedure, recreation, education, documentation. Activity frames intent.</p>
+        </div>
+        <div class="card card-sm">
+          <h4 class="mb-8">Relationship Context</h4>
+          <p style="font-size:14px">What is the relationship between individuals? Couple, family, professional, strangers, patient and clinician. Relationship determines consent norms.</p>
+        </div>
+        <div class="card card-sm">
+          <h4 class="mb-8">Intent Understanding</h4>
+          <p style="font-size:14px">What is the purpose? Documentation, art, intimacy, exploitation, surveillance. Intent is the most critical factor in any safety decision.</p>
+        </div>
+        <div class="card card-sm">
+          <h4 class="mb-8">Platform Context</h4>
+          <p style="font-size:14px">Where is this being shared? Dating app, social media, private storage, medical system. Platform defines applicable safety thresholds.</p>
+        </div>
+        <div class="card card-sm">
+          <h4 class="mb-8">Risk Assessment</h4>
+          <p style="font-size:14px">What are the actual safety concerns here? Age, consent, non-consensual capture, exploitation indicators. Risk is contextual, not binary.</p>
+        </div>
+      </div>
+
+      <div class="card mt-32" style="border-color:rgba(76,175,80,0.3);background:rgba(46,125,50,0.04)">
+        <h4 class="mb-8">Result: Context-Driven Decisions, Not Pixel-Driven Blocking</h4>
+        <p>When all six dimensions are analyzed together, the system develops a rich understanding of what is actually happening — reducing false positives for legitimate content while maintaining sensitivity to actual risks.</p>
+        <div class="flex gap-12 mt-16 flex-wrap">
+          <a href="technology.html" class="btn btn-secondary" style="font-size:13px">How it works technically →</a>
+          <a href="contact.html" class="btn btn-primary" style="font-size:13px">Request Demo</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <a href="index.html" class="footer-brand">
+        <svg width="20" height="23" viewBox="0 0 40 46" fill="none"><path d="M20 2L36 8V22C36 32 29 40 20 44C11 40 4 32 4 22V8L20 2Z" stroke="white" stroke-width="2.5" fill="none"/><line x1="4" y1="16" x2="36" y2="16" stroke="white" stroke-width="1" opacity="0.35"/><line x1="4" y1="24" x2="36" y2="24" stroke="white" stroke-width="1" opacity="0.35"/><line x1="13" y1="8" x2="13" y2="42" stroke="white" stroke-width="1" opacity="0.35"/><line x1="20" y1="2" x2="20" y2="44" stroke="white" stroke-width="1" opacity="0.35"/><line x1="27" y1="8" x2="27" y2="42" stroke="white" stroke-width="1" opacity="0.35"/><rect x="11" y="19" width="18" height="8" rx="1.5" fill="white"/></svg>
+        <span>PureNet<span style="color:#DC2626">X</span></span>
+      </a>
+      <p class="footer-tagline">Privacy-first, on-device Context Intelligence Layer for AI Vision Systems.</p>
+      <p class="footer-legal">© 2026 PureNetX. All rights reserved. &nbsp;·&nbsp; <a href="privacy-policy.html">Privacy Policy</a> &nbsp;·&nbsp; <a href="terms.html">Terms of Service</a></p>
+    </div>
+    <div class="footer-links">
+      <a href="why-context.html">Why Context</a>
+      <a href="technology.html">Technology</a>
+      <a href="current-status.html">Current Status</a>
+      <a href="future-roadmap.html">Roadmap</a>
+      <a href="research.html">Research</a>
+      <a href="company.html">Company</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script src="animations.js"></script>
+<script>function toggleMenu(){var nav=document.getElementById('mobileNav');var btn=document.getElementById('menuBtn');var open=nav.classList.toggle('open');btn.textContent=open?'✕':'☰';btn.setAttribute('aria-label',open?'Close menu':'Open menu');}</script>
+<script src="animations.js"></script>
+</body>
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Company — PureNetX</title>
+<meta name="description" content="About PureNetX: mission, team, and values. Building the context intelligence layer that will make cameras smarter about safety.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 46'%3E%3Cpath d='M20 3L35 8.5V22C35 31 28.5 39 20 43C11.5 39 5 31 5 22V8.5L20 3Z' fill='%230A0E27' stroke='%23DC2626' stroke-width='2.5' stroke-linejoin='round'/%3E%3Crect x='11' y='19' width='18' height='8' rx='2' fill='white'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="logo-icon">
+        <svg viewBox="0 0 40 46" fill="none"><path d="M20 2L36 8V22C36 32 29 40 20 44C11 40 4 32 4 22V8L20 2Z" stroke="white" stroke-width="2.5" fill="none"/><line x1="4" y1="16" x2="36" y2="16" stroke="white" stroke-width="1" opacity="0.35"/><line x1="4" y1="24" x2="36" y2="24" stroke="white" stroke-width="1" opacity="0.35"/><line x1="13" y1="8" x2="13" y2="42" stroke="white" stroke-width="1" opacity="0.35"/><line x1="20" y1="2" x2="20" y2="44" stroke="white" stroke-width="1" opacity="0.35"/><line x1="27" y1="8" x2="27" y2="42" stroke="white" stroke-width="1" opacity="0.35"/><rect x="11" y="19" width="18" height="8" rx="1.5" fill="white"/></svg>
+      </div>
+      <span>PureNet<span style="color:#DC2626">X</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="why-context.html">Why Context</a></li>
+      <li><a href="technology.html">Technology</a></li>
+      <li><a href="who-we-build-for.html">Who We Build For</a></li>
+      <li><a href="research.html">Research</a></li>
+      <li><a href="current-status.html">Current Status</a></li>
+      <li><a href="future-roadmap.html">Roadmap</a></li>
+      <li><a href="company.html" class="active">Company</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="current-status.html" class="btn btn-secondary">Our Status</a>
+      <a href="contact.html" class="btn btn-primary">Request Demo</a>
+    </div>
+    <button class="nav-menu-btn" id="menuBtn" onclick="toggleMenu()" aria-label="Open menu">☰</button>
+  </div>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <a href="why-context.html">Why Context Intelligence</a>
+  <a href="technology.html">Technology</a>
+  <a href="who-we-build-for.html">Who We Build For</a>
+  <a href="research.html">Research</a>
+  <a href="current-status.html">Current Status</a>
+  <a href="future-roadmap.html">Future Roadmap</a>
+  <a href="company.html">Company</a>
+  <a href="contact.html" class="btn btn-primary">Request Demo</a>
+</div>
+
+<div class="page">
+
+  <section class="page-header">
+    <div class="container">
+      <div class="label">About PureNetX</div>
+      <h1>We're Building the Context Intelligence Layer for Cameras.</h1>
+      <p>Not blocking content. Understanding it. Not punishing users. Protecting them. Not replacing judgment. Informing it.</p>
+    </div>
+  </section>
+
+  <!-- MISSION -->
+  <section class="section">
+    <div class="container">
+      <div class="grid-2" style="gap:48px;align-items:start">
+        <div>
+          <div class="label">Mission</div>
+          <h2 class="mb-20">Why We Exist</h2>
+          <p style="margin-bottom:16px">Current systems are broken. Traditional AI moderation produces false positives across medical, educational, and family contexts. Binary decisions ignore human meaning entirely. Users lose trust in platforms that wrongfully block legitimate content.</p>
+          <p style="margin-bottom:16px">Better systems are possible. Context-aware decisions reduce false positives for legitimate scenarios. Users trust systems that understand their intent. Creators stay on platforms that protect them.</p>
+          <p>This is why we built PureNetX.</p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:16px">
+          <div class="card card-sm" style="border-left:3px solid var(--red-light)">
+            <h4 class="mb-8" style="color:var(--red-light)">The Problem</h4>
+            <p style="font-size:14px">Traditional systems can produce false positives in medical, educational, and family contexts. Binary decisions ignore human context. Users lose trust when wrongfully blocked.</p>
+          </div>
+          <div class="card card-sm" style="border-left:3px solid var(--green-light)">
+            <h4 class="mb-8" style="color:var(--accent-light)">The Solution We're Building</h4>
+            <p style="font-size:14px">Context-aware decisions reduce false positives across diverse scenarios. Platforms retain creators. Safety improves without sacrificing utility. Users trust the system.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section class="section" style="background:var(--bg-2)">
+    <div class="container">
+      <div class="label">Team</div>
+      <h2 class="mb-48">Who We Are</h2>
+
+      <div class="card" style="max-width:640px">
+        <div class="flex gap-24 items-start" style="flex-wrap:wrap">
+          <div style="width:72px;height:72px;border-radius:50%;background:var(--surface-2);border:2px solid var(--border-2);display:flex;align-items:center;justify-content:center;font-size:28px;flex-shrink:0">
+            K
+          </div>
+          <div style="flex:1;min-width:200px">
+            <h3 class="mb-4">Kaushik A.</h3>
+            <p style="font-size:13px;color:var(--accent-light);font-weight:600;margin-bottom:16px">Founder &amp; CEO</p>
+
+            <h4 class="mb-8" style="font-size:13px;text-transform:uppercase;letter-spacing:0.8px;color:var(--text-subtle)">Background</h4>
+            <ul style="color:var(--text-muted);font-size:14px;padding-left:16px;margin-bottom:20px;display:flex;flex-direction:column;gap:6px">
+              <li>Security research — offensive techniques and adversarial thinking</li>
+              <li>Vulnerability discovery and assessment</li>
+              <li>Finding structural weaknesses in digital systems</li>
+            </ul>
+
+            <h4 class="mb-8" style="font-size:13px;text-transform:uppercase;letter-spacing:0.8px;color:var(--text-subtle)">PureNetX Is His Answer To</h4>
+            <ul style="color:var(--text-muted);font-size:14px;padding-left:16px;margin-bottom:20px;display:flex;flex-direction:column;gap:6px">
+              <li>How do we prevent the most consequential vulnerability?</li>
+              <li>How do we stop harmful visual content before it spreads?</li>
+              <li>How do we protect users without blocking legitimate content?</li>
+            </ul>
+
+            <div class="card card-sm" style="background:rgba(255,255,255,0.03)">
+              <p style="font-size:14px;font-style:italic;color:var(--text-muted)">"We don't see what's in the image. We understand what it means."</p>
+            </div>
+          </div>
+        </div>
+
+        <hr class="divider-sm" style="margin:24px 0">
+
+        <div class="grid-3">
+          <div>
+            <p style="font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--text-subtle);margin-bottom:8px">Focus Areas</p>
+            <ul style="color:var(--text-muted);font-size:13px;padding-left:16px;display:flex;flex-direction:column;gap:4px">
+              <li>Privacy-First Architecture</li>
+              <li>On-Device Processing</li>
+            </ul>
+          </div>
+          <div>
+            <p style="font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--text-subtle);margin-bottom:8px">&nbsp;</p>
+            <ul style="color:var(--text-muted);font-size:13px;padding-left:16px;display:flex;flex-direction:column;gap:4px">
+              <li>Context Intelligence</li>
+              <li>Explainable AI</li>
+            </ul>
+          </div>
+          <div>
+            <p style="font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--text-subtle);margin-bottom:8px">&nbsp;</p>
+            <ul style="color:var(--text-muted);font-size:13px;padding-left:16px;display:flex;flex-direction:column;gap:4px">
+              <li>Adversarial Thinking</li>
+              <li>Safety Research</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- VALUES -->
+  <section class="section">
+    <div class="container">
+      <div class="label">Values</div>
+      <h2 class="mb-48">What We Stand For</h2>
+      <div class="grid-3">
+        <div class="card card-sm">
+          <h4 class="mb-8">Privacy Is Non-Negotiable</h4>
+          <p style="font-size:14px">We will never build a product that requires seeing user data. On-device processing is not a feature — it is a founding constraint.</p>
+        </div>
+        <div class="card card-sm">
+          <h4 class="mb-8">Prevention Over Moderation</h4>
+          <p style="font-size:14px">Content moderation is reactive. We work upstream — at the point of capture — where prevention is still possible.</p>
+        </div>
+        <div class="card card-sm">
+          <h4 class="mb-8">Research-Driven Development</h4>
+          <p style="font-size:14px">Built on established computer vision, AI safety, and privacy engineering principles. We validate before we claim.</p>
+        </div>
+        <div class="card card-sm">
+          <h4 class="mb-8">Adversarial Thinking First</h4>
+          <p style="font-size:14px">We test every bypass before shipping anything. Our security research background means we think like an attacker before we think like a builder.</p>
+        </div>
+        <div class="card card-sm">
+          <h4 class="mb-8">Honest About Limitations</h4>
+          <p style="font-size:14px">We acknowledge what we don't know. No unvalidated metrics. No hype. Transparent status at every stage.</p>
+        </div>
+        <div class="card card-sm">
+          <h4 class="mb-8">Open to the Right Partners</h4>
+          <p style="font-size:14px">We work with companies who take safety seriously. Design partnerships are collaborations, not sales — your use case shapes our roadmap.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section" style="background:var(--bg-2)">
+    <div class="container" style="max-width:640px">
+      <div class="label">Get Involved</div>
+      <h2 class="mb-20">Work With Us</h2>
+      <p class="mb-32">We're seeking design partners, academic collaborators, and investors who understand deep-tech timelines and take AI safety seriously.</p>
+      <div class="flex gap-12 flex-wrap">
+        <a href="contact.html" class="btn btn-primary btn-lg">Request a Demo</a>
+        <a href="research.html" class="btn btn-secondary btn-lg">Research Collaboration</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <a href="index.html" class="footer-brand">
+        <svg width="20" height="23" viewBox="0 0 40 46" fill="none"><path d="M20 2L36 8V22C36 32 29 40 20 44C11 40 4 32 4 22V8L20 2Z" stroke="white" stroke-width="2.5" fill="none"/><line x1="4" y1="16" x2="36" y2="16" stroke="white" stroke-width="1" opacity="0.35"/><line x1="4" y1="24" x2="36" y2="24" stroke="white" stroke-width="1" opacity="0.35"/><line x1="13" y1="8" x2="13" y2="42" stroke="white" stroke-width="1" opacity="0.35"/><line x1="20" y1="2" x2="20" y2="44" stroke="white" stroke-width="1" opacity="0.35"/><line x1="27" y1="8" x2="27" y2="42" stroke="white" stroke-width="1" opacity="0.35"/><rect x="11" y="19" width="18" height="8" rx="1.5" fill="white"/></svg>
+        <span>PureNet<span style="color:#DC2626">X</span></span>
+      </a>
+      <p class="footer-tagline">Privacy-first, on-device Context Intelligence Layer for AI Vision Systems.</p>
+      <p class="footer-legal">© 2026 PureNetX. All rights reserved. &nbsp;·&nbsp; <a href="privacy-policy.html">Privacy Policy</a> &nbsp;·&nbsp; <a href="terms.html">Terms of Service</a></p>
+    </div>
+    <div class="footer-links">
+      <a href="why-context.html">Why Context</a>
+      <a href="technology.html">Technology</a>
+      <a href="current-status.html">Current Status</a>
+      <a href="future-roadmap.html">Roadmap</a>
+      <a href="research.html">Research</a>
+      <a href="company.html">Company</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script src="animations.js"></script>
+<script>function toggleMenu(){var nav=document.getElementById('mobileNav');var btn=document.getElementById('menuBtn');var open=nav.classList.toggle('open');btn.textContent=open?'✕':'☰';btn.setAttribute('aria-label',open?'Close menu':'Open menu');}</script>
+<script src="animations.js"></script>
+</body>
+</html>

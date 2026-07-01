@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Technology — PureNetX</title>
+<meta name="description" content="Technical architecture of the PureNetX Context Intelligence Layer. On-device scene understanding, risk scoring, and explainable decisions.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 46'%3E%3Cpath d='M20 3L35 8.5V22C35 31 28.5 39 20 43C11.5 39 5 31 5 22V8.5L20 3Z' fill='%230A0E27' stroke='%23DC2626' stroke-width='2.5' stroke-linejoin='round'/%3E%3Crect x='11' y='19' width='18' height='8' rx='2' fill='white'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="logo-icon">
+        <svg viewBox="0 0 40 46" fill="none"><path d="M20 2L36 8V22C36 32 29 40 20 44C11 40 4 32 4 22V8L20 2Z" stroke="white" stroke-width="2.5" fill="none"/><line x1="4" y1="16" x2="36" y2="16" stroke="white" stroke-width="1" opacity="0.35"/><line x1="4" y1="24" x2="36" y2="24" stroke="white" stroke-width="1" opacity="0.35"/><line x1="13" y1="8" x2="13" y2="42" stroke="white" stroke-width="1" opacity="0.35"/><line x1="20" y1="2" x2="20" y2="44" stroke="white" stroke-width="1" opacity="0.35"/><line x1="27" y1="8" x2="27" y2="42" stroke="white" stroke-width="1" opacity="0.35"/><rect x="11" y="19" width="18" height="8" rx="1.5" fill="white"/></svg>
+      </div>
+      <span>PureNet<span style="color:#DC2626">X</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="why-context.html">Why Context</a></li>
+      <li><a href="technology.html" class="active">Technology</a></li>
+      <li><a href="who-we-build-for.html">Who We Build For</a></li>
+      <li><a href="research.html">Research</a></li>
+      <li><a href="current-status.html">Current Status</a></li>
+      <li><a href="future-roadmap.html">Roadmap</a></li>
+      <li><a href="company.html">Company</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="current-status.html" class="btn btn-secondary">Our Status</a>
+      <a href="contact.html" class="btn btn-primary">Request Demo</a>
+    </div>
+    <button class="nav-menu-btn" id="menuBtn" onclick="toggleMenu()" aria-label="Open menu">☰</button>
+  </div>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <a href="why-context.html">Why Context Intelligence</a>
+  <a href="technology.html">Technology</a>
+  <a href="who-we-build-for.html">Who We Build For</a>
+  <a href="research.html">Research</a>
+  <a href="current-status.html">Current Status</a>
+  <a href="future-roadmap.html">Future Roadmap</a>
+  <a href="company.html">Company</a>
+  <a href="contact.html" class="btn btn-primary">Request Demo</a>
+</div>
+
+<div class="page">
+
+  <section class="page-header">
+    <div class="container">
+      <div class="label">Technical Approach</div>
+      <h1>How PureNetX Works</h1>
+      <p>A high-level overview of our on-device context intelligence architecture. Specific implementation details and validated performance metrics will be published after enterprise pilot validation.</p>
+    </div>
+  </section>
+
+  <!-- ARCHITECTURE -->
+  <section class="section">
+    <div class="container">
+      <div class="label">Architecture Overview</div>
+      <h2 class="mb-12">System Architecture</h2>
+      <p class="mb-48" style="max-width:580px">All processing happens on-device. No video frames, images, or analysis results leave the device. Privacy is enforced at the architecture level.</p>
+
+      <div class="grid-2" style="align-items:start;gap:40px">
+        <div class="arch-flow">
+          <div class="arch-box">
+            <strong>Input</strong>
+            <span>Video frame or image from camera</span>
+          </div>
+          <div class="arch-arrow">↓</div>
+          <div class="arch-box" style="border-color:rgba(76,175,80,0.4);background:rgba(46,125,50,0.08)">
+            <strong style="color:var(--accent-light)">Context Intelligence Layer</strong>
+            <span>Scene analysis · Activity recognition · Relationship understanding · Intent assessment</span>
+          </div>
+          <div class="arch-arrow">↓</div>
+          <div class="arch-box" style="border-color:rgba(245,124,0,0.3)">
+            <strong>Risk Scoring</strong>
+            <span>Confidence calculation · Harm indicators · Contextual risk</span>
+          </div>
+          <div class="arch-arrow">↓</div>
+          <div class="arch-box">
+            <strong>Decision Logic</strong>
+            <span>Context + Risk assessment · Policy application · Explainable output</span>
+          </div>
+          <div class="arch-arrow">↓</div>
+          <div class="arch-box" style="border-color:rgba(66,165,245,0.3)">
+            <strong>Output</strong>
+            <span>Decision + Reasoning (all on-device)</span>
+          </div>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:16px">
+          <div class="card card-sm">
+            <div class="badge badge-green mb-12">Privacy Guarantee</div>
+            <h4 class="mb-8">Zero Data Transmission</h4>
+            <p style="font-size:14px">No video frames, images, analysis results, or decisions are transmitted to any external server. The entire pipeline runs in device memory.</p>
+          </div>
+          <div class="card card-sm">
+            <div class="badge badge-green mb-12">✓ Built</div>
+            <h4 class="mb-8">On-Device Inference</h4>
+            <p style="font-size:14px">The context intelligence model runs locally. No network connection required for operation.</p>
+          </div>
+          <div class="card card-sm">
+            <div class="badge badge-orange mb-12">In Development</div>
+            <h4 class="mb-8">Edge Optimization</h4>
+            <p style="font-size:14px">Model optimization for lower-power edge devices is in the research phase. Target: Q2 2027.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTEXT INTELLIGENCE LAYER -->
+  <section class="section" style="background:var(--bg-2)">
+    <div class="container">
+      <div class="label">Core Component</div>
+      <h2 class="mb-12">Context Intelligence Layer</h2>
+      <p class="mb-48" style="max-width:600px">The core component that transforms raw visual input into a rich semantic understanding of what is happening in the scene.</p>
+
+      <div class="grid-2" style="gap:40px;align-items:start">
+        <div>
+          <h4 class="mb-16">What It Analyzes</h4>
+          <div class="status-list">
+            <div class="status-item s-done">
+              <div class="status-icon">✓</div>
+              <div class="status-content"><strong>Scene type and setting</strong><span>Wedding, gym, office, hospital, street, bedroom</span></div>
+            </div>
+            <div class="status-item s-done">
+              <div class="status-icon">✓</div>
+              <div class="status-content"><strong>Activity and event context</strong><span>Celebration, sport, medical, recreation, education</span></div>
+            </div>
+            <div class="status-item s-done">
+              <div class="status-icon">✓</div>
+              <div class="status-content"><strong>Relationship type inference</strong><span>Couple, family, professional, strangers</span></div>
+            </div>
+            <div class="status-item s-done">
+              <div class="status-icon">✓</div>
+              <div class="status-content"><strong>Intent signal detection</strong><span>Documentation, art, intimacy, surveillance indicators</span></div>
+            </div>
+            <div class="status-item s-done">
+              <div class="status-icon">✓</div>
+              <div class="status-content"><strong>Age and safety factors</strong><span>Vulnerability indicators, consent context</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="mb-16">Current Capabilities vs. In Development</h4>
+          <div class="status-list">
+            <div class="status-item s-done">
+              <div class="status-icon">✓</div>
+              <div class="status-content"><strong>Scene classification</strong><span>Common contexts — validated in prototype</span></div>
+            </div>
+            <div class="status-item s-done">
+              <div class="status-icon">✓</div>
+              <div class="status-content"><strong>Activity recognition</strong><span>Professional vs. recreational contexts</span></div>
+            </div>
+            <div class="status-item s-done">
+              <div class="status-icon">✓</div>
+              <div class="status-content"><strong>Intent signal detection</strong><span>Core signals — initial validation complete</span></div>
+            </div>
+            <div class="status-item s-progress">
+              <div class="status-icon">→</div>
+              <div class="status-content"><strong>Expanded context signals</strong><span>In development — broader signal set</span></div>
+            </div>
+            <div class="status-item s-progress">
+              <div class="status-icon">→</div>
+              <div class="status-content"><strong>Cross-platform context</strong><span>Platform-aware thresholds — in development</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RISK SCORING -->
+  <section class="section">
+    <div class="container">
+      <div class="label">Risk Assessment</div>
+      <h2 class="mb-12">Risk Scoring</h2>
+      <p class="mb-48" style="max-width:580px">Multi-dimensional risk assessment that combines traditional pixel-based signals with context-driven modifiers to produce a nuanced risk score — not a binary classification.</p>
+
+      <div class="grid-3">
+        <div class="card card-sm">
+          <h4 class="mb-8">Pixel-Based Detection</h4>
+          <p style="font-size:14px">Standard visual signals: skin tone, exposure, proximity. These are inputs to the risk model — not the decision itself.</p>
+        </div>
+        <div class="card card-sm">
+          <h4 class="mb-8">Context-Driven Modifiers</h4>
+          <p style="font-size:14px">Event type, relationship, platform. These adjust the interpretation of pixel-based signals dramatically.</p>
+        </div>
+        <div class="card card-sm">
+          <h4 class="mb-8">Policy-Driven Thresholds</h4>
+          <p style="font-size:14px">What counts as harmful is defined by platform policy — not by a single universal threshold applied to all contexts.</p>
+        </div>
+      </div>
+
+      <div class="card mt-32" style="border-left:3px solid var(--orange)">
+        <h4 class="mb-8">Why We're Not Publishing Numbers Yet</h4>
+        <p style="font-size:14px">We have validated our approach on prototype scenarios. We are not publishing specific accuracy, latency, or false-positive rate numbers until we have validated at scale with enterprise design partners and completed peer review.</p>
+        <p style="font-size:14px;margin-top:8px">Numbers without context mislead. Fairness validation requires diverse populations. Benchmarks should be peer-reviewed. We follow the standard that NVIDIA Research and Anthropic apply to their own published work.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CURRENT VALIDATION -->
+  <section class="section" style="background:var(--bg-2)">
+    <div class="container">
+      <div class="label">Validation Status</div>
+      <h2 class="mb-12">What We've Validated</h2>
+      <p class="mb-48" style="max-width:580px">Transparent accounting of what has been tested and what has not.</p>
+
+      <div class="grid-2">
+        <div>
+          <h4 class="mb-16 text-green">Validated in Prototype</h4>
+          <div class="status-list">
+            <div class="status-item s-done"><div class="status-icon">✓</div><div class="status-content"><strong>Context intelligence approach</strong><span>Core method validated across diverse scenarios</span></div></div>
+            <div class="status-item s-done"><div class="status-icon">✓</div><div class="status-content"><strong>Scene classification</strong><span>Common scene types — initial validation</span></div></div>
+            <div class="status-item s-done"><div class="status-icon">✓</div><div class="status-content"><strong>Explainable decision output</strong><span>Reasoning format validated with test cases</span></div></div>
+            <div class="status-item s-done"><div class="status-icon">✓</div><div class="status-content"><strong>On-device architecture</strong><span>No-transmission architecture confirmed</span></div></div>
+          </div>
+        </div>
+        <div>
+          <h4 class="mb-16 text-orange">Not Yet Validated at Scale</h4>
+          <div class="status-list">
+            <div class="status-item s-progress"><div class="status-icon">→</div><div class="status-content"><strong>Large-scale accuracy metrics</strong><span>Requires enterprise pilot data</span></div></div>
+            <div class="status-item s-progress"><div class="status-icon">→</div><div class="status-content"><strong>Latency at production load</strong><span>Not tested at enterprise scale</span></div></div>
+            <div class="status-item s-progress"><div class="status-icon">→</div><div class="status-content"><strong>Demographic fairness metrics</strong><span>Requires diverse population study</span></div></div>
+            <div class="status-item s-progress"><div class="status-icon">→</div><div class="status-content"><strong>Peer-reviewed benchmarks</strong><span>In progress — academic partnership stage</span></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <a href="index.html" class="footer-brand">
+        <svg width="20" height="23" viewBox="0 0 40 46" fill="none"><path d="M20 2L36 8V22C36 32 29 40 20 44C11 40 4 32 4 22V8L20 2Z" stroke="white" stroke-width="2.5" fill="none"/><line x1="4" y1="16" x2="36" y2="16" stroke="white" stroke-width="1" opacity="0.35"/><line x1="4" y1="24" x2="36" y2="24" stroke="white" stroke-width="1" opacity="0.35"/><line x1="13" y1="8" x2="13" y2="42" stroke="white" stroke-width="1" opacity="0.35"/><line x1="20" y1="2" x2="20" y2="44" stroke="white" stroke-width="1" opacity="0.35"/><line x1="27" y1="8" x2="27" y2="42" stroke="white" stroke-width="1" opacity="0.35"/><rect x="11" y="19" width="18" height="8" rx="1.5" fill="white"/></svg>
+        <span>PureNet<span style="color:#DC2626">X</span></span>
+      </a>
+      <p class="footer-tagline">Privacy-first, on-device Context Intelligence Layer for AI Vision Systems.</p>
+      <p class="footer-legal">© 2026 PureNetX. All rights reserved. &nbsp;·&nbsp; <a href="privacy-policy.html">Privacy Policy</a> &nbsp;·&nbsp; <a href="terms.html">Terms of Service</a></p>
+    </div>
+    <div class="footer-links">
+      <a href="why-context.html">Why Context</a>
+      <a href="technology.html">Technology</a>
+      <a href="current-status.html">Current Status</a>
+      <a href="future-roadmap.html">Roadmap</a>
+      <a href="research.html">Research</a>
+      <a href="company.html">Company</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script src="animations.js"></script>
+<script>function toggleMenu(){var nav=document.getElementById('mobileNav');var btn=document.getElementById('menuBtn');var open=nav.classList.toggle('open');btn.textContent=open?'✕':'☰';btn.setAttribute('aria-label',open?'Close menu':'Open menu');}</script>
+<script src="animations.js"></script>
+</body>
+</html>
