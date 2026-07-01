@@ -3,182 +3,179 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Privacy Policy — purenetX</title>
-<meta name="description" content="purenetX Privacy Policy. We intercept, we don't collect.">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 46'%3E%3Cpath d='M20 3L35 8.5V22C35 31 28.5 39 20 43C11.5 39 5 31 5 22V8.5L20 3Z' fill='%23020817' stroke='%23DC2626' stroke-width='2.5' stroke-linejoin='round'/%3E%3Crect x='11' y='19' width='18' height='8' rx='2' fill='white'/%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500&display=swap" rel="stylesheet">
+<title>Privacy Policy — PureNetX</title>
+<meta name="description" content="PureNetX Privacy Policy. We intercept, we don't collect.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 46'%3E%3Cpath d='M20 3L35 8.5V22C35 31 28.5 39 20 43C11.5 39 5 31 5 22V8.5L20 3Z' fill='%230A0E27' stroke='%23DC2626' stroke-width='2.5' stroke-linejoin='round'/%3E%3Crect x='11' y='19' width='18' height='8' rx='2' fill='white'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="styles.css">
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root {
-    --bg: #020817; --surface: #0F172A; --border: rgba(148,163,184,0.1);
-    --text: #F8FAFC; --text-muted: #94A3B8; --text-subtle: #64748B;
-    --red: #DC2626; --red-light: #F87171;
-    --font-head: 'Space Grotesk', sans-serif; --font-body: 'DM Sans', sans-serif;
-  }
-  html { scroll-behavior: smooth; }
-  body { background: var(--bg); color: var(--text); font-family: var(--font-body); font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
-
-  nav {
-    position: fixed; top: 16px; left: 50%; transform: translateX(-50%);
-    width: calc(100% - 48px); max-width: 1120px; height: 68px;
-    background: rgba(2,8,23,0.85); backdrop-filter: blur(20px);
-    border: 1px solid var(--border); border-radius: 20px;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 0 28px; z-index: 100;
-  }
-  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; font-family: var(--font-head); font-weight: 700; font-size: 18px; color: var(--text); }
-  .logo-mark { width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; }
-  .logo-mark svg { width: 32px; height: 32px; }
-  .x-red { color: var(--red); }
-  .nav-back { color: var(--text-muted); text-decoration: none; font-size: 14px; font-weight: 500; padding: 8px 16px; border: 1px solid var(--border); border-radius: 10px; transition: 0.2s ease; }
-  .nav-back:hover { color: var(--text); border-color: rgba(220,38,38,0.3); }
-
-  .page-wrap { max-width: 760px; margin: 0 auto; padding: 140px 24px 100px; }
-
-  .page-badge { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--red-light); margin-bottom: 20px; }
-  .page-badge::before { content: ''; display: block; width: 20px; height: 1px; background: var(--red-light); }
-
-  h1 { font-family: var(--font-head); font-size: clamp(32px, 5vw, 48px); font-weight: 700; letter-spacing: -1.5px; line-height: 1.1; margin-bottom: 12px; }
-  .page-date { font-size: 14px; color: var(--text-subtle); margin-bottom: 56px; padding-bottom: 32px; border-bottom: 1px solid var(--border); }
-
-  .toc { background: rgba(15,23,42,0.6); border: 1px solid var(--border); border-left: 3px solid var(--red); border-radius: 0 12px 12px 0; padding: 24px 28px; margin-bottom: 56px; }
-  .toc p { font-size: 13px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; color: var(--text-subtle); margin-bottom: 12px; }
-  .toc ol { padding-left: 20px; display: flex; flex-direction: column; gap: 6px; }
-  .toc a { color: var(--text-muted); text-decoration: none; font-size: 14px; transition: color 0.2s ease; }
-  .toc a:hover { color: var(--red-light); }
-
   .doc-section { margin-bottom: 48px; }
-  .doc-section h2 { font-family: var(--font-head); font-size: 22px; font-weight: 700; letter-spacing: -0.3px; margin-bottom: 16px; padding-top: 8px; color: var(--text); }
+  .doc-section h2 { font-size: 20px; font-weight: 700; margin-bottom: 16px; }
   .doc-section p { color: var(--text-muted); margin-bottom: 14px; }
   .doc-section p:last-child { margin-bottom: 0; }
   .doc-section ul { color: var(--text-muted); padding-left: 20px; display: flex; flex-direction: column; gap: 8px; margin-bottom: 14px; }
-  .doc-section ul li::marker { color: var(--red); }
+  .doc-section ul li::marker { color: var(--green-light); }
   .doc-section strong { color: var(--text); font-weight: 600; }
-
-  .highlight-box { background: rgba(220,38,38,0.06); border: 1px solid rgba(220,38,38,0.2); border-radius: 12px; padding: 24px 28px; margin: 24px 0; }
-  .highlight-box p { color: var(--text); margin: 0; font-weight: 500; }
-
-  footer { border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; }
-  footer p { font-size: 14px; color: var(--text-subtle); }
-  footer a { color: var(--red-light); text-decoration: none; }
+  .toc { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 0 var(--radius-lg) var(--radius-lg) 0; padding: 24px 28px; margin-bottom: 48px; }
+  .toc-title { font-size: 11px; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase; color: var(--text-subtle); margin-bottom: 12px; }
+  .toc ol { padding-left: 20px; display: flex; flex-direction: column; gap: 6px; }
+  .toc a { color: var(--text-muted); text-decoration: none; font-size: 14px; transition: color 0.15s; }
+  .toc a:hover { color: var(--accent-light); }
 </style>
 </head>
 <body>
 
 <nav>
-  <a href="index.html" class="nav-logo">
-    <div class="logo-mark">
-      <svg viewBox="0 0 40 46" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M20 2L36 8V22C36 32 29 40 20 44C11 40 4 32 4 22V8L20 2Z" stroke="white" stroke-width="2.5" stroke-linejoin="round" fill="none"/>
-        <line x1="4" y1="16" x2="36" y2="16" stroke="white" stroke-width="1.2" opacity="0.4"/>
-        <line x1="4" y1="24" x2="36" y2="24" stroke="white" stroke-width="1.2" opacity="0.4"/>
-        <line x1="12" y1="8" x2="12" y2="42" stroke="white" stroke-width="1.2" opacity="0.4"/>
-        <line x1="20" y1="2" x2="20" y2="44" stroke="white" stroke-width="1.2" opacity="0.4"/>
-        <line x1="28" y1="8" x2="28" y2="42" stroke="white" stroke-width="1.2" opacity="0.4"/>
-        <rect x="11" y="19" width="18" height="8" rx="2" fill="white"/>
-      </svg>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="logo-icon">
+        <svg viewBox="0 0 40 46" fill="none"><path d="M20 2L36 8V22C36 32 29 40 20 44C11 40 4 32 4 22V8L20 2Z" stroke="white" stroke-width="2.5" fill="none"/><line x1="4" y1="16" x2="36" y2="16" stroke="white" stroke-width="1" opacity="0.35"/><line x1="4" y1="24" x2="36" y2="24" stroke="white" stroke-width="1" opacity="0.35"/><line x1="13" y1="8" x2="13" y2="42" stroke="white" stroke-width="1" opacity="0.35"/><line x1="20" y1="2" x2="20" y2="44" stroke="white" stroke-width="1" opacity="0.35"/><line x1="27" y1="8" x2="27" y2="42" stroke="white" stroke-width="1" opacity="0.35"/><rect x="11" y="19" width="18" height="8" rx="1.5" fill="white"/></svg>
+      </div>
+      <span>PureNet<span style="color:#DC2626">X</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="why-context.html">Why Context</a></li>
+      <li><a href="technology.html">Technology</a></li>
+      <li><a href="who-we-build-for.html">Who We Build For</a></li>
+      <li><a href="research.html">Research</a></li>
+      <li><a href="current-status.html">Current Status</a></li>
+      <li><a href="future-roadmap.html">Roadmap</a></li>
+      <li><a href="company.html">Company</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="index.html" class="btn btn-secondary">← Back to home</a>
     </div>
-    purenet<span class="x-red">X</span>
-  </a>
-  <a href="index.html" class="nav-back">← Back to home</a>
+    <button class="nav-menu-btn" id="menuBtn" onclick="toggleMenu()" aria-label="Open menu">☰</button>
+  </div>
 </nav>
+<div class="mobile-nav" id="mobileNav">
+  <a href="index.html">← Back to home</a>
+  <a href="why-context.html">Why Context Intelligence</a>
+  <a href="technology.html">Technology</a>
+  <a href="current-status.html">Current Status</a>
+  <a href="contact.html">Contact</a>
+</div>
 
-<div class="page-wrap">
-  <div class="page-badge">Legal</div>
-  <h1>Privacy Policy</h1>
-  <p class="page-date">Last updated: June 2026</p>
+<div class="page">
+  <section class="section">
+    <div class="container-sm">
 
-  <div class="highlight-box">
-    <p>The short version: purenetX is built on a single principle — we never see your data. Our technology works on-device, intercepts content before capture, and uploads nothing. This policy explains how that works in practice.</p>
-  </div>
+      <div class="label">Legal</div>
+      <h1 class="mb-8">Privacy Policy</h1>
+      <p style="font-size:14px;color:var(--text-subtle);margin-bottom:40px">Last updated: June 2026</p>
 
-  <div class="toc">
-    <p>Contents</p>
-    <ol>
-      <li><a href="#s1">What we collect</a></li>
-      <li><a href="#s2">What we never collect</a></li>
-      <li><a href="#s3">On-device processing</a></li>
-      <li><a href="#s4">Waitlist & contact data</a></li>
-      <li><a href="#s5">Cookies & analytics</a></li>
-      <li><a href="#s6">Third-party services</a></li>
-      <li><a href="#s7">Data retention</a></li>
-      <li><a href="#s8">Your rights</a></li>
-      <li><a href="#s9">Contact</a></li>
-    </ol>
-  </div>
+      <div class="banner banner-green mb-48">
+        <div class="banner-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+        <div>
+          <strong>The short version</strong>
+          <p>PureNetX is built on a single principle — we never see your data. Our technology works on-device, generates safety decisions locally, and uploads nothing. This policy explains how that works in practice.</p>
+        </div>
+      </div>
 
-  <div class="doc-section" id="s1">
-    <h2>1. What we collect</h2>
-    <p>When you interact with this website (purenetx.com), we may collect:</p>
-    <ul>
-      <li><strong>Email address</strong> — if you sign up for the waitlist or contact us directly</li>
-      <li><strong>Basic usage data</strong> — page views and referral source, if analytics are enabled, with no personally identifiable information</li>
-    </ul>
-    <p>That is the complete list.</p>
-  </div>
+      <div class="toc">
+        <p class="toc-title">Contents</p>
+        <ol>
+          <li><a href="#s1">What we collect</a></li>
+          <li><a href="#s2">What we never collect</a></li>
+          <li><a href="#s3">On-device processing</a></li>
+          <li><a href="#s4">Waitlist &amp; contact data</a></li>
+          <li><a href="#s5">Cookies &amp; analytics</a></li>
+          <li><a href="#s6">Third-party services</a></li>
+          <li><a href="#s7">Data retention</a></li>
+          <li><a href="#s8">Your rights</a></li>
+          <li><a href="#s9">Contact</a></li>
+        </ol>
+      </div>
 
-  <div class="doc-section" id="s2">
-    <h2>2. What we never collect</h2>
-    <p>This is the part that matters most:</p>
-    <ul>
-      <li>We <strong>never collect images</strong>, video frames, or any visual data from a device camera</li>
-      <li>We <strong>never upload</strong> content from a user's device to our servers</li>
-      <li>We <strong>never log</strong> what content was intercepted or blocked</li>
-      <li>We <strong>never build</strong> a profile of what a user attempted to capture</li>
-    </ul>
-    <p>Our interception technology operates entirely locally. No data about camera activity, captured scenes, or blocked content ever leaves the device.</p>
-  </div>
+      <div class="doc-section" id="s1">
+        <h2>1. What we collect</h2>
+        <p>When you interact with this website (purenetx.com), we may collect:</p>
+        <ul>
+          <li><strong>Email address</strong> — if you submit an inquiry or join our contact list</li>
+          <li><strong>Basic usage data</strong> — page views and referral source, if analytics are enabled, with no personally identifiable information</li>
+        </ul>
+        <p>That is the complete list.</p>
+      </div>
 
-  <div class="doc-section" id="s3">
-    <h2>3. On-device processing</h2>
-    <p>purenetX's core technology runs a local AI model on the device itself. All analysis of camera context — the 40+ signals we evaluate — happens in memory on the device in real time.</p>
-    <p>When a capture is blocked, <strong>no record of that event is created, stored, or transmitted</strong>. Not locally. Not remotely. The image that would have been harmful simply never forms.</p>
-  </div>
+      <div class="doc-section" id="s2">
+        <h2>2. What we never collect</h2>
+        <p>This is the part that matters most:</p>
+        <ul>
+          <li>We <strong>never collect images</strong>, video frames, or any visual data from a device camera</li>
+          <li>We <strong>never upload</strong> content from a user's device to our servers</li>
+          <li>We <strong>never log</strong> what content was intercepted or blocked</li>
+          <li>We <strong>never build</strong> a profile of what a user attempted to capture</li>
+        </ul>
+        <p>Our context intelligence technology operates entirely locally. No data about camera activity, captured scenes, or blocked content ever leaves the device.</p>
+      </div>
 
-  <div class="doc-section" id="s4">
-    <h2>4. Waitlist & contact data</h2>
-    <p>If you submit your email address through this website, we store it securely for the sole purpose of contacting you about early access. We will not:</p>
-    <ul>
-      <li>Sell your email to any third party</li>
-      <li>Add you to unrelated marketing lists</li>
-      <li>Share your details without your explicit consent</li>
-    </ul>
-    <p>You can request removal at any time by emailing <strong>purenetx.ai@gmail.com</strong>.</p>
-  </div>
+      <div class="doc-section" id="s3">
+        <h2>3. On-device processing</h2>
+        <p>PureNetX's core technology runs a local AI model on the device itself. All context analysis happens in memory on the device in real time — no data leaves the device.</p>
+        <p>When a safety decision is generated, <strong>no record of that analysis is created, stored, or transmitted</strong>. Not locally. Not remotely.</p>
+      </div>
 
-  <div class="doc-section" id="s5">
-    <h2>5. Cookies & analytics</h2>
-    <p>This website uses minimal, privacy-respecting analytics only — no cross-site tracking cookies, no fingerprinting, no advertising pixels. If we integrate any analytics tool, it will be configured to anonymise all data at the point of collection.</p>
-  </div>
+      <div class="doc-section" id="s4">
+        <h2>4. Waitlist &amp; contact data</h2>
+        <p>If you submit your email address through this website, we store it securely for the sole purpose of contacting you about early access or design partnership opportunities. We will not:</p>
+        <ul>
+          <li>Sell your email to any third party</li>
+          <li>Add you to unrelated marketing lists</li>
+          <li>Share your details without your explicit consent</li>
+        </ul>
+        <p>You can request removal at any time by emailing <strong>purenetx.ai@gmail.com</strong>.</p>
+      </div>
 
-  <div class="doc-section" id="s6">
-    <h2>6. Third-party services</h2>
-    <p>This website is hosted via Vercel. Email submissions may be processed via Formspree. Both are GDPR-compliant services. We do not use any social login, payment processing, or ad networks on this site.</p>
-  </div>
+      <div class="doc-section" id="s5">
+        <h2>5. Cookies &amp; analytics</h2>
+        <p>This website uses minimal, privacy-respecting analytics only — no cross-site tracking cookies, no fingerprinting, no advertising pixels. If we integrate any analytics tool, it is configured to anonymise all data at the point of collection.</p>
+      </div>
 
-  <div class="doc-section" id="s7">
-    <h2>7. Data retention</h2>
-    <p>Waitlist email addresses are retained until early access is extended or you request deletion. We do not retain any other personal data beyond the session in which it was submitted.</p>
-  </div>
+      <div class="doc-section" id="s6">
+        <h2>6. Third-party services</h2>
+        <p>This website is hosted via Vercel. Contact form submissions are processed via Formspree. Both are GDPR-compliant services. We do not use social login, payment processing, or ad networks on this site.</p>
+      </div>
 
-  <div class="doc-section" id="s8">
-    <h2>8. Your rights</h2>
-    <p>Depending on your jurisdiction, you may have the right to access, correct, or delete any personal data we hold about you. To exercise any of these rights, contact us at the address below. We will respond within 30 days.</p>
-  </div>
+      <div class="doc-section" id="s7">
+        <h2>7. Data retention</h2>
+        <p>Contact email addresses are retained until you request deletion or we have concluded our outreach. We do not retain any other personal data beyond the session in which it was submitted.</p>
+      </div>
 
-  <div class="doc-section" id="s9">
-    <h2>9. Contact</h2>
-    <p>Privacy questions, data requests, or concerns:</p>
-    <p><strong>purenetX</strong><br>
-    <a href="mailto:purenetx.ai@gmail.com" style="color:#F87171;">purenetx.ai@gmail.com</a></p>
-  </div>
+      <div class="doc-section" id="s8">
+        <h2>8. Your rights</h2>
+        <p>Depending on your jurisdiction, you may have the right to access, correct, or delete any personal data we hold about you. To exercise any of these rights, contact us at the address below. We will respond within 30 days.</p>
+      </div>
+
+      <div class="doc-section" id="s9">
+        <h2>9. Contact</h2>
+        <p>Privacy questions, data requests, or concerns:</p>
+        <p><strong>PureNetX</strong><br>
+        <a href="mailto:purenetx.ai@gmail.com" style="color:var(--accent-light)">purenetx.ai@gmail.com</a></p>
+      </div>
+
+    </div>
+  </section>
 </div>
 
 <footer>
-  <p>© 2026 purenetX. All rights reserved. &nbsp;·&nbsp; <a href="terms.html">Terms of Service</a> &nbsp;·&nbsp; <a href="index.html">Home</a></p>
+  <div class="footer-inner">
+    <div>
+      <a href="index.html" class="footer-brand">
+        <svg width="20" height="23" viewBox="0 0 40 46" fill="none"><path d="M20 2L36 8V22C36 32 29 40 20 44C11 40 4 32 4 22V8L20 2Z" stroke="white" stroke-width="2.5" fill="none"/><line x1="4" y1="16" x2="36" y2="16" stroke="white" stroke-width="1" opacity="0.35"/><line x1="4" y1="24" x2="36" y2="24" stroke="white" stroke-width="1" opacity="0.35"/><line x1="13" y1="8" x2="13" y2="42" stroke="white" stroke-width="1" opacity="0.35"/><line x1="20" y1="2" x2="20" y2="44" stroke="white" stroke-width="1" opacity="0.35"/><line x1="27" y1="8" x2="27" y2="42" stroke="white" stroke-width="1" opacity="0.35"/><rect x="11" y="19" width="18" height="8" rx="1.5" fill="white"/></svg>
+        <span>PureNet<span style="color:#DC2626">X</span></span>
+      </a>
+      <p class="footer-tagline">Privacy-first, on-device Context Intelligence Layer for AI Vision Systems.</p>
+      <p class="footer-legal">© 2026 PureNetX. All rights reserved. &nbsp;·&nbsp; <a href="terms.html">Terms of Service</a> &nbsp;·&nbsp; <a href="index.html">Home</a></p>
+    </div>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="current-status.html">Current Status</a>
+      <a href="terms.html">Terms of Service</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
 </footer>
 
+<script>function toggleMenu(){var nav=document.getElementById('mobileNav');var btn=document.getElementById('menuBtn');var open=nav.classList.toggle('open');btn.textContent=open?'✕':'☰';btn.setAttribute('aria-label',open?'Close menu':'Open menu');}</script>
+<script src="animations.js"></script>
 </body>
 </html>
