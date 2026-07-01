@@ -3,179 +3,176 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Terms of Service — purenetX</title>
-<meta name="description" content="purenetX Terms of Service.">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 46'%3E%3Cpath d='M20 3L35 8.5V22C35 31 28.5 39 20 43C11.5 39 5 31 5 22V8.5L20 3Z' fill='%23020817' stroke='%23DC2626' stroke-width='2.5' stroke-linejoin='round'/%3E%3Crect x='11' y='19' width='18' height='8' rx='2' fill='white'/%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500&display=swap" rel="stylesheet">
+<title>Terms of Service — PureNetX</title>
+<meta name="description" content="PureNetX Terms of Service.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 46'%3E%3Cpath d='M20 3L35 8.5V22C35 31 28.5 39 20 43C11.5 39 5 31 5 22V8.5L20 3Z' fill='%230A0E27' stroke='%23DC2626' stroke-width='2.5' stroke-linejoin='round'/%3E%3Crect x='11' y='19' width='18' height='8' rx='2' fill='white'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="styles.css">
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root {
-    --bg: #020817; --surface: #0F172A; --border: rgba(148,163,184,0.1);
-    --text: #F8FAFC; --text-muted: #94A3B8; --text-subtle: #64748B;
-    --red: #DC2626; --red-light: #F87171;
-    --font-head: 'Space Grotesk', sans-serif; --font-body: 'DM Sans', sans-serif;
-  }
-  html { scroll-behavior: smooth; }
-  body { background: var(--bg); color: var(--text); font-family: var(--font-body); font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
-
-  nav {
-    position: fixed; top: 16px; left: 50%; transform: translateX(-50%);
-    width: calc(100% - 48px); max-width: 1120px; height: 68px;
-    background: rgba(2,8,23,0.85); backdrop-filter: blur(20px);
-    border: 1px solid var(--border); border-radius: 20px;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 0 28px; z-index: 100;
-  }
-  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; font-family: var(--font-head); font-weight: 700; font-size: 18px; color: var(--text); }
-  .logo-mark { width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; }
-  .logo-mark svg { width: 32px; height: 32px; }
-  .x-red { color: var(--red); }
-  .nav-back { color: var(--text-muted); text-decoration: none; font-size: 14px; font-weight: 500; padding: 8px 16px; border: 1px solid var(--border); border-radius: 10px; transition: 0.2s ease; }
-  .nav-back:hover { color: var(--text); border-color: rgba(220,38,38,0.3); }
-
-  .page-wrap { max-width: 760px; margin: 0 auto; padding: 140px 24px 100px; }
-
-  .page-badge { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--red-light); margin-bottom: 20px; }
-  .page-badge::before { content: ''; display: block; width: 20px; height: 1px; background: var(--red-light); }
-
-  h1 { font-family: var(--font-head); font-size: clamp(32px, 5vw, 48px); font-weight: 700; letter-spacing: -1.5px; line-height: 1.1; margin-bottom: 12px; }
-  .page-date { font-size: 14px; color: var(--text-subtle); margin-bottom: 56px; padding-bottom: 32px; border-bottom: 1px solid var(--border); }
-
-  .toc { background: rgba(15,23,42,0.6); border: 1px solid var(--border); border-left: 3px solid var(--red); border-radius: 0 12px 12px 0; padding: 24px 28px; margin-bottom: 56px; }
-  .toc p { font-size: 13px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; color: var(--text-subtle); margin-bottom: 12px; }
-  .toc ol { padding-left: 20px; display: flex; flex-direction: column; gap: 6px; }
-  .toc a { color: var(--text-muted); text-decoration: none; font-size: 14px; transition: color 0.2s ease; }
-  .toc a:hover { color: var(--red-light); }
-
   .doc-section { margin-bottom: 48px; }
-  .doc-section h2 { font-family: var(--font-head); font-size: 22px; font-weight: 700; letter-spacing: -0.3px; margin-bottom: 16px; padding-top: 8px; }
+  .doc-section h2 { font-size: 20px; font-weight: 700; margin-bottom: 16px; }
   .doc-section p { color: var(--text-muted); margin-bottom: 14px; }
   .doc-section p:last-child { margin-bottom: 0; }
   .doc-section ul { color: var(--text-muted); padding-left: 20px; display: flex; flex-direction: column; gap: 8px; margin-bottom: 14px; }
-  .doc-section ul li::marker { color: var(--red); }
+  .doc-section ul li::marker { color: var(--green-light); }
   .doc-section strong { color: var(--text); font-weight: 600; }
-
-  .highlight-box { background: rgba(220,38,38,0.06); border: 1px solid rgba(220,38,38,0.2); border-radius: 12px; padding: 24px 28px; margin: 24px 0; }
-  .highlight-box p { color: var(--text); margin: 0; font-weight: 500; }
-
-  footer { border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; }
-  footer p { font-size: 14px; color: var(--text-subtle); }
-  footer a { color: var(--red-light); text-decoration: none; }
+  .toc { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 0 var(--radius-lg) var(--radius-lg) 0; padding: 24px 28px; margin-bottom: 48px; }
+  .toc-title { font-size: 11px; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase; color: var(--text-subtle); margin-bottom: 12px; }
+  .toc ol { padding-left: 20px; display: flex; flex-direction: column; gap: 6px; }
+  .toc a { color: var(--text-muted); text-decoration: none; font-size: 14px; transition: color 0.15s; }
+  .toc a:hover { color: var(--accent-light); }
 </style>
 </head>
 <body>
 
 <nav>
-  <a href="index.html" class="nav-logo">
-    <div class="logo-mark">
-      <svg viewBox="0 0 40 46" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M20 2L36 8V22C36 32 29 40 20 44C11 40 4 32 4 22V8L20 2Z" stroke="white" stroke-width="2.5" stroke-linejoin="round" fill="none"/>
-        <line x1="4" y1="16" x2="36" y2="16" stroke="white" stroke-width="1.2" opacity="0.4"/>
-        <line x1="4" y1="24" x2="36" y2="24" stroke="white" stroke-width="1.2" opacity="0.4"/>
-        <line x1="12" y1="8" x2="12" y2="42" stroke="white" stroke-width="1.2" opacity="0.4"/>
-        <line x1="20" y1="2" x2="20" y2="44" stroke="white" stroke-width="1.2" opacity="0.4"/>
-        <line x1="28" y1="8" x2="28" y2="42" stroke="white" stroke-width="1.2" opacity="0.4"/>
-        <rect x="11" y="19" width="18" height="8" rx="2" fill="white"/>
-      </svg>
-    </div>
-    purenet<span class="x-red">X</span>
-  </a>
-  <a href="index.html" class="nav-back">← Back to home</a>
-</nav>
-
-<div class="page-wrap">
-  <div class="page-badge">Legal</div>
-  <h1>Terms of Service</h1>
-  <p class="page-date">Last updated: June 2026</p>
-
-  <div class="highlight-box">
-    <p>By accessing purenetx.com or using any purenetX product or service, you agree to these terms. Please read them carefully.</p>
-  </div>
-
-  <div class="toc">
-    <p>Contents</p>
-    <ol>
-      <li><a href="#s1">Acceptance of terms</a></li>
-      <li><a href="#s2">Description of service</a></li>
-      <li><a href="#s3">Early access & waitlist</a></li>
-      <li><a href="#s4">Acceptable use</a></li>
-      <li><a href="#s5">Intellectual property</a></li>
-      <li><a href="#s6">Disclaimer of warranties</a></li>
-      <li><a href="#s7">Limitation of liability</a></li>
-      <li><a href="#s8">Privacy</a></li>
-      <li><a href="#s9">Changes to terms</a></li>
-      <li><a href="#s10">Contact</a></li>
-    </ol>
-  </div>
-
-  <div class="doc-section" id="s1">
-    <h2>1. Acceptance of terms</h2>
-    <p>These Terms of Service ("Terms") govern your access to and use of purenetX's website, products, and services. By using any part of our service, you confirm that you are at least 18 years old and have the legal capacity to enter into these Terms.</p>
-  </div>
-
-  <div class="doc-section" id="s2">
-    <h2>2. Description of service</h2>
-    <p>purenetX develops on-device AI safety technology that intercepts potentially harmful visual content at the camera level, before capture occurs. Our website provides information about the company and its technology, and collects early access applications from interested partners.</p>
-    <p>The core purenetX product is currently in pre-release. No live product is available to the general public at this time.</p>
-  </div>
-
-  <div class="doc-section" id="s3">
-    <h2>3. Early access & waitlist</h2>
-    <p>Submitting your email to our waitlist does not guarantee access to any purenetX product or service. We review applications and contact selected partners directly. We reserve the right to accept or decline any application at our sole discretion.</p>
-    <p>By joining the waitlist you consent to receiving communication from purenetX regarding the product. You may unsubscribe at any time.</p>
-  </div>
-
-  <div class="doc-section" id="s4">
-    <h2>4. Acceptable use</h2>
-    <p>You agree not to use purenetX's website or services to:</p>
-    <ul>
-      <li>Violate any applicable law or regulation</li>
-      <li>Attempt to reverse-engineer, decompile, or extract source code from any purenetX technology</li>
-      <li>Impersonate purenetX or any of its employees or representatives</li>
-      <li>Transmit any harmful, offensive, or unlawful content through our services</li>
-      <li>Interfere with the security or operation of our website</li>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="logo-icon">
+        <svg viewBox="0 0 40 46" fill="none"><path d="M20 2L36 8V22C36 32 29 40 20 44C11 40 4 32 4 22V8L20 2Z" stroke="white" stroke-width="2.5" fill="none"/><line x1="4" y1="16" x2="36" y2="16" stroke="white" stroke-width="1" opacity="0.35"/><line x1="4" y1="24" x2="36" y2="24" stroke="white" stroke-width="1" opacity="0.35"/><line x1="13" y1="8" x2="13" y2="42" stroke="white" stroke-width="1" opacity="0.35"/><line x1="20" y1="2" x2="20" y2="44" stroke="white" stroke-width="1" opacity="0.35"/><line x1="27" y1="8" x2="27" y2="42" stroke="white" stroke-width="1" opacity="0.35"/><rect x="11" y="19" width="18" height="8" rx="1.5" fill="white"/></svg>
+      </div>
+      <span>PureNet<span style="color:#DC2626">X</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="why-context.html">Why Context</a></li>
+      <li><a href="technology.html">Technology</a></li>
+      <li><a href="who-we-build-for.html">Who We Build For</a></li>
+      <li><a href="research.html">Research</a></li>
+      <li><a href="current-status.html">Current Status</a></li>
+      <li><a href="future-roadmap.html">Roadmap</a></li>
+      <li><a href="company.html">Company</a></li>
     </ul>
+    <div class="nav-cta">
+      <a href="index.html" class="btn btn-secondary">← Back to home</a>
+    </div>
+    <button class="nav-menu-btn" id="menuBtn" onclick="toggleMenu()" aria-label="Open menu">☰</button>
   </div>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <a href="index.html">← Back to home</a>
+  <a href="why-context.html">Why Context Intelligence</a>
+  <a href="technology.html">Technology</a>
+  <a href="current-status.html">Current Status</a>
+  <a href="contact.html">Contact</a>
+</div>
 
-  <div class="doc-section" id="s5">
-    <h2>5. Intellectual property</h2>
-    <p>All content on this website — including text, graphics, logos, icons, and the underlying technology — is the exclusive property of purenetX and is protected by applicable intellectual property laws.</p>
-    <p>Nothing in these Terms grants you a licence to use purenetX's name, logo, or branding without our prior written consent.</p>
-  </div>
+<div class="page">
+  <section class="section">
+    <div class="container-sm">
 
-  <div class="doc-section" id="s6">
-    <h2>6. Disclaimer of warranties</h2>
-    <p>This website and any information on it is provided on an "as is" and "as available" basis without warranties of any kind, either express or implied. purenetX does not warrant that the website will be uninterrupted, error-free, or free of harmful components.</p>
-  </div>
+      <div class="label">Legal</div>
+      <h1 class="mb-8">Terms of Service</h1>
+      <p style="font-size:14px;color:var(--text-subtle);margin-bottom:40px">Last updated: June 2026</p>
 
-  <div class="doc-section" id="s7">
-    <h2>7. Limitation of liability</h2>
-    <p>To the maximum extent permitted by law, purenetX and its founders, employees, and affiliates shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of, or inability to use, this website or our services.</p>
-  </div>
+      <div class="banner banner-orange mb-48">
+        <div class="banner-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg></div>
+        <div>
+          <strong>Please read carefully</strong>
+          <p>By accessing purenetx.com or using any PureNetX product or service, you agree to these terms.</p>
+        </div>
+      </div>
 
-  <div class="doc-section" id="s8">
-    <h2>8. Privacy</h2>
-    <p>Your use of this website is also governed by our <a href="privacy-policy.html" style="color:#F87171;">Privacy Policy</a>, which is incorporated into these Terms by reference. Our Privacy Policy explains how we handle the minimal data we collect and our commitment to on-device processing with zero data uploads.</p>
-  </div>
+      <div class="toc">
+        <p class="toc-title">Contents</p>
+        <ol>
+          <li><a href="#s1">Acceptance of terms</a></li>
+          <li><a href="#s2">Description of service</a></li>
+          <li><a href="#s3">Early access &amp; contact</a></li>
+          <li><a href="#s4">Acceptable use</a></li>
+          <li><a href="#s5">Intellectual property</a></li>
+          <li><a href="#s6">Disclaimer of warranties</a></li>
+          <li><a href="#s7">Limitation of liability</a></li>
+          <li><a href="#s8">Privacy</a></li>
+          <li><a href="#s9">Changes to terms</a></li>
+          <li><a href="#s10">Contact</a></li>
+        </ol>
+      </div>
 
-  <div class="doc-section" id="s9">
-    <h2>9. Changes to terms</h2>
-    <p>We reserve the right to update these Terms at any time. Changes will be posted on this page with an updated date. Continued use of our website after changes are posted constitutes acceptance of the revised Terms.</p>
-  </div>
+      <div class="doc-section" id="s1">
+        <h2>1. Acceptance of terms</h2>
+        <p>These Terms of Service ("Terms") govern your access to and use of PureNetX's website, products, and services. By using any part of our service, you confirm that you are at least 18 years old and have the legal capacity to enter into these Terms.</p>
+      </div>
 
-  <div class="doc-section" id="s10">
-    <h2>10. Contact</h2>
-    <p>Questions about these Terms:</p>
-    <p><strong>purenetX</strong><br>
-    <a href="mailto:purenetx.ai@gmail.com" style="color:#F87171;">purenetx.ai@gmail.com</a></p>
-  </div>
+      <div class="doc-section" id="s2">
+        <h2>2. Description of service</h2>
+        <p>PureNetX develops a privacy-first Context Intelligence Layer that generates contextual safety decisions for AI vision systems. Our website provides information about the company and its technology, and collects inquiries from interested design partners and investors.</p>
+        <p>The core PureNetX product is currently in prototype / pre-release stage. No live product is available to the general public at this time.</p>
+      </div>
+
+      <div class="doc-section" id="s3">
+        <h2>3. Early access &amp; contact</h2>
+        <p>Submitting your contact information through this website does not guarantee access to any PureNetX product or service. We review applications and contact selected partners directly. We reserve the right to accept or decline any application at our sole discretion.</p>
+        <p>By submitting your contact information you consent to receiving communication from PureNetX regarding the product and partnership opportunities. You may unsubscribe at any time.</p>
+      </div>
+
+      <div class="doc-section" id="s4">
+        <h2>4. Acceptable use</h2>
+        <p>You agree not to use PureNetX's website or services to:</p>
+        <ul>
+          <li>Violate any applicable law or regulation</li>
+          <li>Attempt to reverse-engineer, decompile, or extract source code from any PureNetX technology</li>
+          <li>Impersonate PureNetX or any of its employees or representatives</li>
+          <li>Transmit any harmful, offensive, or unlawful content through our services</li>
+          <li>Interfere with the security or operation of our website</li>
+        </ul>
+      </div>
+
+      <div class="doc-section" id="s5">
+        <h2>5. Intellectual property</h2>
+        <p>All content on this website — including text, graphics, logos, icons, and the underlying technology — is the exclusive property of PureNetX and is protected by applicable intellectual property laws.</p>
+        <p>Nothing in these Terms grants you a licence to use PureNetX's name, logo, or branding without our prior written consent.</p>
+      </div>
+
+      <div class="doc-section" id="s6">
+        <h2>6. Disclaimer of warranties</h2>
+        <p>This website and any information on it is provided on an "as is" and "as available" basis without warranties of any kind, either express or implied. PureNetX does not warrant that the website will be uninterrupted, error-free, or free of harmful components.</p>
+      </div>
+
+      <div class="doc-section" id="s7">
+        <h2>7. Limitation of liability</h2>
+        <p>To the maximum extent permitted by law, PureNetX and its founders, employees, and affiliates shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of, or inability to use, this website or our services.</p>
+      </div>
+
+      <div class="doc-section" id="s8">
+        <h2>8. Privacy</h2>
+        <p>Your use of this website is also governed by our <a href="privacy-policy.html" style="color:var(--accent-light)">Privacy Policy</a>, which is incorporated into these Terms by reference. Our Privacy Policy explains how we handle the minimal data we collect and our commitment to on-device processing with zero data uploads.</p>
+      </div>
+
+      <div class="doc-section" id="s9">
+        <h2>9. Changes to terms</h2>
+        <p>We reserve the right to update these Terms at any time. Changes will be posted on this page with an updated date. Continued use of our website after changes are posted constitutes acceptance of the revised Terms.</p>
+      </div>
+
+      <div class="doc-section" id="s10">
+        <h2>10. Contact</h2>
+        <p>Questions about these Terms:</p>
+        <p><strong>PureNetX</strong><br>
+        <a href="mailto:purenetx.ai@gmail.com" style="color:var(--accent-light)">purenetx.ai@gmail.com</a></p>
+      </div>
+
+    </div>
+  </section>
 </div>
 
 <footer>
-  <p>© 2026 purenetX. All rights reserved. &nbsp;·&nbsp; <a href="privacy-policy.html">Privacy Policy</a> &nbsp;·&nbsp; <a href="index.html">Home</a></p>
+  <div class="footer-inner">
+    <div>
+      <a href="index.html" class="footer-brand">
+        <svg width="20" height="23" viewBox="0 0 40 46" fill="none"><path d="M20 2L36 8V22C36 32 29 40 20 44C11 40 4 32 4 22V8L20 2Z" stroke="white" stroke-width="2.5" fill="none"/><line x1="4" y1="16" x2="36" y2="16" stroke="white" stroke-width="1" opacity="0.35"/><line x1="4" y1="24" x2="36" y2="24" stroke="white" stroke-width="1" opacity="0.35"/><line x1="13" y1="8" x2="13" y2="42" stroke="white" stroke-width="1" opacity="0.35"/><line x1="20" y1="2" x2="20" y2="44" stroke="white" stroke-width="1" opacity="0.35"/><line x1="27" y1="8" x2="27" y2="42" stroke="white" stroke-width="1" opacity="0.35"/><rect x="11" y="19" width="18" height="8" rx="1.5" fill="white"/></svg>
+        <span>PureNet<span style="color:#DC2626">X</span></span>
+      </a>
+      <p class="footer-tagline">Privacy-first, on-device Context Intelligence Layer for AI Vision Systems.</p>
+      <p class="footer-legal">© 2026 PureNetX. All rights reserved. &nbsp;·&nbsp; <a href="privacy-policy.html">Privacy Policy</a> &nbsp;·&nbsp; <a href="index.html">Home</a></p>
+    </div>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="current-status.html">Current Status</a>
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
 </footer>
 
+<script>function toggleMenu(){var nav=document.getElementById('mobileNav');var btn=document.getElementById('menuBtn');var open=nav.classList.toggle('open');btn.textContent=open?'✕':'☰';btn.setAttribute('aria-label',open?'Close menu':'Open menu');}</script>
+<script src="animations.js"></script>
 </body>
 </html>
