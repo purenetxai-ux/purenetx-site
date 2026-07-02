@@ -1,0 +1,76 @@
+media:
+  input: media
+  output: media
+
+content:
+  - name: posts
+    label: Blog Posts
+    type: file
+    path: content/posts.json
+    fields:
+      - name: posts
+        label: Posts
+        type: object
+        list: true
+        fields:
+          - name: title
+            label: Title
+            type: string
+            required: true
+          - name: slug
+            label: Slug (URL id — lowercase, hyphens, no spaces)
+            type: string
+            required: true
+          - name: date
+            label: Date
+            type: date
+            required: true
+          - name: description
+            label: Short description (shown on the blog list)
+            type: text
+          - name: body
+            label: Body (Markdown supported)
+            type: text
+
+  - name: status
+    label: Current Status Page
+    type: file
+    path: content/status.json
+    fields:
+      - name: last_updated
+        label: Last updated (e.g. "July 2026")
+        type: string
+      - name: groups
+        label: Status Groups
+        type: object
+        list: true
+        fields:
+          - name: title
+            label: Group title
+            type: string
+          - name: items
+            label: Items
+            type: object
+            list: true
+            fields:
+              - name: state
+                label: State
+                type: select
+                options:
+                  values:
+                    - value: done
+                      label: "✓ Done"
+                    - value: next
+                      label: "→ In progress"
+                    - value: later
+                      label: "◇ Future"
+                    - value: seek
+                      label: "● Seeking"
+                    - value: warn
+                      label: "! Warning"
+              - name: title
+                label: Title
+                type: string
+              - name: desc
+                label: Description
+                type: string
