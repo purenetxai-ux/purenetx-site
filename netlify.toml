@@ -1,0 +1,71 @@
+[build]
+  publish = "."
+
+[[redirects]]
+  from = "/*.html"
+  to = "/:splat.html"
+  status = 200
+  force = false
+
+[[redirects]]
+  from = "/index"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/why-context"
+  to = "/why-context.html"
+  status = 200
+
+[[redirects]]
+  from = "/technology"
+  to = "/technology.html"
+  status = 200
+
+[[redirects]]
+  from = "/who-we-build-for"
+  to = "/who-we-build-for.html"
+  status = 200
+
+[[redirects]]
+  from = "/research"
+  to = "/research.html"
+  status = 200
+
+[[redirects]]
+  from = "/current-status"
+  to = "/current-status.html"
+  status = 200
+
+[[redirects]]
+  from = "/future-roadmap"
+  to = "/future-roadmap.html"
+  status = 200
+
+[[redirects]]
+  from = "/company"
+  to = "/company.html"
+  status = 200
+
+[[redirects]]
+  from = "/contact"
+  to = "/contact.html"
+  status = 200
+
+[[redirects]]
+  from = "/privacy-policy"
+  to = "/privacy-policy.html"
+  status = 200
+
+[[redirects]]
+  from = "/terms"
+  to = "/terms.html"
+  status = 200
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
