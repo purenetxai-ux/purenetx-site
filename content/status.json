@@ -1,0 +1,52 @@
+{
+  "last_updated": "July 2026",
+  "groups": [
+    {
+      "title": "Company",
+      "items": [
+        { "state": "done", "title": "Incorporated and Registered", "desc": "Legal entity established" },
+        { "state": "done", "title": "Core Team In Place", "desc": "Founding team active" },
+        { "state": "done", "title": "Bootstrapped", "desc": "No external funding yet — founder-funded" },
+        { "state": "next", "title": "Pursuing Pre-seed / Seed", "desc": "Conversations in progress — Q3/Q4 2026" }
+      ]
+    },
+    {
+      "title": "Technology",
+      "items": [
+        { "state": "done", "title": "Context Intelligence Layer", "desc": "Prototype complete and tested" },
+        { "state": "done", "title": "Contextual Safety Assessment", "desc": "Generates explainable policy decisions" },
+        { "state": "done", "title": "Initial Validation", "desc": "Tested across diverse scenarios" },
+        { "state": "done", "title": "Architecture Validated", "desc": "Prototype designed for edge AI deployment" },
+        { "state": "next", "title": "Enterprise SDK", "desc": "In development — target Q3/Q4 2026" },
+        { "state": "next", "title": "Live Video Processing", "desc": "In development — target Q4 2026" },
+        { "state": "later", "title": "Edge Optimization", "desc": "Research phase — target Q2 2027" }
+      ]
+    },
+    {
+      "title": "SDK & Integration",
+      "items": [
+        { "state": "done", "title": "Prototype SDK Available", "desc": "For evaluation with design partners under NDA" },
+        { "state": "next", "title": "Enterprise Production SDK", "desc": "In development — target Q4 2026" },
+        { "state": "next", "title": "Live Video Capabilities", "desc": "In development — target Q4 2026" },
+        { "state": "next", "title": "Mobile SDK (iOS/Android)", "desc": "In planning — target Q1/Q2 2027" }
+      ]
+    },
+    {
+      "title": "Pilots & Partnerships",
+      "items": [
+        { "state": "seek", "title": "Seeking Design Partners", "desc": "Platform companies, robotics, enterprise vision, smart devices" },
+        { "state": "later", "title": "Alpha Pilot", "desc": "With first 2–3 design partners — target Q3/Q4 2026" },
+        { "state": "later", "title": "Beta Pilot", "desc": "With early customers — target 2027" }
+      ]
+    },
+    {
+      "title": "Research",
+      "items": [
+        { "state": "done", "title": "Research Framework Established", "desc": "Context Intelligence Taxonomy defined" },
+        { "state": "done", "title": "Fairness Testing Methodology", "desc": "Framework defined — execution in progress" },
+        { "state": "next", "title": "Dataset Collection (CKB)", "desc": "In progress — target initial version Q4 2026" },
+        { "state": "later", "title": "Published Benchmarks", "desc": "Peer review process — target 2027" }
+      ]
+    }
+  ]
+}
