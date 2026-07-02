@@ -8,163 +8,27 @@
 <meta property="og:title" content="PureNetX — Context Intelligence Layer">
 <meta property="og:description" content="Context Intelligence for On-Device Vision Systems. Understand what's happening. Make smarter decisions. Protect privacy.">
 <meta property="og:type" content="website">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 46'%3E%3Cpath d='M20 3L35 8.5V22C35 31 28.5 39 20 43C11.5 39 5 31 5 22V8.5L20 3Z' fill='%230A0E27' stroke='%23DC2626' stroke-width='2.5' stroke-linejoin='round'/%3E%3Crect x='11' y='19' width='18' height='8' rx='2' fill='white'/%3E%3C/svg%3E">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="stylesheet" href="styles.css">
-<style>
-/* ─── HOMEPAGE-SPECIFIC ─────────────────────────────── */
-.hero-xl { padding: 140px 0 100px; }
-.hero-xl .hero-notice {
-  display: inline-flex; align-items: center; gap: 8px;
-  font-size: 12px; font-weight: 600; letter-spacing: 1.2px;
-  text-transform: uppercase; color: var(--accent-light);
-  border: 1px solid rgba(220,38,38,0.25); background: rgba(220,38,38,0.06);
-  padding: 6px 14px; border-radius: 999px; margin-bottom: 32px;
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "PureNetX",
+  "url": "https://www.purenetx.com/",
+  "logo": "https://www.purenetx.com/favicon.svg",
+  "description": "Privacy-first, on-device Context Intelligence Layer for AI Vision Systems.",
+  "email": "purenetx.ai@gmail.com",
+  "founder": {"@type": "Person", "name": "Kaushik A.", "jobTitle": "Founder & CEO"},
+  "sameAs": ["https://linkedin.com/company/purenetx"]
 }
-.hero-xl h1 {
-  font-size: clamp(42px, 6.5vw, 88px); font-weight: 800;
-  letter-spacing: -0.03em; line-height: 1.0; color: var(--text);
-  margin-bottom: 24px; max-width: 920px;
-}
-.hero-xl h1 .accent { color: var(--accent); }
-.hero-xl .sub {
-  font-size: clamp(16px, 1.5vw, 19px); color: var(--text-muted);
-  max-width: 560px; line-height: 1.65; margin-bottom: 40px;
-}
-.hero-pills {
-  display: flex; flex-direction: column; gap: 10px;
-  margin-top: 48px; padding-top: 40px; border-top: 1px solid var(--border);
-  max-width: 600px;
-}
-.hero-pill { display: flex; align-items: center; gap: 12px; font-size: 14px; color: var(--text-muted); }
-.hero-pill strong { color: var(--text); }
-.stats-bar { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-.stats-bar-inner {
-  display: grid; grid-template-columns: repeat(3, 1fr);
-  max-width: 1100px; margin: 0 auto; padding: 0 24px;
-}
-.stat-item { padding: 32px 24px; text-align: center; border-right: 1px solid var(--border); }
-.stat-item:last-child { border-right: none; }
-.stat-num {
-  font-size: clamp(36px, 4vw, 52px); font-weight: 800;
-  letter-spacing: -0.03em; color: var(--accent); line-height: 1; margin-bottom: 6px;
-}
-.stat-label { font-size: 13px; color: var(--text-subtle); letter-spacing: 0.5px; }
-.statement-section { background: var(--bg-2); padding: 100px 24px; text-align: center; }
-.statement-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin-bottom: 24px; }
-.statement-line {
-  font-size: clamp(28px, 4.5vw, 60px); font-weight: 800;
-  letter-spacing: -0.02em; line-height: 1.1; color: var(--text);
-  max-width: 900px; margin: 0 auto 24px;
-}
-.statement-sub { font-size: 17px; color: var(--text-muted); max-width: 540px; margin: 0 auto 40px; line-height: 1.7; }
-.code-compare {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 0;
-  border: 1px solid rgba(0,0,0,0.1); border-radius: var(--radius-lg);
-  overflow: hidden; background: #1E293B;
-}
-.code-col { padding: 28px 32px; }
-.code-col:first-child { border-right: 1px solid rgba(255,255,255,0.08); background: rgba(239,68,68,0.06); }
-.code-col-label { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 20px; }
-.code-col:first-child .code-col-label { color: #F87171; }
-.code-col:last-child .code-col-label { color: #4ADE80; }
-.code-line { font-family: var(--mono); font-size: 13px; line-height: 2; color: #94A3B8; }
-.code-line .bad { color: #F87171; }
-.code-line .good { color: #4ADE80; }
-.code-line .key { color: #93C5FD; }
-.compare-hero { background: var(--bg); padding: 100px 24px; }
-.compare-hero-inner { max-width: 900px; margin: 0 auto; }
-.compare-split { display: grid; grid-template-columns: 1fr 48px 1fr; gap: 0; margin-top: 48px; }
-.compare-side { display: flex; flex-direction: column; gap: 12px; }
-.compare-side-header {
-  font-size: 12px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase;
-  padding: 10px 16px; border-radius: var(--radius); text-align: center;
-}
-.compare-side-header.bad { color: #F87171; background: rgba(239,68,68,0.08); border: 1px solid rgba(239,68,68,0.2); }
-.compare-side-header.good { color: #4ADE80; background: rgba(74,222,128,0.06); border: 1px solid rgba(74,222,128,0.15); }
-.compare-row-item {
-  padding: 14px 16px; border-radius: var(--radius); font-size: 14px;
-  line-height: 1.5; border: 1px solid transparent;
-}
-.compare-row-item.bad { background: #FEF2F2; border-color: rgba(220,38,38,0.12); color: var(--text-muted); }
-.compare-row-item.good { background: #F0FDF4; border-color: rgba(22,163,74,0.12); color: var(--text-muted); }
-.ctag {
-  display: inline-block; font-size: 11px; font-weight: 700;
-  padding: 2px 8px; border-radius: 999px; margin-bottom: 4px;
-}
-.compare-row-item.bad .ctag { background: rgba(239,68,68,0.15); color: #F87171; }
-.compare-row-item.good .ctag { background: rgba(74,222,128,0.12); color: #4ADE80; }
-.compare-divider-col {
-  display: flex; flex-direction: column; align-items: center; padding-top: 52px;
-}
-.compare-divider-col::before { content:''; display:block; width:1px; flex:1; background:var(--border-2); }
-.compare-vs { font-size: 11px; font-weight: 700; letter-spacing: 1px; color: var(--text-subtle); padding: 8px 0; }
-.compare-divider-col::after { content:''; display:block; width:1px; flex:1; background:var(--border-2); }
-.proto-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
-.proto-cell { background: #F1F5F9; border-radius: 16px; padding: 28px 28px 32px; transition: background 0.2s, transform 0.2s; }
-.proto-cell:hover { background: #E8EEF5; transform: translateY(-1px); }
-.proto-badge { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; padding: 4px 10px; border-radius: 999px; margin-bottom: 16px; }
-.proto-badge.done { background: rgba(21,128,61,0.1); color: #15803D; }
-.proto-badge.recruiting { background: rgba(180,83,9,0.1); color: #B45309; }
-.proto-cell h4 { font-size: 15px; margin-bottom: 8px; }
-.proto-cell p { font-size: 13px; color: var(--text-muted); line-height: 1.55; }
-.principles-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
-.principle-cell { background: #F1F5F9; border-radius: 16px; padding: 32px 24px; transition: background 0.2s, transform 0.2s; }
-.principle-cell:hover { background: #E8EEF5; transform: translateY(-1px); }
-.principle-icon { margin-bottom: 16px; }
-.principle-cell h4 { font-size: 14px; font-weight: 700; margin-bottom: 8px; }
-.principle-cell p { font-size: 13px; color: var(--text-muted); line-height: 1.55; }
-.founder-section { background: var(--bg-2); padding: 100px 24px; }
-.founder-inner { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: 200px 1fr; gap: 64px; align-items: center; }
-.founder-photo-wrap { text-align: center; }
-.founder-photo-wrap img { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 2px solid var(--border-2); margin-bottom: 16px; }
-.founder-name { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
-.founder-role { font-size: 12px; color: var(--accent-light); font-weight: 600; }
-.founder-quote { font-size: clamp(20px, 2.5vw, 30px); font-weight: 700; color: var(--text); line-height: 1.4; letter-spacing: -0.01em; }
-.founder-quote::before { content:'\201C'; font-size:2em; color:var(--accent); line-height:0; vertical-align:-0.3em; margin-right:4px; }
-.founder-quote::after { content:'\201D'; font-size:2em; color:var(--accent); line-height:0; vertical-align:-0.3em; margin-left:4px; }
-.founder-context { font-size: 14px; color: var(--text-muted); margin-top: 20px; line-height: 1.6; }
-.roadmap-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-.cta-section {
-  background: linear-gradient(135deg, rgba(220,38,38,0.06) 0%, #F8FAFC 60%);
-  border-top: 1px solid rgba(220,38,38,0.12);
-  padding: 100px 24px; text-align: center;
-}
-.cta-section h2 { font-size: clamp(32px, 4vw, 54px); font-weight: 800; letter-spacing: -0.02em; margin-bottom: 16px; }
-.cta-section > div > p { font-size: 17px; color: var(--text-muted); max-width: 480px; margin: 0 auto 40px; line-height: 1.7; }
-.cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-.cta-note { margin-top: 24px; font-size: 13px; color: var(--text-subtle); }
-.footer-social { display: flex; gap: 12px; margin-top: 12px; }
-.footer-social a {
-  display: flex; align-items: center; justify-content: center;
-  width: 32px; height: 32px; border-radius: 8px; border: 1px solid var(--border-2);
-  color: var(--text-subtle); transition: color 0.2s, border-color 0.2s; text-decoration: none;
-}
-.footer-social a:hover { color: var(--text); border-color: var(--text-subtle); }
-@media (max-width: 768px) {
-  .stats-bar-inner { grid-template-columns: 1fr; }
-  .stat-item { border-right: none; border-bottom: 1px solid var(--border); padding: 24px; }
-  .stat-item:last-child { border-bottom: none; }
-  .code-compare { grid-template-columns: 1fr; }
-  .code-col:first-child { border-right: none; border-bottom: 1px solid var(--border-2); }
-  .compare-split { grid-template-columns: 1fr; gap: 24px; }
-  .compare-divider-col { display: none; }
-  .principles-row { grid-template-columns: 1fr 1fr; }
-  .founder-inner { grid-template-columns: 1fr; gap: 32px; text-align: center; }
-  .roadmap-row { grid-template-columns: 1fr; }
-}
-@media (max-width: 480px) { .principles-row { grid-template-columns: 1fr; } }
-</style>
+</script>
 </head>
 <body>
 
-<nav>
+<nav id="nav">
   <div class="nav-inner">
-    <a href="index.html" class="nav-logo">
-      <div class="logo-icon">
-        <svg viewBox="0 0 40 46" fill="none"><path d="M20 2L36 8V22C36 32 29 40 20 44C11 40 4 32 4 22V8L20 2Z" stroke="white" stroke-width="2.5" fill="none"/><line x1="4" y1="16" x2="36" y2="16" stroke="white" stroke-width="1" opacity="0.35"/><line x1="4" y1="24" x2="36" y2="24" stroke="white" stroke-width="1" opacity="0.35"/><line x1="13" y1="8" x2="13" y2="42" stroke="white" stroke-width="1" opacity="0.35"/><line x1="20" y1="2" x2="20" y2="44" stroke="white" stroke-width="1" opacity="0.35"/><line x1="27" y1="8" x2="27" y2="42" stroke="white" stroke-width="1" opacity="0.35"/><rect x="11" y="19" width="18" height="8" rx="1.5" fill="white"/></svg>
-      </div>
-      <span>PureNet<span style="color:#DC2626">X</span></span>
-    </a>
+    <a href="index.html" class="nav-logo"><svg class="logo-svg" viewBox="0 0 100 116" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><clipPath id="shieldClip"><path d="M50 6 L90 19 V52 C90 84 73 101 50 110 C27 101 10 84 10 52 V19 Z"/></clipPath></defs><g clip-path="url(#shieldClip)" stroke="currentColor" stroke-width="4"><line x1="32" y1="6" x2="32" y2="110"/><line x1="50" y1="6" x2="50" y2="110"/><line x1="68" y1="6" x2="68" y2="110"/><line x1="10" y1="36" x2="90" y2="36"/><line x1="10" y1="60" x2="90" y2="60"/><line x1="10" y1="84" x2="90" y2="84"/></g><path d="M50 6 L90 19 V52 C90 84 73 101 50 110 C27 101 10 84 10 52 V19 Z" fill="none" stroke="currentColor" stroke-width="8" stroke-linejoin="round"/><rect x="20" y="42" width="60" height="20" rx="6" fill="currentColor"/></svg><span class="logo-word">Purenet<span class="logo-x">X</span></span></a>
     <ul class="nav-links">
       <li><a href="why-context.html">Why Context</a></li>
       <li><a href="technology.html">Technology</a></li>
@@ -175,10 +39,10 @@
       <li><a href="company.html">Company</a></li>
     </ul>
     <div class="nav-cta">
-      <a href="current-status.html" class="btn btn-secondary">Our Status</a>
-      <a href="contact.html" class="btn btn-primary">Request Demo</a>
+      <a href="current-status.html" class="btn btn-ghost">Our Status</a>
+      <a href="contact.html" class="btn btn-red">Request Demo</a>
     </div>
-    <button class="nav-menu-btn" id="menuBtn" onclick="toggleMenu()" aria-label="Open menu">&#9776;</button>
+    <button class="nav-menu-btn" id="menuBtn" aria-label="Menu">☰</button>
   </div>
 </nav>
 <div class="mobile-nav" id="mobileNav">
@@ -189,327 +53,240 @@
   <a href="current-status.html">Current Status</a>
   <a href="future-roadmap.html">Future Roadmap</a>
   <a href="company.html">Company</a>
-  <a href="contact.html" class="btn btn-primary">Request Demo</a>
+  <a href="contact.html" class="btn btn-red">Request Demo</a>
 </div>
 
 <div class="page">
 
-  <!-- HERO -->
-  <section class="hero hero-xl">
-    <div class="container">
-      <div class="hero-notice">
-        <svg width="8" height="8" viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="#DC2626"/></svg>
-        Phase 1 &nbsp;&middot;&nbsp; Context Intelligence Engine &nbsp;&middot;&nbsp; Prototype Available
-      </div>
-      <h1>Context Intelligence<br>for <span class="accent">On-Device</span><br>Vision Systems.</h1>
-      <p class="sub">Understand what&rsquo;s happening. Make smarter decisions. Protect privacy &mdash; without ever uploading an image.</p>
-      <div class="hero-btns">
-        <a href="current-status.html" class="btn btn-primary btn-lg">Explore Phase 1 →</a>
-        <a href="why-context.html" class="btn btn-secondary btn-lg">See How It Works</a>
-      </div>
-      <div class="hero-pills">
-        <div class="hero-pill">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent-light)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-          <span><strong>Context-aware scene understanding</strong> &mdash; not just pixel detection</span>
-        </div>
-        <div class="hero-pill">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent-light)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-          <span><strong>Relationship, intent &amp; consent analysis</strong> &mdash; on-device, zero uploads</span>
-        </div>
-        <div class="hero-pill">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent-light)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-          <span><strong>Real-world scenario validation</strong> &mdash; tested across diverse contexts</span>
-        </div>
-        <div class="hero-pill">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent-light)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-          <span><strong>Multi-signal ensemble detection</strong> &mdash; explainable policy decisions</span>
-        </div>
-      </div>
+<!-- HERO -->
+<header class="hero">
+  <div class="container">
+    <div class="hero-notice"><span class="pulse"></span>Phase 1 · Context Intelligence Engine · Prototype Available</div>
+    <h1>Context Intelligence for <span class="red" style="white-space:nowrap">On-Device</span> Vision Systems.</h1>
+    <p class="sub">Understand what's happening. Make smarter decisions. Protect privacy — without ever uploading an image.</p>
+    <div class="hero-btns">
+      <a href="current-status.html" class="btn btn-red btn-lg">Explore Phase 1 →</a>
+      <a href="why-context.html" class="btn btn-ghost btn-lg">See How It Works</a>
     </div>
-  </section>
-
-  <!-- STATEMENT -->
-  <section class="statement-section fade-up">
-    <div class="statement-eyebrow">The Core Problem</div>
-    <p class="statement-line">Cameras see pixels.<br>Ours understands meaning.</p>
-    <p class="statement-sub">Traditional AI moderation has no model of what is actually happening. It sees shapes. It triggers on patterns. It cannot tell a medical exam from a violation. Context intelligence changes that.</p>
-    <a href="why-context.html" class="btn btn-secondary">See why this matters &rarr;</a>
-  </section>
-
-  <!-- HOW IT WORKS -->
-  <section class="section">
-    <div class="container">
-      <div style="max-width:840px;margin:0 auto">
-        <div class="label" style="text-align:center">The Difference</div>
-        <h2 class="mb-12 text-center">Two Ways to Process a Camera Frame</h2>
-        <p class="mb-40 text-center" style="max-width:520px;margin-left:auto;margin-right:auto;color:var(--text-muted)">One looks at pixels. One understands what&rsquo;s happening. The outcome &mdash; and the user experience &mdash; are completely different.</p>
-        <div class="code-compare fade-up">
-          <div class="code-col">
-            <div class="code-col-label">Traditional Approach</div>
-            <div class="code-line">&rarr; Camera frame captured</div>
-            <div class="code-line">&rarr; <span class="key">pixel_scan</span>(frame)</div>
-            <div class="code-line">&rarr; skin_detected = <span class="bad">true</span></div>
-            <div class="code-line">&rarr; decision = <span class="bad">BLOCK</span></div>
-            <div class="code-line" style="margin-top:12px;opacity:0.4">// No scene understanding</div>
-            <div class="code-line" style="opacity:0.4">// No intent. No context.</div>
-          </div>
-          <div class="code-col">
-            <div class="code-col-label">PureNetX Approach</div>
-            <div class="code-line">&rarr; Camera frame captured</div>
-            <div class="code-line">&rarr; <span class="key">scene</span> = understand_context(frame)</div>
-            <div class="code-line">&rarr; <span class="key">intent</span> = assess_intent(scene)</div>
-            <div class="code-line">&rarr; <span class="key">risk</span> = score_risk(scene, intent)</div>
-            <div class="code-line">&rarr; decision = <span class="good">policy_decision(risk)</span></div>
-          </div>
-        </div>
-        <p class="text-center mt-24" style="font-size:14px;color:var(--text-subtle)">All processing happens on-device. Zero data transmitted.</p>
-      </div>
+    <div class="hero-feats">
+      <div class="hero-feat"><b>01</b><strong>Context-aware scene understanding</strong><span>Not just pixel detection</span></div>
+      <div class="hero-feat"><b>02</b><strong>Relationship, intent &amp; consent analysis</strong><span>On-device, zero uploads</span></div>
+      <div class="hero-feat"><b>03</b><strong>Real-world scenario validation</strong><span>Tested across diverse contexts</span></div>
+      <div class="hero-feat"><b>04</b><strong>Multi-signal ensemble detection</strong><span>Explainable policy decisions</span></div>
     </div>
-  </section>
+  </div>
+</header>
 
-  <!-- COMPARISON CENTREPIECE -->
-  <section class="compare-hero">
-    <div class="compare-hero-inner">
-      <div class="label" style="text-align:center">Context Intelligence in Action</div>
-      <h2 class="mb-12 text-center">Same Scene. Completely Different Decisions.</h2>
-      <p class="text-center" style="color:var(--text-muted);max-width:480px;margin-left:auto;margin-right:auto;margin-bottom:0">Five real scenarios. See exactly what breaks without context &mdash; and what becomes possible with it.</p>
-      <div class="compare-split fade-up">
-        <div class="compare-side">
-          <div class="compare-side-header bad">Without Context Intelligence</div>
-          <div class="compare-row-item bad">
-            <div class="ctag">BLOCKED</div><br>
-            <strong style="color:var(--text-muted)">Celebration moment</strong> &mdash; Skin contact detected, Proximity flagged
-          </div>
-          <div class="compare-row-item bad">
-            <div class="ctag">BLOCKED</div><br>
-            <strong style="color:var(--text-muted)">Medical exam</strong> &mdash; Nudity detected, flagged automatically
-          </div>
-          <div class="compare-row-item bad">
-            <div class="ctag">PASSED</div><br>
-            <strong style="color:var(--text-muted)">Secret recording</strong> &mdash; Low skin exposure, no trigger
-          </div>
-          <div class="compare-row-item bad">
-            <div class="ctag">BLOCKED</div><br>
-            <strong style="color:var(--text-muted)">Gym workout</strong> &mdash; Skin exposure threshold exceeded
-          </div>
-          <div class="compare-row-item bad">
-            <div class="ctag">PASSED</div><br>
-            <strong style="color:var(--text-muted)">Harassment</strong> &mdash; No skin detected, no block triggered
-          </div>
-        </div>
-        <div class="compare-divider-col">
-          <span class="compare-vs">vs</span>
-        </div>
-        <div class="compare-side">
-          <div class="compare-side-header good">With Context Intelligence</div>
-          <div class="compare-row-item good">
-            <div class="ctag">ALLOWED</div><br>
-            <strong style="color:var(--text-muted)">Celebration moment</strong> &mdash; Event context detected, celebratory intent recognized
-          </div>
-          <div class="compare-row-item good">
-            <div class="ctag">ALLOWED</div><br>
-            <strong style="color:var(--text-muted)">Medical exam</strong> &mdash; Clinical context confirmed, professional setting
-          </div>
-          <div class="compare-row-item good">
-            <div class="ctag">BLOCKED</div><br>
-            <strong style="color:var(--text-muted)">Secret recording</strong> &mdash; Non-consensual intent flagged, covert capture detected
-          </div>
-          <div class="compare-row-item good">
-            <div class="ctag">ALLOWED</div><br>
-            <strong style="color:var(--text-muted)">Gym workout</strong> &mdash; Fitness context confirmed, legitimate activity
-          </div>
-          <div class="compare-row-item good">
-            <div class="ctag">WARN</div><br>
-            <strong style="color:var(--text-muted)">Harassment</strong> &mdash; Risk factors detected, behaviour pattern flagged
-          </div>
-        </div>
-      </div>
-      <p class="text-center mt-32" style="font-size:14px;color:var(--text-subtle)">Same physical content. Different understanding. Better outcomes for everyone.</p>
-      <div class="text-center mt-16">
-        <a href="why-context.html" class="btn btn-secondary">Full context intelligence explainer &rarr;</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- WHAT WE HAVE TODAY -->
-  <section class="section" style="background:var(--bg-2)">
-    <div class="container">
-      <div class="label">Prototype Status</div>
-      <h2 class="mb-8">What We Have Today</h2>
-      <p class="mb-40" style="max-width:520px;color:var(--text-muted)">Core capabilities are built and validated. We&rsquo;re seeking design partners to test at scale.</p>
-      <div class="proto-grid fade-up">
-        <div class="proto-cell">
-          <div class="proto-badge done">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            Built
-          </div>
-          <h4>Context Intelligence Engine</h4>
-          <p>Generates contextual safety decisions. Understands what&rsquo;s happening &mdash; not just what&rsquo;s visible.</p>
-        </div>
-        <div class="proto-cell">
-          <div class="proto-badge done">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            Built
-          </div>
-          <h4>Initial Validation</h4>
-          <p>Prototype tested across diverse real-world scenarios. Performance metrics published after enterprise pilots.</p>
-        </div>
-        <div class="proto-cell">
-          <div class="proto-badge done">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            Built
-          </div>
-          <h4>Explainable Decisions</h4>
-          <p>Every decision includes transparent reasoning. You know why the system acted, not just that it did.</p>
-        </div>
-        <div class="proto-cell">
-          <div class="proto-badge done">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            Built
-          </div>
-          <h4>SDK Prototype</h4>
-          <p>Integration-ready prototype SDK available for evaluation by serious design partners.</p>
-        </div>
-        <div class="proto-cell">
-          <div class="proto-badge recruiting">Recruiting</div>
-          <h4>Design Partners</h4>
-          <p>Seeking enterprise platforms, robotics companies, and smart device makers for real-world validation.</p>
-          <a href="contact.html" class="btn btn-secondary mt-16" style="font-size:13px">Get in touch &rarr;</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PRINCIPLES -->
-  <section class="section">
-    <div class="container">
-      <div class="label" style="text-align:center">Our Approach</div>
-      <h2 class="mb-48 text-center">Four Principles. No Exceptions.</h2>
-      <div class="principles-row fade-up">
-        <div class="principle-cell">
-          <div class="principle-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent-light)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-          </div>
-          <h4>On-Device Processing</h4>
-          <p>No cloud required. No data transmission. Privacy by architecture, not policy.</p>
-        </div>
-        <div class="principle-cell">
-          <div class="principle-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent-light)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-          </div>
-          <h4>Transparent Reasoning</h4>
-          <p>We show you why we made each decision. Explainability is not optional.</p>
-        </div>
-        <div class="principle-cell">
-          <div class="principle-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent-light)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
-          </div>
-          <h4>Research-First</h4>
-          <p>Built on peer-reviewed principles. We validate before we publish numbers.</p>
-        </div>
-        <div class="principle-cell">
-          <div class="principle-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent-light)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          </div>
-          <h4>Honest About Stage</h4>
-          <p>We&rsquo;re early. We say so. Transparency builds better partnerships than hype.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOUNDER QUOTE -->
-  <section class="founder-section">
-    <div class="founder-inner fade-up">
-      <div class="founder-photo-wrap">
-        <img src="founder.jpg" alt="Kaushik A., Founder &amp; CEO of PureNetX">
-        <div class="founder-name">Kaushik A.</div>
-        <div class="founder-role">Founder &amp; CEO</div>
-      </div>
+<!-- PROBLEM -->
+<section class="section">
+  <div class="container">
+    <div class="problem reveal">
       <div>
-        <p class="founder-quote">We don&rsquo;t see what&rsquo;s in the image. We understand what it means.</p>
-        <p class="founder-context">Security research taught me how systems get exploited. I built PureNetX to close the most consequential gap &mdash; harmful visual content captured before anyone can stop it. The answer isn&rsquo;t better moderation. It&rsquo;s earlier interception, with full context.</p>
-        <a href="company.html" class="btn btn-secondary mt-24" style="font-size:13px">About the founder &rarr;</a>
+        <div class="label">The Core Problem</div>
+        <h2>Cameras see pixels.<br><span class="red">Ours understands meaning.</span></h2>
+        <p>Traditional AI moderation has no model of what is actually happening. It sees shapes. It triggers on patterns. It cannot tell a medical exam from a violation. Context intelligence changes that.</p>
+        <a href="why-context.html" class="link-arrow">See why this matters →</a>
+      </div>
+      <div class="problem-visual">
+        <div class="pv-line">
+          <span class="pv-dim">// what a traditional system sees</span><br>
+          <span class="pv-white">pixels[1920×1080]</span> <span class="pv-dim">→</span> <span class="pv-red">skin_detected</span><br><br>
+          <span class="pv-dim">// what PureNetX understands</span><br>
+          <span class="pv-white">scene:</span> clinical_setting<br>
+          <span class="pv-white">intent:</span> professional<br>
+          <span class="pv-white">consent:</span> established<br>
+          <span class="pv-white">decision:</span> <span class="pv-red">context_aware</span>
+        </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ROADMAP PREVIEW -->
-  <section class="section">
-    <div class="container">
+<!-- COMPARE -->
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="reveal">
+      <div class="label">The Difference</div>
+      <h2>Two Ways to Process a Camera Frame</h2>
+      <p style="max-width:640px;margin-top:16px">One looks at pixels. One understands what's happening. The outcome — and the user experience — are completely different.</p>
+    </div>
+    <div class="compare-grid reveal">
+      <div class="code-panel is-old">
+        <div class="code-head">Traditional Approach <span class="tag">pixel-based</span></div>
+        <div class="code-body">
+          → Camera frame captured<br>
+          → pixel_scan(frame)<br>
+          → skin_detected = <span class="c-red">true</span><br>
+          → decision = <span class="c-red">BLOCK</span><br>
+          <span class="c-com">// No scene understanding</span><br>
+          <span class="c-com">// No intent. No context.</span>
+        </div>
+        <div class="code-foot">Blind pattern-matching. Wrong in both directions.</div>
+      </div>
+      <div class="code-panel is-dark">
+        <div class="code-head">PureNetX Approach <span class="tag">context-aware</span></div>
+        <div class="code-body">
+          → Camera frame captured<br>
+          → scene = <span class="c-w">understand_context</span>(frame)<br>
+          → intent = <span class="c-w">assess_intent</span>(scene)<br>
+          → risk = <span class="c-w">score_risk</span>(scene, intent)<br>
+          → decision = <span class="c-red">policy_decision</span>(risk)
+        </div>
+        <div class="code-foot">All processing happens on-device. Zero data transmitted.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCENARIOS -->
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="reveal">
+      <div class="label">Context Intelligence in Action</div>
+      <h2>Same Scene. Completely Different Decisions.</h2>
+      <p style="max-width:640px;margin-top:16px">Five real scenarios. See exactly what breaks without context — and what becomes possible with it.</p>
+    </div>
+    <div class="scen-wrap reveal">
+      <div class="scen-col is-bad">
+        <div class="scen-title">Without Context Intelligence</div>
+        <div class="scen-list">
+          <div class="scen-item is-fail"><span class="chip chip-block">BLOCKED</span><div><strong>Celebration moment</strong><span>Skin contact detected, proximity flagged</span></div></div>
+          <div class="scen-item is-fail"><span class="chip chip-block">BLOCKED</span><div><strong>Medical exam</strong><span>Nudity detected, flagged automatically</span></div></div>
+          <div class="scen-item is-fail"><span class="chip chip-pass">PASSED</span><div><strong>Secret recording</strong><span>Low skin exposure, no trigger</span></div></div>
+          <div class="scen-item is-fail"><span class="chip chip-block">BLOCKED</span><div><strong>Gym workout</strong><span>Skin exposure threshold exceeded</span></div></div>
+          <div class="scen-item is-fail"><span class="chip chip-pass">PASSED</span><div><strong>Harassment</strong><span>No skin detected, no block triggered</span></div></div>
+        </div>
+      </div>
+      <div class="scen-vs">VS</div>
+      <div class="scen-col is-good">
+        <div class="scen-title">With Context Intelligence</div>
+        <div class="scen-list">
+          <div class="scen-item"><span class="chip chip-allow">ALLOWED</span><div><strong>Celebration moment</strong><span>Event context detected, celebratory intent recognized</span></div></div>
+          <div class="scen-item"><span class="chip chip-allow">ALLOWED</span><div><strong>Medical exam</strong><span>Clinical context confirmed, professional setting</span></div></div>
+          <div class="scen-item"><span class="chip chip-block">BLOCKED</span><div><strong>Secret recording</strong><span>Non-consensual intent flagged, covert capture detected</span></div></div>
+          <div class="scen-item"><span class="chip chip-allow">ALLOWED</span><div><strong>Gym workout</strong><span>Fitness context confirmed, legitimate activity</span></div></div>
+          <div class="scen-item"><span class="chip chip-warn">WARN</span><div><strong>Harassment</strong><span>Risk factors detected, behaviour pattern flagged</span></div></div>
+        </div>
+      </div>
+    </div>
+    <p class="scen-note reveal">Same physical content. Different understanding. <strong style="color:var(--ink)">Better outcomes for everyone.</strong> &nbsp;<a href="why-context.html" class="link-arrow">Full explainer →</a></p>
+  </div>
+</section>
+
+<!-- STATUS -->
+<section class="section" style="background:var(--panel);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="container">
+    <div class="reveal">
+      <div class="label">Prototype Status</div>
+      <h2>What We Have Today</h2>
+      <p style="max-width:640px;margin-top:16px">Core capabilities are built and validated. We're seeking design partners to test at scale.</p>
+    </div>
+    <div class="grid-3 reveal" style="margin-top:48px">
+      <div class="card" style="background:#fff"><span class="pill pill-built">Built</span><h4>Context Intelligence Engine</h4><p>Generates contextual safety decisions. Understands what's happening — not just what's visible.</p></div>
+      <div class="card" style="background:#fff"><span class="pill pill-built">Built</span><h4>Initial Validation</h4><p>Prototype tested across diverse real-world scenarios. Performance metrics published after enterprise pilots.</p></div>
+      <div class="card" style="background:#fff"><span class="pill pill-built">Built</span><h4>Explainable Decisions</h4><p>Every decision includes transparent reasoning. You know why the system acted, not just that it did.</p></div>
+      <div class="card" style="background:#fff"><span class="pill pill-built">Built</span><h4>SDK Prototype</h4><p>Integration-ready prototype SDK available for evaluation by serious design partners.</p></div>
+      <div class="card" style="background:#fff;border:1px solid rgba(220,38,38,0.3)"><span class="pill pill-open">Recruiting</span><h4>Design Partners</h4><p>Seeking enterprise platforms, robotics companies, and smart device makers for real-world validation.</p></div>
+      <div class="card" style="background:var(--ink);display:flex;flex-direction:column;justify-content:center;align-items:flex-start"><h4 style="color:#fff;margin-top:0">Think you're a fit?</h4><p style="color:#A3A3A3;margin-bottom:18px">We review applications weekly.</p><a href="contact.html" class="btn btn-red">Get in touch →</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRINCIPLES -->
+<section class="section">
+  <div class="container">
+    <div class="band reveal">
+      <div class="label">Our Approach</div>
+      <h2>Four Principles. No Exceptions.</h2>
+      <div class="prin-grid">
+        <div class="prin-item"><b>P.01</b><h4>On-Device Processing</h4><p>No cloud required. No data transmission. Privacy by architecture, not policy.</p></div>
+        <div class="prin-item"><b>P.02</b><h4>Transparent Reasoning</h4><p>We show you why we made each decision. Explainability is not optional.</p></div>
+        <div class="prin-item"><b>P.03</b><h4>Research-First</h4><p>Built on peer-reviewed principles. We validate before we publish numbers.</p></div>
+        <div class="prin-item"><b>P.04</b><h4>Honest About Stage</h4><p>We're early. We say so. Transparency builds better partnerships than hype.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOUNDER -->
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="founder reveal">
+      <img src="founder.jpg" alt="Kaushik A., Founder &amp; CEO of PureNetX" class="founder-img" onerror="this.src='https://www.purenetx.com/founder.jpg'">
+      <div>
+        <div class="founder-quote">We don't see what's in the image. We understand what it means.</div>
+        <p class="founder-body">Security research taught me how systems get exploited. I built PureNetX to close the most consequential gap — harmful visual content captured before anyone can stop it. The answer isn't better moderation. It's earlier interception, with full context.</p>
+        <div class="founder-meta"><span class="rule"></span><div><strong>Kaushik A.</strong> &nbsp;<span>Founder &amp; CEO</span></div></div>
+        <p style="margin-top:20px"><a href="company.html" class="link-arrow">About the founder →</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROADMAP -->
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="reveal">
       <div class="label">Roadmap Preview</div>
-      <h2 class="mb-48">From Prototype to Deployment</h2>
-      <div class="roadmap-row fade-up">
-        <div class="card" style="border-color:rgba(74,222,128,0.25)">
-          <div class="badge badge-green mb-16">Today</div>
-          <h4 class="mb-16">Prototype Validation</h4>
-          <div class="status-list">
-            <div class="status-item s-done"><div class="status-icon">&#10003;</div><div class="status-content"><span>Context intelligence engine</span></div></div>
-            <div class="status-item s-done"><div class="status-icon">&#10003;</div><div class="status-content"><span>Risk scoring system</span></div></div>
-            <div class="status-item s-done"><div class="status-icon">&#10003;</div><div class="status-content"><span>SDK prototype</span></div></div>
-            <div class="status-item s-done"><div class="status-icon">&#10003;</div><div class="status-content"><span>Initial validation</span></div></div>
-          </div>
-        </div>
-        <div class="card" style="border-color:rgba(245,124,0,0.25)">
-          <div class="badge badge-orange mb-16">2026&ndash;2027</div>
-          <h4 class="mb-16">Enterprise Pilots &amp; Research</h4>
-          <div class="status-list">
-            <div class="status-item s-progress"><div class="status-icon">&rarr;</div><div class="status-content"><span>Enterprise SDK</span></div></div>
-            <div class="status-item s-progress"><div class="status-icon">&rarr;</div><div class="status-content"><span>Design partner pilots</span></div></div>
-            <div class="status-item s-progress"><div class="status-icon">&rarr;</div><div class="status-content"><span>Research publication</span></div></div>
-            <div class="status-item s-progress"><div class="status-icon">&rarr;</div><div class="status-content"><span>Academic collaborations</span></div></div>
-          </div>
-        </div>
-        <div class="card" style="border-color:rgba(66,165,245,0.15)">
-          <div class="badge badge-blue mb-16">2028+</div>
-          <h4 class="mb-16">Broader Integration</h4>
-          <div class="status-list">
-            <div class="status-item s-future"><div class="status-icon">&#9671;</div><div class="status-content"><span>Mobile SDK (iOS/Android)</span></div></div>
-            <div class="status-item s-future"><div class="status-icon">&#9671;</div><div class="status-content"><span>OEM partnerships</span></div></div>
-            <div class="status-item s-future"><div class="status-icon">&#9671;</div><div class="status-content"><span>Platform integrations</span></div></div>
-          </div>
-        </div>
+      <h2>From Prototype to Deployment</h2>
+    </div>
+    <div class="road-grid reveal">
+      <div class="road-col is-now">
+        <div class="road-when">Today</div>
+        <h4>Prototype Validation</h4>
+        <div class="road-item done"><i>✓</i>Context intelligence engine</div>
+        <div class="road-item done"><i>✓</i>Risk scoring system</div>
+        <div class="road-item done"><i>✓</i>SDK prototype</div>
+        <div class="road-item done"><i>✓</i>Initial validation</div>
       </div>
-      <div class="flex gap-12 mt-32 flex-wrap">
-        <a href="current-status.html" class="btn btn-secondary">See Current Status &rarr;</a>
-        <a href="future-roadmap.html" class="btn btn-secondary">See Full Roadmap &rarr;</a>
+      <div class="road-col">
+        <div class="road-when">2026 – 2027</div>
+        <h4>Enterprise Pilots &amp; Research</h4>
+        <div class="road-item next"><i>→</i>Enterprise SDK</div>
+        <div class="road-item next"><i>→</i>Design partner pilots</div>
+        <div class="road-item next"><i>→</i>Research publication</div>
+        <div class="road-item next"><i>→</i>Academic collaborations</div>
+      </div>
+      <div class="road-col">
+        <div class="road-when">2028 +</div>
+        <h4>Broader Integration</h4>
+        <div class="road-item later"><i>◇</i>Mobile SDK (iOS / Android)</div>
+        <div class="road-item later"><i>◇</i>OEM partnerships</div>
+        <div class="road-item later"><i>◇</i>Platform integrations</div>
       </div>
     </div>
-  </section>
+    <p style="margin-top:28px"><a href="current-status.html" class="link-arrow">See Current Status →</a> &nbsp;&nbsp; <a href="future-roadmap.html" class="link-arrow">See Full Roadmap →</a></p>
+  </div>
+</section>
 
-  <!-- CTA -->
-  <section class="cta-section">
-    <div class="container" style="max-width:640px">
-      <div class="statement-eyebrow">Ready to See It?</div>
+<!-- CTA -->
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="cta reveal">
+      <div class="label" style="justify-content:center;width:100%">Ready to See It?</div>
       <h2>Request a Private Demo</h2>
-      <p>We review applications weekly. If your use case is a strong fit, you&rsquo;ll hear from us within 2 weeks.</p>
+      <p>We review applications weekly. If your use case is a strong fit, you'll hear from us within 2 weeks.</p>
       <div class="cta-btns">
-        <a href="contact.html" class="btn btn-primary btn-lg">Request Demo</a>
-        <a href="current-status.html" class="btn btn-secondary btn-lg">See Our Current Status</a>
+        <a href="contact.html" class="btn btn-red btn-lg">Request Demo</a>
+        <a href="current-status.html" class="btn btn-ghost btn-lg">See Our Current Status</a>
       </div>
-      <p class="cta-note">We&rsquo;re honest about where we are. No hype, no vaporware. See exactly what&rsquo;s built today.</p>
+      <div class="cta-note">We're honest about where we are. No hype, no vaporware. See exactly what's built today.</div>
     </div>
-  </section>
+  </div>
+</section>
 
 </div>
 
 <footer>
   <div class="footer-inner">
     <div>
-      <a href="index.html" class="footer-brand">
-        <svg width="20" height="23" viewBox="0 0 40 46" fill="none"><path d="M20 2L36 8V22C36 32 29 40 20 44C11 40 4 32 4 22V8L20 2Z" stroke="white" stroke-width="2.5" fill="none"/><line x1="4" y1="16" x2="36" y2="16" stroke="white" stroke-width="1" opacity="0.35"/><line x1="4" y1="24" x2="36" y2="24" stroke="white" stroke-width="1" opacity="0.35"/><line x1="13" y1="8" x2="13" y2="42" stroke="white" stroke-width="1" opacity="0.35"/><line x1="20" y1="2" x2="20" y2="44" stroke="white" stroke-width="1" opacity="0.35"/><line x1="27" y1="8" x2="27" y2="42" stroke="white" stroke-width="1" opacity="0.35"/><rect x="11" y="19" width="18" height="8" rx="1.5" fill="white"/></svg>
-        <span>PureNet<span style="color:#DC2626">X</span></span>
-      </a>
+      <a href="index.html" class="footer-brand"><svg class="logo-svg" viewBox="0 0 100 116" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><clipPath id="shieldClip"><path d="M50 6 L90 19 V52 C90 84 73 101 50 110 C27 101 10 84 10 52 V19 Z"/></clipPath></defs><g clip-path="url(#shieldClip)" stroke="currentColor" stroke-width="4"><line x1="32" y1="6" x2="32" y2="110"/><line x1="50" y1="6" x2="50" y2="110"/><line x1="68" y1="6" x2="68" y2="110"/><line x1="10" y1="36" x2="90" y2="36"/><line x1="10" y1="60" x2="90" y2="60"/><line x1="10" y1="84" x2="90" y2="84"/></g><path d="M50 6 L90 19 V52 C90 84 73 101 50 110 C27 101 10 84 10 52 V19 Z" fill="none" stroke="currentColor" stroke-width="8" stroke-linejoin="round"/><rect x="20" y="42" width="60" height="20" rx="6" fill="currentColor"/></svg><span class="logo-word">Purenet<span class="logo-x">X</span></span></a>
       <p class="footer-tagline">Privacy-first, on-device Context Intelligence Layer for AI Vision Systems.</p>
       <div class="footer-social">
-        <a href="https://linkedin.com/company/purenetx" target="_blank" rel="noopener" aria-label="PureNetX on LinkedIn">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-        </a>
-        <a href="mailto:purenetx.ai@gmail.com" aria-label="Email PureNetX">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        </a>
+        <a href="https://linkedin.com/company/purenetx" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:purenetx.ai@gmail.com">Email</a>
       </div>
-      <p class="footer-legal" style="margin-top:16px">&copy; 2026 PureNetX. All rights reserved. &nbsp;&middot;&nbsp; <a href="privacy-policy.html">Privacy Policy</a> &nbsp;&middot;&nbsp; <a href="terms.html">Terms of Service</a></p>
+      <div class="footer-legal">© 2026 PureNetX. All rights reserved. · <a href="privacy-policy.html">Privacy Policy</a> · <a href="terms.html">Terms of Service</a></div>
     </div>
     <div class="footer-links">
       <a href="why-context.html">Why Context</a>
@@ -523,9 +300,6 @@
   </div>
 </footer>
 
-<script>
-function toggleMenu(){var nav=document.getElementById('mobileNav');var btn=document.getElementById('menuBtn');var open=nav.classList.toggle('open');btn.textContent=open?'✕':'☰';btn.setAttribute('aria-label',open?'Close menu':'Open menu');}
-</script>
-<script src="animations.js"></script>
+<script src="main.js"></script>
 </body>
 </html>

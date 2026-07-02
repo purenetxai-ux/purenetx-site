@@ -1,0 +1,13 @@
+<svg viewBox="0 0 100 116" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .s{stroke:#0A0A0A}.f{fill:#0A0A0A}
+  @media (prefers-color-scheme:dark){.s{stroke:#FFFFFF}.f{fill:#FFFFFF}}
+</style>
+<defs><clipPath id="c"><path d="M50 6 L90 19 V52 C90 84 73 101 50 110 C27 101 10 84 10 52 V19 Z"/></clipPath></defs>
+<g clip-path="url(#c)" class="s" stroke-width="5">
+<line x1="32" y1="6" x2="32" y2="110"/><line x1="50" y1="6" x2="50" y2="110"/><line x1="68" y1="6" x2="68" y2="110"/>
+<line x1="10" y1="36" x2="90" y2="36"/><line x1="10" y1="60" x2="90" y2="60"/><line x1="10" y1="84" x2="90" y2="84"/>
+</g>
+<path d="M50 6 L90 19 V52 C90 84 73 101 50 110 C27 101 10 84 10 52 V19 Z" fill="none" class="s" stroke-width="9" stroke-linejoin="round"/>
+<rect x="20" y="42" width="60" height="20" rx="6" fill="#DC2626"/>
+</svg>

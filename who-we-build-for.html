@@ -5,19 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Who We Build For — PureNetX</title>
 <meta name="description" content="PureNetX serves AI camera platforms, video applications, robotics, and enterprise vision systems. Seeking design partners for 2026 pilots.">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 46'%3E%3Cpath d='M20 3L35 8.5V22C35 31 28.5 39 20 43C11.5 39 5 31 5 22V8.5L20 3Z' fill='%230A0E27' stroke='%23DC2626' stroke-width='2.5' stroke-linejoin='round'/%3E%3Crect x='11' y='19' width='18' height='8' rx='2' fill='white'/%3E%3C/svg%3E">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<nav>
+<nav id="nav">
   <div class="nav-inner">
-    <a href="index.html" class="nav-logo">
-      <div class="logo-icon">
-        <svg viewBox="0 0 40 46" fill="none"><path d="M20 2L36 8V22C36 32 29 40 20 44C11 40 4 32 4 22V8L20 2Z" stroke="white" stroke-width="2.5" fill="none"/><line x1="4" y1="16" x2="36" y2="16" stroke="white" stroke-width="1" opacity="0.35"/><line x1="4" y1="24" x2="36" y2="24" stroke="white" stroke-width="1" opacity="0.35"/><line x1="13" y1="8" x2="13" y2="42" stroke="white" stroke-width="1" opacity="0.35"/><line x1="20" y1="2" x2="20" y2="44" stroke="white" stroke-width="1" opacity="0.35"/><line x1="27" y1="8" x2="27" y2="42" stroke="white" stroke-width="1" opacity="0.35"/><rect x="11" y="19" width="18" height="8" rx="1.5" fill="white"/></svg>
-      </div>
-      <span>PureNet<span style="color:#DC2626">X</span></span>
-    </a>
+    <a href="index.html" class="nav-logo"><svg class="logo-svg" viewBox="0 0 100 116" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><clipPath id="shieldClip"><path d="M50 6 L90 19 V52 C90 84 73 101 50 110 C27 101 10 84 10 52 V19 Z"/></clipPath></defs><g clip-path="url(#shieldClip)" stroke="currentColor" stroke-width="4"><line x1="32" y1="6" x2="32" y2="110"/><line x1="50" y1="6" x2="50" y2="110"/><line x1="68" y1="6" x2="68" y2="110"/><line x1="10" y1="36" x2="90" y2="36"/><line x1="10" y1="60" x2="90" y2="60"/><line x1="10" y1="84" x2="90" y2="84"/></g><path d="M50 6 L90 19 V52 C90 84 73 101 50 110 C27 101 10 84 10 52 V19 Z" fill="none" stroke="currentColor" stroke-width="8" stroke-linejoin="round"/><rect x="20" y="42" width="60" height="20" rx="6" fill="currentColor"/></svg><span class="logo-word">Purenet<span class="logo-x">X</span></span></a>
     <ul class="nav-links">
       <li><a href="why-context.html">Why Context</a></li>
       <li><a href="technology.html">Technology</a></li>
@@ -28,174 +23,114 @@
       <li><a href="company.html">Company</a></li>
     </ul>
     <div class="nav-cta">
-      <a href="current-status.html" class="btn btn-secondary">Our Status</a>
-      <a href="contact.html" class="btn btn-primary">Request Demo</a>
+      <a href="current-status.html" class="btn btn-ghost">Our Status</a>
+      <a href="contact.html" class="btn btn-red">Request Demo</a>
     </div>
-    <button class="nav-menu-btn" id="menuBtn" onclick="toggleMenu()" aria-label="Open menu">☰</button>
+    <button class="nav-menu-btn" id="menuBtn" aria-label="Menu">☰</button>
   </div>
 </nav>
 <div class="mobile-nav" id="mobileNav">
-  <a href="why-context.html">Why Context Intelligence</a>
+  <a href="why-context.html">Why Context</a>
   <a href="technology.html">Technology</a>
   <a href="who-we-build-for.html">Who We Build For</a>
   <a href="research.html">Research</a>
   <a href="current-status.html">Current Status</a>
-  <a href="future-roadmap.html">Future Roadmap</a>
+  <a href="future-roadmap.html">Roadmap</a>
   <a href="company.html">Company</a>
-  <a href="contact.html" class="btn btn-primary">Request Demo</a>
+  <a href="contact.html" class="btn btn-red">Request Demo</a>
 </div>
 
 <div class="page">
 
-  <section class="page-header">
-    <div class="container">
-      <div class="label">Target Customers</div>
-      <h1>Who We Build For</h1>
-      <p>PureNetX is a B2B2C technology. We build for platforms, device makers, and enterprise systems — not directly for end users.</p>
-    </div>
-  </section>
+<header class="page-header">
+  <div class="container">
+    <div class="label">Target Customers</div>
+    <h1>Who We <span class="red">Build For</span></h1>
+    <p>PureNetX is a B2B2C technology. We build for platforms, device makers, and enterprise systems — not directly for end users.</p>
+  </div>
+</header>
 
-  <!-- CURRENT FOCUS -->
-  <section class="section">
-    <div class="container">
+<section class="section">
+  <div class="container">
+    <div class="reveal">
       <div class="label">Current Focus — 2026–2027</div>
-      <h2 class="mb-12">Design Partners We're Seeking Now</h2>
-      <p class="mb-48" style="max-width:580px">We're actively recruiting 2–3 enterprise design partners for real-world validation pilots in 2026. Contact us if your company fits one of these profiles.</p>
-
-      <div class="grid-2">
-        <div class="card">
-          <div class="badge badge-orange mb-16">Recruiting</div>
-          <h4 class="mb-12">AI Camera Platforms</h4>
-          <p style="font-size:14px">Smart camera systems that need intelligent content understanding built in. We provide the context intelligence SDK that integrates into your camera pipeline.</p>
-          <ul style="color:var(--text-muted);font-size:14px;padding-left:16px;margin-top:12px;display:flex;flex-direction:column;gap:6px">
-            <li>On-device safety layer integration</li>
-            <li>Context-aware moderation</li>
-            <li>No cloud dependency required</li>
-          </ul>
-        </div>
-        <div class="card">
-          <div class="badge badge-orange mb-16">Recruiting</div>
-          <h4 class="mb-12">Video Applications</h4>
-          <p style="font-size:14px">Video sharing platforms seeking better moderation outcomes. Context intelligence reduces false positives that drive creator churn.</p>
-          <ul style="color:var(--text-muted);font-size:14px;padding-left:16px;margin-top:12px;display:flex;flex-direction:column;gap:6px">
-            <li>Reduced false positive rate</li>
-            <li>Creator retention improvement</li>
-            <li>Explainable moderation decisions</li>
-          </ul>
-        </div>
-        <div class="card">
-          <div class="badge badge-orange mb-16">Recruiting</div>
-          <h4 class="mb-12">Robotics &amp; Smart Devices</h4>
-          <p style="font-size:14px">Autonomous systems and smart devices that need scene understanding for safety-critical decisions — not simple object detection.</p>
-          <ul style="color:var(--text-muted);font-size:14px;padding-left:16px;margin-top:12px;display:flex;flex-direction:column;gap:6px">
-            <li>Contextual scene understanding</li>
-            <li>Safety-critical decision support</li>
-            <li>On-device, no latency penalty from cloud</li>
-          </ul>
-        </div>
-        <div class="card">
-          <div class="badge badge-orange mb-16">Recruiting</div>
-          <h4 class="mb-12">Enterprise Vision Systems</h4>
-          <p style="font-size:14px">Internal security systems and enterprise camera deployments that need context-aware analysis for HR compliance, safety monitoring, and access management.</p>
-          <ul style="color:var(--text-muted);font-size:14px;padding-left:16px;margin-top:12px;display:flex;flex-direction:column;gap:6px">
-            <li>HR compliance context layer</li>
-            <li>Privacy-preserving by design</li>
-            <li>Audit-ready explainable decisions</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="card mt-32" style="border-color:rgba(76,175,80,0.3);background:rgba(46,125,50,0.04)">
-        <div class="flex justify-between items-center flex-wrap" style="gap:16px">
-          <div>
-            <h4 class="mb-8">Ready to Discuss a Pilot?</h4>
-            <p style="font-size:14px">Serious design partners receive a private demo within 2 weeks of application. We review applications weekly.</p>
-          </div>
-          <a href="contact.html" class="btn btn-primary">Become a Design Partner</a>
-        </div>
-      </div>
+      <h2>Design Partners We're Seeking Now</h2>
+      <p class="section-intro">We're actively recruiting 2–3 enterprise design partners for real-world validation pilots in 2026. Contact us if your company fits one of these profiles.</p>
     </div>
-  </section>
+    <div class="grid-2 reveal mt-48">
+      <div class="card"><span class="pill pill-open">Recruiting</span><h4>AI Camera Platforms</h4>
+        <p>Smart camera systems that need intelligent content understanding built in. We provide the context intelligence SDK that integrates into your camera pipeline.</p>
+        <ul><li>On-device safety layer integration</li><li>Context-aware moderation</li><li>No cloud dependency required</li></ul></div>
+      <div class="card"><span class="pill pill-open">Recruiting</span><h4>Video Applications</h4>
+        <p>Video sharing platforms seeking better moderation outcomes. Context intelligence reduces false positives that drive creator churn.</p>
+        <ul><li>Reduced false positive rate</li><li>Creator retention improvement</li><li>Explainable moderation decisions</li></ul></div>
+      <div class="card"><span class="pill pill-open">Recruiting</span><h4>Robotics &amp; Smart Devices</h4>
+        <p>Autonomous systems and smart devices that need scene understanding for safety-critical decisions — not simple object detection.</p>
+        <ul><li>Contextual scene understanding</li><li>Safety-critical decision support</li><li>On-device, no latency penalty from cloud</li></ul></div>
+      <div class="card"><span class="pill pill-open">Recruiting</span><h4>Enterprise Vision Systems</h4>
+        <p>Internal security systems and enterprise camera deployments that need context-aware analysis for HR compliance, safety monitoring, and access management.</p>
+        <ul><li>HR compliance context layer</li><li>Privacy-preserving by design</li><li>Audit-ready explainable decisions</li></ul></div>
+    </div>
+    <div class="band mt-48 reveal" style="text-align:center;padding:56px 32px">
+      <h2 style="font-size:clamp(22px,3vw,30px)">Ready to Discuss a Pilot?</h2>
+      <p style="max-width:520px;margin:14px auto 28px">Serious design partners receive a private demo within 2 weeks of application. We review applications weekly.</p>
+      <a href="contact.html" class="btn btn-red btn-lg">Become a Design Partner</a>
+    </div>
+  </div>
+</section>
 
-  <!-- FUTURE FOCUS -->
-  <section class="section" style="background:var(--bg-2)">
-    <div class="container">
+<section class="section panel-section">
+  <div class="container">
+    <div class="reveal">
       <div class="label">Future Focus — 2028+</div>
-      <h2 class="mb-12">Long-Term Target Markets</h2>
-      <p class="mb-48" style="max-width:580px">These markets represent our long-term research direction. They require mobile SDKs and OEM partnerships that are currently in planning phases.</p>
-
-      <div class="grid-2">
-        <div class="card" style="border-color:rgba(66,165,245,0.2);opacity:0.8">
-          <div class="badge badge-blue mb-16">Future — 2028+</div>
-          <h4 class="mb-12">OEM Camera Manufacturers</h4>
-          <p style="font-size:14px">Built-in context intelligence for Apple, Google, Samsung camera systems. On-device safety as a default hardware feature.</p>
-          <p style="font-size:13px;color:var(--text-subtle);margin-top:12px">Requires: Mobile SDK completion, OEM partnership discussions. Currently in strategic planning.</p>
-        </div>
-        <div class="card" style="border-color:rgba(66,165,245,0.2);opacity:0.8">
-          <div class="badge badge-blue mb-16">Future — 2028+</div>
-          <h4 class="mb-12">Mobile Platforms</h4>
-          <p style="font-size:14px">iOS and Android default camera app integration. Context intelligence as a platform safety standard.</p>
-          <p style="font-size:13px;color:var(--text-subtle);margin-top:12px">Requires: iOS/Android SDK development, platform partnership. Not currently available.</p>
-        </div>
-      </div>
-
-      <div class="banner banner-orange mt-32">
-        <div class="banner-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
-        <div>
-          <strong>These are research directions, not current capabilities.</strong>
-          <p>Mobile SDK and OEM integrations are not currently available. See our <a href="future-roadmap.html" style="color:inherit;text-decoration:underline">Future Roadmap</a> for realistic timelines.</p>
-        </div>
-      </div>
+      <h2>Long-Term Target Markets</h2>
+      <p class="section-intro">These markets represent our long-term research direction. They require mobile SDKs and OEM partnerships that are currently in planning phases.</p>
     </div>
-  </section>
+    <div class="grid-2 reveal mt-48">
+      <div class="card on-white"><span class="pill pill-dev">Future — 2028+</span><h4>OEM Camera Manufacturers</h4>
+        <p>Built-in context intelligence for Apple, Google, Samsung camera systems. On-device safety as a default hardware feature.</p>
+        <p class="mt-16" style="font-size:13px;color:var(--ink-subtle)">Requires: Mobile SDK completion, OEM partnership discussions. Currently in strategic planning.</p></div>
+      <div class="card on-white"><span class="pill pill-dev">Future — 2028+</span><h4>Mobile Platforms</h4>
+        <p>iOS and Android default camera app integration. Context intelligence as a platform safety standard.</p>
+        <p class="mt-16" style="font-size:13px;color:var(--ink-subtle)">Requires: iOS/Android SDK development, platform partnership. Not currently available.</p></div>
+    </div>
+    <div class="note mt-32 reveal">
+      <strong>These are research directions, not current capabilities.</strong>
+      <p>Mobile SDK and OEM integrations are not currently available. See our <a href="future-roadmap.html" style="color:var(--red)">Future Roadmap</a> for realistic timelines.</p>
+    </div>
+  </div>
+</section>
 
-  <!-- WHAT PARTNERS GET -->
-  <section class="section">
-    <div class="container">
+<section class="section">
+  <div class="container">
+    <div class="reveal">
       <div class="label">Design Partner Program</div>
-      <h2 class="mb-12">What Design Partners Receive</h2>
-      <p class="mb-48" style="max-width:560px">Design partnerships are structured collaborations — not simple SDK trials. We work closely with a small number of partners to validate and refine our approach.</p>
-
-      <div class="grid-3">
-        <div class="card card-sm">
-          <h4 class="mb-8">Private Demo</h4>
-          <p style="font-size:14px">Live demonstration of the prototype SDK against your specific use case. Scheduled within 2 weeks of application.</p>
-        </div>
-        <div class="card card-sm">
-          <h4 class="mb-8">SDK Evaluation Access</h4>
-          <p style="font-size:14px">Prototype SDK available for technical evaluation under NDA. Full integration support from our team.</p>
-        </div>
-        <div class="card card-sm">
-          <h4 class="mb-8">Pilot Design</h4>
-          <p style="font-size:14px">We co-design the pilot with you — success criteria, scenarios, fairness metrics. Your use case shapes our roadmap.</p>
-        </div>
-        <div class="card card-sm">
-          <h4 class="mb-8">Research Credit</h4>
-          <p style="font-size:14px">Design partners are credited in our published research. Your anonymized pilot data contributes to public benchmarks.</p>
-        </div>
-        <div class="card card-sm">
-          <h4 class="mb-8">Preferred Pricing</h4>
-          <p style="font-size:14px">Design partners receive preferred commercial terms when the enterprise SDK reaches production.</p>
-        </div>
-        <div class="card card-sm">
-          <h4 class="mb-8">Direct Access</h4>
-          <p style="font-size:14px">Direct line to founding team. We review feedback weekly and ship updates accordingly.</p>
-        </div>
-      </div>
+      <h2>What Design Partners Receive</h2>
+      <p class="section-intro">Design partnerships are structured collaborations — not simple SDK trials. We work closely with a small number of partners to validate and refine our approach.</p>
     </div>
-  </section>
+    <div class="grid-3 reveal mt-48">
+      <div class="card"><b class="mono red">01</b><h4>Private Demo</h4><p>Live demonstration of the prototype SDK against your specific use case. Scheduled within 2 weeks of application.</p></div>
+      <div class="card"><b class="mono red">02</b><h4>SDK Evaluation Access</h4><p>Prototype SDK available for technical evaluation under NDA. Full integration support from our team.</p></div>
+      <div class="card"><b class="mono red">03</b><h4>Pilot Design</h4><p>We co-design the pilot with you — success criteria, scenarios, fairness metrics. Your use case shapes our roadmap.</p></div>
+      <div class="card"><b class="mono red">04</b><h4>Research Credit</h4><p>Design partners are credited in our published research. Your anonymized pilot data contributes to public benchmarks.</p></div>
+      <div class="card"><b class="mono red">05</b><h4>Preferred Pricing</h4><p>Design partners receive preferred commercial terms when the enterprise SDK reaches production.</p></div>
+      <div class="card"><b class="mono red">06</b><h4>Direct Access</h4><p>Direct line to founding team. We review feedback weekly and ship updates accordingly.</p></div>
+    </div>
+  </div>
+</section>
 
 </div>
 
 <footer>
   <div class="footer-inner">
     <div>
-      <a href="index.html" class="footer-brand">
-        <svg width="20" height="23" viewBox="0 0 40 46" fill="none"><path d="M20 2L36 8V22C36 32 29 40 20 44C11 40 4 32 4 22V8L20 2Z" stroke="white" stroke-width="2.5" fill="none"/><line x1="4" y1="16" x2="36" y2="16" stroke="white" stroke-width="1" opacity="0.35"/><line x1="4" y1="24" x2="36" y2="24" stroke="white" stroke-width="1" opacity="0.35"/><line x1="13" y1="8" x2="13" y2="42" stroke="white" stroke-width="1" opacity="0.35"/><line x1="20" y1="2" x2="20" y2="44" stroke="white" stroke-width="1" opacity="0.35"/><line x1="27" y1="8" x2="27" y2="42" stroke="white" stroke-width="1" opacity="0.35"/><rect x="11" y="19" width="18" height="8" rx="1.5" fill="white"/></svg>
-        <span>PureNet<span style="color:#DC2626">X</span></span>
-      </a>
+      <a href="index.html" class="footer-brand"><svg class="logo-svg" viewBox="0 0 100 116" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><clipPath id="shieldClip"><path d="M50 6 L90 19 V52 C90 84 73 101 50 110 C27 101 10 84 10 52 V19 Z"/></clipPath></defs><g clip-path="url(#shieldClip)" stroke="currentColor" stroke-width="4"><line x1="32" y1="6" x2="32" y2="110"/><line x1="50" y1="6" x2="50" y2="110"/><line x1="68" y1="6" x2="68" y2="110"/><line x1="10" y1="36" x2="90" y2="36"/><line x1="10" y1="60" x2="90" y2="60"/><line x1="10" y1="84" x2="90" y2="84"/></g><path d="M50 6 L90 19 V52 C90 84 73 101 50 110 C27 101 10 84 10 52 V19 Z" fill="none" stroke="currentColor" stroke-width="8" stroke-linejoin="round"/><rect x="20" y="42" width="60" height="20" rx="6" fill="currentColor"/></svg><span class="logo-word">Purenet<span class="logo-x">X</span></span></a>
       <p class="footer-tagline">Privacy-first, on-device Context Intelligence Layer for AI Vision Systems.</p>
-      <p class="footer-legal">© 2026 PureNetX. All rights reserved. &nbsp;·&nbsp; <a href="privacy-policy.html">Privacy Policy</a> &nbsp;·&nbsp; <a href="terms.html">Terms of Service</a></p>
+      <div class="footer-social">
+        <a href="https://linkedin.com/company/purenetx" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:purenetx.ai@gmail.com">Email</a>
+      </div>
+      <div class="footer-legal">© 2026 PureNetX. All rights reserved. · <a href="privacy-policy.html">Privacy Policy</a> · <a href="terms.html">Terms of Service</a></div>
     </div>
     <div class="footer-links">
       <a href="why-context.html">Why Context</a>
@@ -209,8 +144,6 @@
   </div>
 </footer>
 
-<script src="animations.js"></script>
-<script>function toggleMenu(){var nav=document.getElementById('mobileNav');var btn=document.getElementById('menuBtn');var open=nav.classList.toggle('open');btn.textContent=open?'✕':'☰';btn.setAttribute('aria-label',open?'Close menu':'Open menu');}</script>
-<script src="animations.js"></script>
+<script src="main.js"></script>
 </body>
 </html>

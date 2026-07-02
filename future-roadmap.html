@@ -5,19 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Future Roadmap — PureNetX</title>
 <meta name="description" content="PureNetX long-term research roadmap: from prototype validation through enterprise pilots to OEM integration. Research directions, not current capabilities.">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 46'%3E%3Cpath d='M20 3L35 8.5V22C35 31 28.5 39 20 43C11.5 39 5 31 5 22V8.5L20 3Z' fill='%230A0E27' stroke='%23DC2626' stroke-width='2.5' stroke-linejoin='round'/%3E%3Crect x='11' y='19' width='18' height='8' rx='2' fill='white'/%3E%3C/svg%3E">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<nav>
+<nav id="nav">
   <div class="nav-inner">
-    <a href="index.html" class="nav-logo">
-      <div class="logo-icon">
-        <svg viewBox="0 0 40 46" fill="none"><path d="M20 2L36 8V22C36 32 29 40 20 44C11 40 4 32 4 22V8L20 2Z" stroke="white" stroke-width="2.5" fill="none"/><line x1="4" y1="16" x2="36" y2="16" stroke="white" stroke-width="1" opacity="0.35"/><line x1="4" y1="24" x2="36" y2="24" stroke="white" stroke-width="1" opacity="0.35"/><line x1="13" y1="8" x2="13" y2="42" stroke="white" stroke-width="1" opacity="0.35"/><line x1="20" y1="2" x2="20" y2="44" stroke="white" stroke-width="1" opacity="0.35"/><line x1="27" y1="8" x2="27" y2="42" stroke="white" stroke-width="1" opacity="0.35"/><rect x="11" y="19" width="18" height="8" rx="1.5" fill="white"/></svg>
-      </div>
-      <span>PureNet<span style="color:#DC2626">X</span></span>
-    </a>
+    <a href="index.html" class="nav-logo"><svg class="logo-svg" viewBox="0 0 100 116" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><clipPath id="shieldClip"><path d="M50 6 L90 19 V52 C90 84 73 101 50 110 C27 101 10 84 10 52 V19 Z"/></clipPath></defs><g clip-path="url(#shieldClip)" stroke="currentColor" stroke-width="4"><line x1="32" y1="6" x2="32" y2="110"/><line x1="50" y1="6" x2="50" y2="110"/><line x1="68" y1="6" x2="68" y2="110"/><line x1="10" y1="36" x2="90" y2="36"/><line x1="10" y1="60" x2="90" y2="60"/><line x1="10" y1="84" x2="90" y2="84"/></g><path d="M50 6 L90 19 V52 C90 84 73 101 50 110 C27 101 10 84 10 52 V19 Z" fill="none" stroke="currentColor" stroke-width="8" stroke-linejoin="round"/><rect x="20" y="42" width="60" height="20" rx="6" fill="currentColor"/></svg><span class="logo-word">Purenet<span class="logo-x">X</span></span></a>
     <ul class="nav-links">
       <li><a href="why-context.html">Why Context</a></li>
       <li><a href="technology.html">Technology</a></li>
@@ -28,304 +23,173 @@
       <li><a href="company.html">Company</a></li>
     </ul>
     <div class="nav-cta">
-      <a href="current-status.html" class="btn btn-secondary">Our Status</a>
-      <a href="contact.html" class="btn btn-primary">Request Demo</a>
+      <a href="current-status.html" class="btn btn-ghost">Our Status</a>
+      <a href="contact.html" class="btn btn-red">Request Demo</a>
     </div>
-    <button class="nav-menu-btn" id="menuBtn" onclick="toggleMenu()" aria-label="Open menu">☰</button>
+    <button class="nav-menu-btn" id="menuBtn" aria-label="Menu">☰</button>
   </div>
 </nav>
 <div class="mobile-nav" id="mobileNav">
-  <a href="why-context.html">Why Context Intelligence</a>
+  <a href="why-context.html">Why Context</a>
   <a href="technology.html">Technology</a>
   <a href="who-we-build-for.html">Who We Build For</a>
   <a href="research.html">Research</a>
   <a href="current-status.html">Current Status</a>
-  <a href="future-roadmap.html">Future Roadmap</a>
+  <a href="future-roadmap.html">Roadmap</a>
   <a href="company.html">Company</a>
-  <a href="contact.html" class="btn btn-primary">Request Demo</a>
+  <a href="contact.html" class="btn btn-red">Request Demo</a>
 </div>
 
 <div class="page">
 
-  <section class="page-header">
-    <div class="container">
-      <div class="label">Future Roadmap</div>
-      <h1>Where We're Going</h1>
-      <p>Our long-term research and product direction. Dates are aspirational targets, not commitments.</p>
-    </div>
-  </section>
+<header class="page-header">
+  <div class="container">
+    <div class="label">Future Roadmap</div>
+    <h1>Where We're <span class="red">Going</span></h1>
+    <p>Our long-term research and product direction. Dates are aspirational targets, not commitments.</p>
+  </div>
+</header>
 
-  <!-- CRITICAL DISCLAIMER -->
-  <section class="section-sm" style="background:var(--bg-2)">
-    <div class="container">
-      <div class="banner banner-orange" style="padding:24px 28px">
-        <div class="banner-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
-        <div>
-          <strong style="font-size:16px">Important Disclaimer</strong>
-          <p style="margin-top:8px">The technologies described on this page represent our long-term vision and research roadmap. They are <strong style="color:var(--orange-light)">NOT all available in today's prototype.</strong></p>
-          <p style="margin-top:8px">We are transparent about what we've built (see <a href="current-status.html" style="color:inherit;text-decoration:underline">Current Status</a>), what we're building (Phase 2 below), and what we're researching (Phase 3 below). Nothing on this page is a promise. These are research directions.</p>
+<section class="section" style="padding-bottom:0">
+  <div class="container">
+    <div class="note reveal">
+      <strong>Important Disclaimer</strong>
+      <p>The technologies described on this page represent our long-term vision and research roadmap. They are <strong>NOT all available in today's prototype.</strong> We are transparent about what we've built (see <a href="current-status.html" style="color:var(--red)">Current Status</a>), what we're building (Phase 2), and what we're researching (Phase 3). Nothing on this page is a promise. These are research directions.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="reveal">
+      <div class="phase-head mb-16"><span class="phase-num">Phase 1 — Completed</span></div>
+      <h2>Foundation</h2>
+      <p class="section-intro">What we've already built and validated. Available now for design partners.</p>
+    </div>
+    <div class="road-grid reveal" style="grid-template-columns:1fr">
+      <div class="road-col is-now">
+        <div class="road-when">Prototype — Available Now for Design Partners</div>
+        <div class="grid-3" style="gap:4px 32px;margin-top:8px">
+          <div class="road-item done"><i>✓</i>Context Intelligence Layer — core engine, validated</div>
+          <div class="road-item done"><i>✓</i>Risk Scoring System — multi-dimensional, validated</div>
+          <div class="road-item done"><i>✓</i>Explainable Decisions — reasoning output, validated</div>
+          <div class="road-item done"><i>✓</i>SDK Prototype — available for evaluation</div>
+          <div class="road-item done"><i>✓</i>Initial Validation — diverse scenario testing</div>
+          <div class="road-item done"><i>✓</i>Privacy Architecture — zero-transmission confirmed</div>
         </div>
+        <a href="contact.html" class="btn btn-red mt-24">Request Demo of Current Prototype</a>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- PHASE 1 -->
-  <section class="section">
-    <div class="container">
-      <div class="label">Phase 1 — Completed</div>
-      <h2 class="mb-12">Foundation</h2>
-      <p class="mb-32" style="max-width:580px">What we've already built and validated. Available now for design partners.</p>
+<section class="section panel-section">
+  <div class="container">
+    <div class="reveal">
+      <div class="phase-head mb-16"><span class="phase-num">Phase 2 — In Development</span></div>
+      <h2>Scale · 2026–2027</h2>
+      <p class="section-intro">What we're actively building. Timelines are targets, not guarantees.</p>
+    </div>
+    <div class="grid-3 reveal mt-48">
+      <div class="card on-white"><span class="pill pill-dev">Q3–Q4 2026</span><h4>Enterprise SDK</h4><p>Production-grade SDK for enterprise platform integration. Supports direct embedding into camera pipelines, video processing systems, and security platforms.</p></div>
+      <div class="card on-white"><span class="pill pill-dev">Architecture design</span><h4>Live Video Processing</h4><p>Real-time video stream analysis for camera system integration. Extends the prototype to continuous video with consistent context tracking across frames.</p></div>
+      <div class="card on-white"><span class="pill pill-dev">Q1–Q2 2027</span><h4>Mobile SDKs (iOS &amp; Android)</h4><p>Native implementations enabling integration directly into mobile camera apps and consumer platforms. Required for the long-term OEM vision.</p></div>
+      <div class="card on-white"><span class="pill pill-dev">Q2 2027</span><h4>Edge AI Optimization</h4><p>Model compression and optimization for lower-power edge devices — IoT cameras, embedded systems, entry-level smartphones.</p></div>
+      <div class="card on-white" style="border:1px solid rgba(220,38,38,0.3)"><span class="pill pill-open">Recruiting now</span><h4>Design Partner Pilots</h4><p>Real-world validation with 2–3 enterprise design partners. Partners receive prototype SDK access, co-design sessions, and research credit.</p></div>
+      <div class="card is-dark"><h4 style="margin-top:0">Want in on Phase 2?</h4><p style="margin-bottom:18px">Pilot slots are limited to 2–3 partners.</p><a href="contact.html" class="btn btn-red">Apply to be a design partner →</a></div>
+    </div>
+  </div>
+</section>
 
-      <div class="card" style="border-color:rgba(76,175,80,0.4);background:rgba(46,125,50,0.04)">
-        <div class="flex justify-between items-center mb-20 flex-wrap" style="gap:12px">
-          <h4>Prototype — Available Now for Design Partners</h4>
-          <div class="badge badge-green">Status: AVAILABLE NOW</div>
-        </div>
-        <div class="grid-2">
-          <div class="status-list">
-            <div class="status-item s-done"><div class="status-icon">✓</div><div class="status-content"><strong>Context Intelligence Layer</strong><span>Core engine — validated</span></div></div>
-            <div class="status-item s-done"><div class="status-icon">✓</div><div class="status-content"><strong>Risk Scoring System</strong><span>Multi-dimensional assessment — validated</span></div></div>
-            <div class="status-item s-done"><div class="status-icon">✓</div><div class="status-content"><strong>Explainable Decisions</strong><span>Reasoning output — validated</span></div></div>
-          </div>
-          <div class="status-list">
-            <div class="status-item s-done"><div class="status-icon">✓</div><div class="status-content"><strong>SDK Prototype</strong><span>Available for evaluation</span></div></div>
-            <div class="status-item s-done"><div class="status-icon">✓</div><div class="status-content"><strong>Initial Validation</strong><span>Diverse scenario testing complete</span></div></div>
-            <div class="status-item s-done"><div class="status-icon">✓</div><div class="status-content"><strong>Privacy Architecture</strong><span>Zero-transmission design confirmed</span></div></div>
-          </div>
-        </div>
-        <a href="contact.html" class="btn btn-primary mt-20" style="font-size:13px">Request Demo of Current Prototype</a>
+<section class="section">
+  <div class="container">
+    <div class="reveal">
+      <div class="phase-head mb-16"><span class="phase-num">Phase 3 — Research Direction</span></div>
+      <h2>Integration · 2028+</h2>
+      <p class="section-intro">Long-term research vision. These represent where the technology needs to go — not what it does today. No OEM partnerships currently exist.</p>
+    </div>
+    <div class="grid-2 reveal mt-48">
+      <div class="card"><span class="pill pill-dev">Research phase</span><h4>Camera System Integration</h4><p>Integrate the Context Intelligence Layer into live camera workflows, enabling privacy-preserving safety decisions before capture occurs. Requires camera API partnerships with device manufacturers.</p></div>
+      <div class="card"><span class="pill pill-dev">Partnership discussions</span><h4>Camera-Level OS Integration</h4><p>Integration into iOS, Android, and Samsung camera apps as a default safety layer. Requires deep OEM and platform partnerships that do not yet exist.</p></div>
+      <div class="card"><span class="pill pill-dev">Designing</span><h4>Policy Engine</h4><p>Customizable decision policies allowing platform operators to define their own safety thresholds and responses: Allow, Warn, Blur, Block, Escalate.</p></div>
+      <div class="card"><span class="pill pill-dev">Strategic planning</span><h4>OEM Partnerships</h4><p>Integration into device cameras at the hardware level. Over two billion devices ship with cameras annually — the long-term TAM, not the near-term go-to-market.</p></div>
+    </div>
+    <div class="code-panel is-dark mt-32 reveal">
+      <div class="code-head">Long-term vision — policy output <span class="tag">research direction</span></div>
+      <div class="code-body">
+        <span class="c-red">ALLOW</span> &nbsp;→ Safe, consensual, in-context<br>
+        <span class="c-red">WARN</span> &nbsp;&nbsp;→ Risky — inform user<br>
+        <span class="c-red">BLUR</span> &nbsp;&nbsp;→ Reduce visibility<br>
+        <span class="c-red">BLOCK</span> &nbsp;→ Harmful content<br>
+        <span class="c-red">ESCALATE</span> → Report to platform trust &amp; safety<br><br>
+        <span class="c-com">// Today, the CIL operates as a standalone decision engine.</span><br>
+        <span class="c-com">// Direct camera integration is our research direction.</span>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- PHASE 2 -->
-  <section class="section" style="background:var(--bg-2)">
-    <div class="container">
-      <div class="label">Phase 2 — In Development</div>
-      <h2 class="mb-12">Scale <span style="color:var(--text-subtle);font-size:22px;font-weight:400">&nbsp;2026–2027</span></h2>
-      <p class="mb-32" style="max-width:580px">What we're actively building. Timelines are targets, not guarantees.</p>
-
-      <div style="display:flex;flex-direction:column;gap:16px">
-
-        <div class="card">
-          <div class="flex justify-between items-start flex-wrap" style="gap:12px;margin-bottom:12px">
-            <div>
-              <h4>Enterprise SDK</h4>
-              <p style="font-size:13px;color:var(--text-subtle);margin-top:4px">Target: Q3–Q4 2026</p>
-            </div>
-            <div class="badge badge-orange">Development phase</div>
-          </div>
-          <p style="font-size:14px">Production-grade SDK for enterprise platform integration. Supports direct embedding into camera pipelines, video processing systems, and security platforms.</p>
-        </div>
-
-        <div class="card">
-          <div class="flex justify-between items-start flex-wrap" style="gap:12px;margin-bottom:12px">
-            <div>
-              <h4>Live Video Processing</h4>
-              <p style="font-size:13px;color:var(--text-subtle);margin-top:4px">Next phase — timeline to be determined</p>
-            </div>
-            <div class="badge badge-orange">Architecture being designed</div>
-          </div>
-          <p style="font-size:14px">Real-time video stream analysis for integration with camera systems. Extends the current prototype to continuous video analysis with consistent context tracking across frames.</p>
-        </div>
-
-        <div class="card">
-          <div class="flex justify-between items-start flex-wrap" style="gap:12px;margin-bottom:12px">
-            <div>
-              <h4>Mobile SDKs (iOS &amp; Android)</h4>
-              <p style="font-size:13px;color:var(--text-subtle);margin-top:4px">Target: Q1–Q2 2027</p>
-            </div>
-            <div class="badge badge-orange">Architecture planning</div>
-          </div>
-          <p style="font-size:14px">Native iOS and Android implementations enabling integration directly into mobile camera apps and consumer platforms. Required for the long-term OEM vision.</p>
-        </div>
-
-        <div class="card">
-          <div class="flex justify-between items-start flex-wrap" style="gap:12px;margin-bottom:12px">
-            <div>
-              <h4>Edge AI Optimization</h4>
-              <p style="font-size:13px;color:var(--text-subtle);margin-top:4px">Target: Q2 2027</p>
-            </div>
-            <div class="badge badge-orange">Research phase</div>
-          </div>
-          <p style="font-size:14px">Model compression and optimization for lower-power edge devices — IoT cameras, embedded systems, and entry-level smartphones where compute is constrained.</p>
-        </div>
-
-        <div class="card">
-          <div class="flex justify-between items-start flex-wrap" style="gap:12px;margin-bottom:12px">
-            <div>
-              <h4>Design Partner Pilots</h4>
-              <p style="font-size:13px;color:var(--text-subtle);margin-top:4px">Target: Q3–Q4 2026</p>
-            </div>
-            <div class="badge badge-green">Recruiting now</div>
-          </div>
-          <p style="font-size:14px">Real-world validation with 2–3 enterprise design partners. Partners receive prototype SDK access, co-design sessions, and research credit in our publications.</p>
-          <a href="contact.html" class="btn btn-secondary mt-12" style="font-size:13px">Apply to be a design partner →</a>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- PHASE 3 -->
-  <section class="section">
-    <div class="container">
-      <div class="label">Phase 3 — Research Direction</div>
-      <h2 class="mb-12">Integration <span style="color:var(--text-subtle);font-size:22px;font-weight:400">&nbsp;2028+</span></h2>
-      <p class="mb-12" style="max-width:580px">Long-term research vision. These represent where the technology needs to go — not what it does today.</p>
-      <div class="banner banner-orange mb-32" style="padding:12px 16px">
-        <div class="banner-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
-        <p style="font-size:13px">These technologies are in research phase. Dates are aspirational. No OEM partnerships currently exist.</p>
-      </div>
-
-      <div style="display:flex;flex-direction:column;gap:16px">
-
-        <div class="card" style="opacity:0.85">
-          <div class="flex justify-between items-start flex-wrap" style="gap:12px;margin-bottom:12px">
-            <div>
-              <h4>Camera System Integration</h4>
-              <p style="font-size:13px;color:var(--text-subtle);margin-top:4px">Long-term research direction</p>
-            </div>
-            <div class="badge badge-blue">Research phase</div>
-          </div>
-          <p style="font-size:14px">Integrate the Context Intelligence Layer into live camera workflows, enabling privacy-preserving safety decisions before capture occurs. This requires camera API partnerships with device manufacturers — a non-trivial engineering and partnership challenge.</p>
-        </div>
-
-        <div class="card" style="opacity:0.85">
-          <div class="flex justify-between items-start flex-wrap" style="gap:12px;margin-bottom:12px">
-            <div>
-              <h4>Camera-Level OS Integration</h4>
-              <p style="font-size:13px;color:var(--text-subtle);margin-top:4px">Long-term research direction</p>
-            </div>
-            <div class="badge badge-blue">Partnership discussions</div>
-          </div>
-          <p style="font-size:14px">Integration into iOS, Android, and Samsung camera apps as a default safety layer. Context intelligence as a platform-level standard. Requires deep OEM and platform partnerships that do not yet exist.</p>
-        </div>
-
-        <div class="card" style="opacity:0.85">
-          <div class="flex justify-between items-start flex-wrap" style="gap:12px;margin-bottom:12px">
-            <div>
-              <h4>Policy Engine</h4>
-              <p style="font-size:13px;color:var(--text-subtle);margin-top:4px">Long-term research direction</p>
-            </div>
-            <div class="badge badge-blue">Designing</div>
-          </div>
-          <p style="font-size:14px">Customizable decision policies allowing platform operators to define their own safety thresholds and responses: Allow, Warn, Blur, Block, Escalate. Different platforms have different safety needs.</p>
-          <div class="code-block mt-16" style="font-size:12px">
-            <span class="comment">// Long-term vision — policy output</span><br>
-            ALLOW &nbsp;&nbsp;&nbsp;→ Safe, consensual, in-context<br>
-            WARN &nbsp;&nbsp;&nbsp;&nbsp;→ Risky — inform user<br>
-            BLUR &nbsp;&nbsp;&nbsp;&nbsp;→ Reduce visibility<br>
-            BLOCK &nbsp;&nbsp;&nbsp;→ Harmful content<br>
-            ESCALATE → Report to platform trust &amp; safety<br><br>
-            <span class="comment">// Note: This represents our long-term vision for integrating</span><br>
-            <span class="comment">// Context Intelligence directly into camera workflows.</span><br>
-            <span class="comment">// Today, the CIL operates as a standalone decision engine.</span><br>
-            <span class="comment">// Direct camera integration is our research direction.</span>
-          </div>
-        </div>
-
-        <div class="card" style="opacity:0.85">
-          <div class="flex justify-between items-start flex-wrap" style="gap:12px;margin-bottom:12px">
-            <div>
-              <h4>OEM Partnerships</h4>
-              <p style="font-size:13px;color:var(--text-subtle);margin-top:4px">Strategic direction — long-term</p>
-            </div>
-            <div class="badge badge-blue">Strategic planning</div>
-          </div>
-          <p style="font-size:14px">Integration into device cameras at the hardware level. Over two billion devices ship with cameras annually — reaching that installed base requires deep OEM partnership. This is the long-term TAM, not the near-term go-to-market.</p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- RESEARCH AREAS -->
-  <section class="section" style="background:var(--bg-2)">
-    <div class="container">
+<section class="section panel-section">
+  <div class="container">
+    <div class="reveal">
       <div class="label">Research Areas</div>
-      <h2 class="mb-12">What Pre-Capture Integration Requires</h2>
-      <p class="mb-12" style="max-width:620px">To achieve our long-term vision of integrating Context Intelligence directly into camera workflows, we are investigating a set of non-trivial research and engineering challenges.</p>
-      <div class="banner banner-orange mb-32">
-        <div class="banner-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg></div>
-        <p style="font-size:13px">None of these capabilities exist in today's prototype. Each represents a distinct research and partnership challenge requiring close collaboration with device manufacturers.</p>
-      </div>
-      <div class="grid-3">
-        <div class="card card-sm">
-          <div class="badge badge-blue mb-12">Research</div>
-          <h4 class="mb-8">Live Camera Stream Integration</h4>
-          <p style="font-size:14px">Connecting the Context Intelligence Layer to real-time camera preview streams without impacting device performance.</p>
-        </div>
-        <div class="card card-sm">
-          <div class="badge badge-blue mb-12">Research</div>
-          <h4 class="mb-8">Edge AI Optimization</h4>
-          <p style="font-size:14px">Model compression for real-time inference on constrained mobile and embedded hardware without cloud dependency.</p>
-        </div>
-        <div class="card card-sm">
-          <div class="badge badge-blue mb-12">Research</div>
-          <h4 class="mb-8">Camera HAL Integration</h4>
-          <p style="font-size:14px">Hardware Abstraction Layer integration — requires direct collaboration with device manufacturers and OS vendors.</p>
-        </div>
-        <div class="card card-sm">
-          <div class="badge badge-blue mb-12">Research</div>
-          <h4 class="mb-8">iOS / Android Camera API</h4>
-          <p style="font-size:14px">Working within Apple and Google's camera API constraints to embed decision logic at the capture layer.</p>
-        </div>
-        <div class="card card-sm">
-          <div class="badge badge-blue mb-12">Research</div>
-          <h4 class="mb-8">Shutter Interception</h4>
-          <p style="font-size:14px">Mechanisms to act on contextual safety decisions before image capture completes — platform-level access required.</p>
-        </div>
-        <div class="card card-sm">
-          <div class="badge badge-blue mb-12">Research</div>
-          <h4 class="mb-8">OEM Camera Partnerships</h4>
-          <p style="font-size:14px">Direct integration with Samsung, Apple, Google camera systems requires formal OEM partnership agreements.</p>
-        </div>
-      </div>
+      <h2>What Pre-Capture Integration Requires</h2>
+      <p class="section-intro">None of these capabilities exist in today's prototype. Each represents a distinct research and partnership challenge requiring close collaboration with device manufacturers.</p>
     </div>
-  </section>
+    <div class="grid-3 reveal mt-48">
+      <div class="card on-white"><span class="pill pill-dev">Research</span><h4>Live Camera Stream Integration</h4><p>Connecting the Context Intelligence Layer to real-time camera preview streams without impacting device performance.</p></div>
+      <div class="card on-white"><span class="pill pill-dev">Research</span><h4>Edge AI Optimization</h4><p>Model compression for real-time inference on constrained mobile and embedded hardware without cloud dependency.</p></div>
+      <div class="card on-white"><span class="pill pill-dev">Research</span><h4>Camera HAL Integration</h4><p>Hardware Abstraction Layer integration — requires direct collaboration with device manufacturers and OS vendors.</p></div>
+      <div class="card on-white"><span class="pill pill-dev">Research</span><h4>iOS / Android Camera API</h4><p>Working within Apple and Google's camera API constraints to embed decision logic at the capture layer.</p></div>
+      <div class="card on-white"><span class="pill pill-dev">Research</span><h4>Shutter Interception</h4><p>Mechanisms to act on contextual safety decisions before image capture completes — platform-level access required.</p></div>
+      <div class="card on-white"><span class="pill pill-dev">Research</span><h4>OEM Camera Partnerships</h4><p>Direct integration with Samsung, Apple, Google camera systems requires formal OEM partnership agreements.</p></div>
+    </div>
+  </div>
+</section>
 
-  <!-- TIMELINE SUMMARY -->
-  <section class="section" style="background:var(--bg-2)">
-    <div class="container">
+<section class="section">
+  <div class="container">
+    <div class="reveal">
       <div class="label">Summary</div>
-      <h2 class="mb-48">Timeline at a Glance</h2>
-      <div class="timeline">
-        <div class="timeline-item done">
-          <div class="timeline-label">Now — July 2026</div>
-          <div class="timeline-title">Prototype Validation</div>
-          <div class="timeline-desc">Context intelligence engine, risk scoring, explainable decisions, SDK prototype. Available for design partner evaluation.</div>
-        </div>
-        <div class="timeline-item progress">
-          <div class="timeline-label">Phase 2 — Next</div>
-          <div class="timeline-title">Enterprise SDK &amp; Design Partner Pilots</div>
-          <div class="timeline-desc">Production SDK development, first enterprise pilots, live video architecture, dataset collection, research preparation.</div>
-        </div>
-        <div class="timeline-item progress">
-          <div class="timeline-label">Phase 2 — Scale</div>
-          <div class="timeline-title">Mobile SDKs &amp; Research Publication</div>
-          <div class="timeline-desc">iOS/Android native SDKs, edge optimization, peer-reviewed benchmark publication, academic partnerships.</div>
-        </div>
-        <div class="timeline-item future">
-          <div class="timeline-label">Phase 3 — Long-Term Research</div>
-          <div class="timeline-title">Camera System Integration &amp; OEM</div>
-          <div class="timeline-desc">Camera API integration, OEM partnerships, policy engine, direct pre-capture integration. Requires device manufacturer collaboration.</div>
-        </div>
+      <h2>Timeline at a Glance</h2>
+    </div>
+    <div class="timeline reveal">
+      <div class="timeline-item done">
+        <div class="timeline-label">Now — July 2026</div>
+        <div class="timeline-title">Prototype Validation</div>
+        <div class="timeline-desc">Context intelligence engine, risk scoring, explainable decisions, SDK prototype. Available for design partner evaluation.</div>
+      </div>
+      <div class="timeline-item progress">
+        <div class="timeline-label">Phase 2 — Next</div>
+        <div class="timeline-title">Enterprise SDK &amp; Design Partner Pilots</div>
+        <div class="timeline-desc">Production SDK development, first enterprise pilots, live video architecture, dataset collection, research preparation.</div>
+      </div>
+      <div class="timeline-item progress">
+        <div class="timeline-label">Phase 2 — Scale</div>
+        <div class="timeline-title">Mobile SDKs &amp; Research Publication</div>
+        <div class="timeline-desc">iOS/Android native SDKs, edge optimization, peer-reviewed benchmark publication, academic partnerships.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-label">Phase 3 — Long-Term Research</div>
+        <div class="timeline-title">Camera System Integration &amp; OEM</div>
+        <div class="timeline-desc">Camera API integration, OEM partnerships, policy engine, direct pre-capture integration. Requires device manufacturer collaboration.</div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
 </div>
 
 <footer>
   <div class="footer-inner">
     <div>
-      <a href="index.html" class="footer-brand">
-        <svg width="20" height="23" viewBox="0 0 40 46" fill="none"><path d="M20 2L36 8V22C36 32 29 40 20 44C11 40 4 32 4 22V8L20 2Z" stroke="white" stroke-width="2.5" fill="none"/><line x1="4" y1="16" x2="36" y2="16" stroke="white" stroke-width="1" opacity="0.35"/><line x1="4" y1="24" x2="36" y2="24" stroke="white" stroke-width="1" opacity="0.35"/><line x1="13" y1="8" x2="13" y2="42" stroke="white" stroke-width="1" opacity="0.35"/><line x1="20" y1="2" x2="20" y2="44" stroke="white" stroke-width="1" opacity="0.35"/><line x1="27" y1="8" x2="27" y2="42" stroke="white" stroke-width="1" opacity="0.35"/><rect x="11" y="19" width="18" height="8" rx="1.5" fill="white"/></svg>
-        <span>PureNet<span style="color:#DC2626">X</span></span>
-      </a>
+      <a href="index.html" class="footer-brand"><svg class="logo-svg" viewBox="0 0 100 116" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><clipPath id="shieldClip"><path d="M50 6 L90 19 V52 C90 84 73 101 50 110 C27 101 10 84 10 52 V19 Z"/></clipPath></defs><g clip-path="url(#shieldClip)" stroke="currentColor" stroke-width="4"><line x1="32" y1="6" x2="32" y2="110"/><line x1="50" y1="6" x2="50" y2="110"/><line x1="68" y1="6" x2="68" y2="110"/><line x1="10" y1="36" x2="90" y2="36"/><line x1="10" y1="60" x2="90" y2="60"/><line x1="10" y1="84" x2="90" y2="84"/></g><path d="M50 6 L90 19 V52 C90 84 73 101 50 110 C27 101 10 84 10 52 V19 Z" fill="none" stroke="currentColor" stroke-width="8" stroke-linejoin="round"/><rect x="20" y="42" width="60" height="20" rx="6" fill="currentColor"/></svg><span class="logo-word">Purenet<span class="logo-x">X</span></span></a>
       <p class="footer-tagline">Privacy-first, on-device Context Intelligence Layer for AI Vision Systems.</p>
-      <p class="footer-legal">© 2026 PureNetX. All rights reserved. &nbsp;·&nbsp; <a href="privacy-policy.html">Privacy Policy</a> &nbsp;·&nbsp; <a href="terms.html">Terms of Service</a></p>
+      <div class="footer-social">
+        <a href="https://linkedin.com/company/purenetx" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:purenetx.ai@gmail.com">Email</a>
+      </div>
+      <div class="footer-legal">© 2026 PureNetX. All rights reserved. · <a href="privacy-policy.html">Privacy Policy</a> · <a href="terms.html">Terms of Service</a></div>
     </div>
     <div class="footer-links">
       <a href="why-context.html">Why Context</a>
@@ -339,8 +203,6 @@
   </div>
 </footer>
 
-<script src="animations.js"></script>
-<script>function toggleMenu(){var nav=document.getElementById('mobileNav');var btn=document.getElementById('menuBtn');var open=nav.classList.toggle('open');btn.textContent=open?'✕':'☰';btn.setAttribute('aria-label',open?'Close menu':'Open menu');}</script>
-<script src="animations.js"></script>
+<script src="main.js"></script>
 </body>
 </html>

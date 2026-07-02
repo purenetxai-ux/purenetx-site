@@ -5,45 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contact — PureNetX</title>
 <meta name="description" content="Get in touch with PureNetX. Design partner inquiries, investor inquiries, and research collaboration requests.">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 46'%3E%3Cpath d='M20 3L35 8.5V22C35 31 28.5 39 20 43C11.5 39 5 31 5 22V8.5L20 3Z' fill='%230A0E27' stroke='%23DC2626' stroke-width='2.5' stroke-linejoin='round'/%3E%3Crect x='11' y='19' width='18' height='8' rx='2' fill='white'/%3E%3C/svg%3E">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="stylesheet" href="styles.css">
-<style>
-  .form-group { display: flex; flex-direction: column; gap: 6px; }
-  .form-label { font-size: 13px; font-weight: 600; color: var(--text-muted); }
-  .form-input, .form-select, .form-textarea {
-    background: var(--surface);
-    border: 1px solid var(--border-2);
-    border-radius: var(--radius);
-    color: var(--text);
-    font-family: var(--font);
-    font-size: 14px;
-    padding: 10px 14px;
-    width: 100%;
-    transition: border-color 0.15s;
-    outline: none;
-  }
-  .form-input:focus, .form-select:focus, .form-textarea:focus {
-    border-color: rgba(220,38,38,0.5);
-  }
-  .form-textarea { resize: vertical; min-height: 100px; }
-  .form-select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2390A4AE' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 36px; }
-  .form-select option { background: var(--surface); }
-  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-  .form-success { display: none; text-align: center; padding: 48px 24px; }
-  .form-success h3 { margin-bottom: 12px; }
-  @media (max-width:600px) { .form-grid { grid-template-columns: 1fr; } }
-</style>
 </head>
 <body>
 
-<nav>
+<nav id="nav">
   <div class="nav-inner">
-    <a href="index.html" class="nav-logo">
-      <div class="logo-icon">
-        <svg viewBox="0 0 40 46" fill="none"><path d="M20 2L36 8V22C36 32 29 40 20 44C11 40 4 32 4 22V8L20 2Z" stroke="white" stroke-width="2.5" fill="none"/><line x1="4" y1="16" x2="36" y2="16" stroke="white" stroke-width="1" opacity="0.35"/><line x1="4" y1="24" x2="36" y2="24" stroke="white" stroke-width="1" opacity="0.35"/><line x1="13" y1="8" x2="13" y2="42" stroke="white" stroke-width="1" opacity="0.35"/><line x1="20" y1="2" x2="20" y2="44" stroke="white" stroke-width="1" opacity="0.35"/><line x1="27" y1="8" x2="27" y2="42" stroke="white" stroke-width="1" opacity="0.35"/><rect x="11" y="19" width="18" height="8" rx="1.5" fill="white"/></svg>
-      </div>
-      <span>PureNet<span style="color:#DC2626">X</span></span>
-    </a>
+    <a href="index.html" class="nav-logo"><svg class="logo-svg" viewBox="0 0 100 116" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><clipPath id="shieldClip"><path d="M50 6 L90 19 V52 C90 84 73 101 50 110 C27 101 10 84 10 52 V19 Z"/></clipPath></defs><g clip-path="url(#shieldClip)" stroke="currentColor" stroke-width="4"><line x1="32" y1="6" x2="32" y2="110"/><line x1="50" y1="6" x2="50" y2="110"/><line x1="68" y1="6" x2="68" y2="110"/><line x1="10" y1="36" x2="90" y2="36"/><line x1="10" y1="60" x2="90" y2="60"/><line x1="10" y1="84" x2="90" y2="84"/></g><path d="M50 6 L90 19 V52 C90 84 73 101 50 110 C27 101 10 84 10 52 V19 Z" fill="none" stroke="currentColor" stroke-width="8" stroke-linejoin="round"/><rect x="20" y="42" width="60" height="20" rx="6" fill="currentColor"/></svg><span class="logo-word">Purenet<span class="logo-x">X</span></span></a>
     <ul class="nav-links">
       <li><a href="why-context.html">Why Context</a></li>
       <li><a href="technology.html">Technology</a></li>
@@ -54,150 +23,108 @@
       <li><a href="company.html">Company</a></li>
     </ul>
     <div class="nav-cta">
-      <a href="current-status.html" class="btn btn-secondary">Our Status</a>
-      <a href="contact.html" class="btn btn-primary">Request Demo</a>
+      <a href="current-status.html" class="btn btn-ghost">Our Status</a>
+      <a href="contact.html" class="btn btn-red">Request Demo</a>
     </div>
-    <button class="nav-menu-btn" id="menuBtn" onclick="toggleMenu()" aria-label="Open menu">☰</button>
+    <button class="nav-menu-btn" id="menuBtn" aria-label="Menu">☰</button>
   </div>
 </nav>
 <div class="mobile-nav" id="mobileNav">
-  <a href="why-context.html">Why Context Intelligence</a>
+  <a href="why-context.html">Why Context</a>
   <a href="technology.html">Technology</a>
   <a href="who-we-build-for.html">Who We Build For</a>
   <a href="research.html">Research</a>
   <a href="current-status.html">Current Status</a>
-  <a href="future-roadmap.html">Future Roadmap</a>
+  <a href="future-roadmap.html">Roadmap</a>
   <a href="company.html">Company</a>
-  <a href="contact.html" class="btn btn-primary">Request Demo</a>
+  <a href="contact.html" class="btn btn-red">Request Demo</a>
 </div>
 
 <div class="page">
 
-  <section class="page-header">
-    <div class="container">
-      <div class="label">Contact</div>
-      <h1>Get In Touch</h1>
-      <p>We review applications weekly. Serious design partners receive a private demo within 2 weeks of inquiry.</p>
-    </div>
-  </section>
+<header class="page-header">
+  <div class="container">
+    <div class="label">Contact</div>
+    <h1>Get In <span class="red">Touch</span></h1>
+    <p>We review applications weekly. Serious design partners receive a private demo within 2 weeks of inquiry.</p>
+  </div>
+</header>
 
-  <section class="section">
-    <div class="container">
-      <div class="grid-2" style="gap:48px;align-items:start">
-
-        <!-- FORM -->
-        <div>
-          <div id="contactForm">
-            <form id="theForm" action="https://formspree.io/f/mjgdjeyk" method="POST">
-              <div style="display:flex;flex-direction:column;gap:16px">
-                <div class="form-grid">
-                  <div class="form-group">
-                    <label class="form-label" for="name">Your Name *</label>
-                    <input class="form-input" type="text" id="name" name="name" required placeholder="Jane Smith">
-                  </div>
-                  <div class="form-group">
-                    <label class="form-label" for="email">Work Email *</label>
-                    <input class="form-input" type="email" id="email" name="email" required placeholder="jane@company.com">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label class="form-label" for="company">Company Name *</label>
-                  <input class="form-input" type="text" id="company" name="company" required placeholder="Acme Corp">
-                </div>
-                <div class="form-group">
-                  <label class="form-label" for="type">Company Type *</label>
-                  <select class="form-select" id="type" name="company_type" required>
-                    <option value="" disabled selected>Select one</option>
-                    <option value="platform">AI Camera Platform</option>
-                    <option value="video">Video Application / Platform</option>
-                    <option value="robotics">Robotics / Smart Devices</option>
-                    <option value="enterprise">Enterprise Vision System</option>
-                    <option value="oem">OEM / Device Manufacturer</option>
-                    <option value="investor">Investor</option>
-                    <option value="academic">Academic / Research Institution</option>
-                    <option value="other">Other</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label class="form-label" for="usecase">Current Use Case</label>
-                  <input class="form-input" type="text" id="usecase" name="use_case" placeholder="e.g. Video moderation for creator platform">
-                </div>
-                <div class="form-group">
-                  <label class="form-label" for="message">Message *</label>
-                  <textarea class="form-textarea" id="message" name="message" required placeholder="Tell us about your safety challenge and what you're hoping PureNetX can help with."></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary btn-lg" style="width:100%;justify-content:center">Send Inquiry</button>
-                <p style="font-size:12px;color:var(--text-subtle);text-align:center">We respond to all serious inquiries. Or email directly: <a href="mailto:purenetx.ai@gmail.com" style="color:var(--text-muted)">purenetx.ai@gmail.com</a></p>
-              </div>
-            </form>
+<section class="section">
+  <div class="container">
+    <div class="grid-2 reveal" style="grid-template-columns:1.2fr 1fr;gap:48px;align-items:start">
+      <div>
+        <form id="contactForm" action="https://formspree.io/f/mjgdjeyk" method="POST">
+          <div class="form-grid">
+            <div class="form-field"><label>Your Name <em>*</em></label><input type="text" name="name" required></div>
+            <div class="form-field"><label>Work Email <em>*</em></label><input type="email" name="email" required></div>
+            <div class="form-field"><label>Company Name <em>*</em></label><input type="text" name="company" required></div>
+            <div class="form-field"><label>Company Type <em>*</em></label>
+              <select name="type" required>
+                <option value="">Select one</option>
+                <option>AI Camera Platform</option>
+                <option>Video Application / Platform</option>
+                <option>Robotics / Smart Devices</option>
+                <option>Enterprise Vision System</option>
+                <option>OEM / Device Manufacturer</option>
+                <option>Investor</option>
+                <option>Academic / Research Institution</option>
+                <option>Other</option>
+              </select></div>
+            <div class="form-field full"><label>Current Use Case</label><input type="text" name="usecase"></div>
+            <div class="form-field full"><label>Message <em>*</em></label><textarea name="message" required></textarea></div>
+            <div class="form-field full"><button type="submit" class="btn btn-red btn-lg" style="width:100%">Send Inquiry</button></div>
           </div>
-
-          <div class="form-success" id="formSuccess">
-            <div style="font-size:40px;margin-bottom:16px">✓</div>
-            <h3>Message Received</h3>
-            <p>We review applications weekly. If your inquiry is a strong fit, you'll hear from us within 2 weeks with a demo invitation.</p>
+          <p class="form-note mt-16">We respond to all serious inquiries. Or email directly: <a href="mailto:purenetx.ai@gmail.com" style="color:var(--red)">purenetx.ai@gmail.com</a></p>
+        </form>
+        <div class="form-success" id="formSuccess">
+          <div class="tick">✓</div>
+          <h3>Message Received</h3>
+          <p>We review applications weekly. If your inquiry is a strong fit, you'll hear from us within 2 weeks with a demo invitation.</p>
+        </div>
+      </div>
+      <div>
+        <div class="card mb-24">
+          <h4 style="margin-top:0">What Happens Next</h4>
+          <div class="mt-16">
+            <div class="step"><span class="step-num">1</span><div><strong>We review your inquiry</strong><span>Every application is read by a founding team member</span></div></div>
+            <div class="step"><span class="step-num">2</span><div><strong>Fit assessment</strong><span>We consider whether your use case aligns with our current prototype capabilities</span></div></div>
+            <div class="step"><span class="step-num">3</span><div><strong>Demo invitation</strong><span>Strong fits receive a private demo within 2 weeks</span></div></div>
+            <div class="step"><span class="step-num">4</span><div><strong>Pilot design</strong><span>We co-design a validation pilot with you</span></div></div>
           </div>
         </div>
-
-        <!-- SIDEBAR -->
-        <div style="display:flex;flex-direction:column;gap:24px">
-
-          <div class="card card-sm">
-            <h4 class="mb-12">What Happens Next</h4>
-            <div class="status-list">
-              <div class="status-item">
-                <div class="status-icon" style="color:var(--text-subtle);font-family:var(--mono)">1</div>
-                <div class="status-content"><strong>We review your inquiry</strong><span>Every application is read by a founding team member</span></div>
-              </div>
-              <div class="status-item">
-                <div class="status-icon" style="color:var(--text-subtle);font-family:var(--mono)">2</div>
-                <div class="status-content"><strong>Fit assessment</strong><span>We consider whether your use case aligns with our current prototype capabilities</span></div>
-              </div>
-              <div class="status-item">
-                <div class="status-icon" style="color:var(--text-subtle);font-family:var(--mono)">3</div>
-                <div class="status-content"><strong>Demo invitation</strong><span>Strong fits receive a private demo within 2 weeks</span></div>
-              </div>
-              <div class="status-item">
-                <div class="status-icon" style="color:var(--text-subtle);font-family:var(--mono)">4</div>
-                <div class="status-content"><strong>Pilot design</strong><span>We co-design a validation pilot with you</span></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="card card-sm">
-            <h4 class="mb-12">Good Fit For a Demo</h4>
-            <div class="status-list">
-              <div class="status-item s-done"><div class="status-icon">✓</div><div class="status-content"><span>AI camera platform or smart device company</span></div></div>
-              <div class="status-item s-done"><div class="status-icon">✓</div><div class="status-content"><span>Video platform with creator safety challenges</span></div></div>
-              <div class="status-item s-done"><div class="status-icon">✓</div><div class="status-content"><span>Robotics or enterprise vision system</span></div></div>
-              <div class="status-item s-done"><div class="status-icon">✓</div><div class="status-content"><span>Investor focused on deep-tech / AI safety</span></div></div>
-              <div class="status-item s-done"><div class="status-icon">✓</div><div class="status-content"><span>Academic institution for research collaboration</span></div></div>
-            </div>
-          </div>
-
-          <div class="card card-sm">
-            <h4 class="mb-12">Direct Contact</h4>
-            <p style="font-size:14px;margin-bottom:8px">Email:</p>
-            <a href="mailto:purenetx.ai@gmail.com" style="color:var(--accent-light);font-size:14px;text-decoration:none">purenetx.ai@gmail.com</a>
-            <p style="font-size:13px;color:var(--text-subtle);margin-top:12px">Response time: Applications reviewed weekly. We reply to all serious inquiries.</p>
-          </div>
-
+        <div class="card mb-24">
+          <h4 style="margin-top:0">Good Fit For a Demo</h4>
+          <ul>
+            <li>AI camera platform or smart device company</li>
+            <li>Video platform with creator safety challenges</li>
+            <li>Robotics or enterprise vision system</li>
+            <li>Investor focused on deep-tech / AI safety</li>
+            <li>Academic institution for research collaboration</li>
+          </ul>
+        </div>
+        <div class="card is-dark">
+          <h4 style="margin-top:0">Direct Contact</h4>
+          <p class="mt-16">Email: <a href="mailto:purenetx.ai@gmail.com" style="color:#F87171">purenetx.ai@gmail.com</a></p>
+          <p class="mt-16" style="font-size:13px">Response time: applications reviewed weekly. We reply to all serious inquiries.</p>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
 </div>
 
 <footer>
   <div class="footer-inner">
     <div>
-      <a href="index.html" class="footer-brand">
-        <svg width="20" height="23" viewBox="0 0 40 46" fill="none"><path d="M20 2L36 8V22C36 32 29 40 20 44C11 40 4 32 4 22V8L20 2Z" stroke="white" stroke-width="2.5" fill="none"/><line x1="4" y1="16" x2="36" y2="16" stroke="white" stroke-width="1" opacity="0.35"/><line x1="4" y1="24" x2="36" y2="24" stroke="white" stroke-width="1" opacity="0.35"/><line x1="13" y1="8" x2="13" y2="42" stroke="white" stroke-width="1" opacity="0.35"/><line x1="20" y1="2" x2="20" y2="44" stroke="white" stroke-width="1" opacity="0.35"/><line x1="27" y1="8" x2="27" y2="42" stroke="white" stroke-width="1" opacity="0.35"/><rect x="11" y="19" width="18" height="8" rx="1.5" fill="white"/></svg>
-        <span>PureNet<span style="color:#DC2626">X</span></span>
-      </a>
+      <a href="index.html" class="footer-brand"><svg class="logo-svg" viewBox="0 0 100 116" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><clipPath id="shieldClip"><path d="M50 6 L90 19 V52 C90 84 73 101 50 110 C27 101 10 84 10 52 V19 Z"/></clipPath></defs><g clip-path="url(#shieldClip)" stroke="currentColor" stroke-width="4"><line x1="32" y1="6" x2="32" y2="110"/><line x1="50" y1="6" x2="50" y2="110"/><line x1="68" y1="6" x2="68" y2="110"/><line x1="10" y1="36" x2="90" y2="36"/><line x1="10" y1="60" x2="90" y2="60"/><line x1="10" y1="84" x2="90" y2="84"/></g><path d="M50 6 L90 19 V52 C90 84 73 101 50 110 C27 101 10 84 10 52 V19 Z" fill="none" stroke="currentColor" stroke-width="8" stroke-linejoin="round"/><rect x="20" y="42" width="60" height="20" rx="6" fill="currentColor"/></svg><span class="logo-word">Purenet<span class="logo-x">X</span></span></a>
       <p class="footer-tagline">Privacy-first, on-device Context Intelligence Layer for AI Vision Systems.</p>
-      <p class="footer-legal">© 2026 PureNetX. All rights reserved. &nbsp;·&nbsp; <a href="privacy-policy.html">Privacy Policy</a> &nbsp;·&nbsp; <a href="terms.html">Terms of Service</a></p>
+      <div class="footer-social">
+        <a href="https://linkedin.com/company/purenetx" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:purenetx.ai@gmail.com">Email</a>
+      </div>
+      <div class="footer-legal">© 2026 PureNetX. All rights reserved. · <a href="privacy-policy.html">Privacy Policy</a> · <a href="terms.html">Terms of Service</a></div>
     </div>
     <div class="footer-links">
       <a href="why-context.html">Why Context</a>
@@ -211,35 +138,6 @@
   </div>
 </footer>
 
-<script>
-function toggleMenu(){var nav=document.getElementById('mobileNav');var btn=document.getElementById('menuBtn');var open=nav.classList.toggle('open');btn.textContent=open?'✕':'☰';btn.setAttribute('aria-label',open?'Close menu':'Open menu');}
-
-document.getElementById('theForm').addEventListener('submit', async function(e) {
-  e.preventDefault();
-  const btn = this.querySelector('button[type=submit]');
-  btn.textContent = 'Sending…';
-  btn.disabled = true;
-  try {
-    const res = await fetch(this.action, {
-      method: 'POST',
-      body: new FormData(this),
-      headers: { 'Accept': 'application/json' }
-    });
-    if (res.ok) {
-      document.getElementById('contactForm').style.display = 'none';
-      document.getElementById('formSuccess').style.display = 'block';
-    } else {
-      btn.textContent = 'Send Inquiry';
-      btn.disabled = false;
-      alert('Something went wrong. Please email us directly at purenetx.ai@gmail.com');
-    }
-  } catch {
-    btn.textContent = 'Send Inquiry';
-    btn.disabled = false;
-    alert('Something went wrong. Please email us directly at purenetx.ai@gmail.com');
-  }
-});
-</script>
-<script src="animations.js"></script>
+<script src="main.js"></script>
 </body>
 </html>
