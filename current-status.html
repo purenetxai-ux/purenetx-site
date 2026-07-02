@@ -29,6 +29,7 @@
       <li><a href="current-status.html" class="active">Current Status</a></li>
       <li><a href="future-roadmap.html">Roadmap</a></li>
       <li><a href="company.html">Company</a></li>
+      <li><a href="blog.html">Blog</a></li>
     </ul>
     <div class="nav-cta">
       <a href="current-status.html" class="btn btn-ghost">Our Status</a>
@@ -45,6 +46,7 @@
   <a href="current-status.html">Current Status</a>
   <a href="future-roadmap.html">Roadmap</a>
   <a href="company.html">Company</a>
+  <a href="blog.html">Blog</a>
   <a href="contact.html" class="btn btn-red">Request Demo</a>
 </div>
 
@@ -55,35 +57,13 @@
     <div class="label">Transparency</div>
     <h1>Where We Are <span class="red">Today</span></h1>
     <p>Transparency builds trust. Here is exactly where PureNetX is — what's complete, what's in progress, and what we're seeking.</p>
-    <div class="meta">Last updated: July 2026</div>
+    <div class="meta">Last updated: <span id="lastUpdated">July 2026</span></div>
   </div>
 </header>
 
 <section class="section">
   <div class="container">
-    <div class="grid-2 reveal" style="gap:32px">
-      <div>
-        <h3 class="mb-24">Company</h3>
-        <div class="status-list">
-          <div class="status-item st-done"><i>✓</i><div><strong>Incorporated and Registered</strong><span>Legal entity established</span></div></div>
-          <div class="status-item st-done"><i>✓</i><div><strong>Core Team In Place</strong><span>Founding team active</span></div></div>
-          <div class="status-item st-done"><i>✓</i><div><strong>Bootstrapped</strong><span>No external funding yet — founder-funded</span></div></div>
-          <div class="status-item st-next"><i>→</i><div><strong>Pursuing Pre-seed / Seed</strong><span>Conversations in progress — Q3/Q4 2026</span></div></div>
-        </div>
-      </div>
-      <div>
-        <h3 class="mb-24">Technology</h3>
-        <div class="status-list">
-          <div class="status-item st-done"><i>✓</i><div><strong>Context Intelligence Layer</strong><span>Prototype complete and tested</span></div></div>
-          <div class="status-item st-done"><i>✓</i><div><strong>Contextual Safety Assessment</strong><span>Generates explainable policy decisions</span></div></div>
-          <div class="status-item st-done"><i>✓</i><div><strong>Initial Validation</strong><span>Tested across diverse scenarios</span></div></div>
-          <div class="status-item st-done"><i>✓</i><div><strong>Architecture Validated</strong><span>Prototype designed for edge AI deployment</span></div></div>
-          <div class="status-item st-next"><i>→</i><div><strong>Enterprise SDK</strong><span>In development — target Q3/Q4 2026</span></div></div>
-          <div class="status-item st-next"><i>→</i><div><strong>Live Video Processing</strong><span>In development — target Q4 2026</span></div></div>
-          <div class="status-item st-later"><i>◇</i><div><strong>Edge Optimization</strong><span>Research phase — target Q2 2027</span></div></div>
-        </div>
-      </div>
-    </div>
+    <div class="grid-2 reveal" style="gap:32px" id="statusGrid1"></div>
 
     <div class="note mt-48 reveal">
       <strong>Important Context — Current Limitation</strong>
@@ -91,35 +71,38 @@
       <p class="mt-16">The path to production pre-capture safety requires: camera API integration (iOS, Android, Samsung), real-time pipeline execution, shutter interception mechanisms, and OEM partnerships. These are under development and part of our Phase 2–3 roadmap.</p>
     </div>
 
-    <div class="grid-2 mt-48 reveal" style="gap:32px">
-      <div>
-        <h3 class="mb-24">SDK &amp; Integration</h3>
-        <div class="status-list">
-          <div class="status-item st-done"><i>✓</i><div><strong>Prototype SDK Available</strong><span>For evaluation with design partners under NDA</span></div></div>
-          <div class="status-item st-next"><i>→</i><div><strong>Enterprise Production SDK</strong><span>In development — target Q4 2026</span></div></div>
-          <div class="status-item st-next"><i>→</i><div><strong>Live Video Capabilities</strong><span>In development — target Q4 2026</span></div></div>
-          <div class="status-item st-next"><i>→</i><div><strong>Mobile SDK (iOS/Android)</strong><span>In planning — target Q1/Q2 2027</span></div></div>
-        </div>
-      </div>
-      <div>
-        <h3 class="mb-24">Pilots &amp; Partnerships</h3>
-        <div class="status-list">
-          <div class="status-item st-seek"><i>●</i><div><strong>Seeking Design Partners</strong><span>Platform companies, robotics, enterprise vision, smart devices</span></div></div>
-          <div class="status-item st-later"><i>◇</i><div><strong>Alpha Pilot</strong><span>With first 2–3 design partners — target Q3/Q4 2026</span></div></div>
-          <div class="status-item st-later"><i>◇</i><div><strong>Beta Pilot</strong><span>With early customers — target 2027</span></div></div>
-        </div>
-        <p class="mt-24"><a href="contact.html" class="link-arrow">Apply to be a design partner →</a></p>
-        <h3 class="mb-24 mt-32">Research</h3>
-        <div class="status-list">
-          <div class="status-item st-done"><i>✓</i><div><strong>Research Framework Established</strong><span>Context Intelligence Taxonomy defined</span></div></div>
-          <div class="status-item st-done"><i>✓</i><div><strong>Fairness Testing Methodology</strong><span>Framework defined — execution in progress</span></div></div>
-          <div class="status-item st-next"><i>→</i><div><strong>Dataset Collection (CKB)</strong><span>In progress — target initial version Q4 2026</span></div></div>
-          <div class="status-item st-later"><i>◇</i><div><strong>Published Benchmarks</strong><span>Peer review process — target 2027</span></div></div>
-        </div>
-      </div>
-    </div>
+    <div class="grid-2 mt-48 reveal" style="gap:32px" id="statusGrid2"></div>
   </div>
 </section>
+
+<script>
+fetch('content/status.json').then(function(r){return r.json()}).then(function(data){
+  var lu=document.getElementById('lastUpdated');
+  if(lu&&data.last_updated)lu.textContent=data.last_updated;
+  var ICONS={done:'✓',next:'→',later:'◇',seek:'●',warn:'!'};
+  function esc(s){var d=document.createElement('div');d.textContent=s||'';return d.innerHTML}
+  function col(g,extra){
+    var h='<div><h3 class="mb-24">'+esc(g.title)+'</h3><div class="status-list">';
+    g.items.forEach(function(it){
+      h+='<div class="status-item st-'+esc(it.state)+'"><i>'+(ICONS[it.state]||'·')+'</i><div><strong>'+esc(it.title)+'</strong><span>'+esc(it.desc)+'</span></div></div>';
+    });
+    return h+'</div>'+(extra||'')+'</div>';
+  }
+  var gs=data.groups,byTitle={};
+  gs.forEach(function(g){byTitle[g.title]=g});
+  var g1=document.getElementById('statusGrid1'),g2=document.getElementById('statusGrid2');
+  var first=gs.slice(0,2),rest=gs.slice(2);
+  g1.innerHTML=first.map(function(g){return col(g)}).join('');
+  if(rest.length){
+    var left=col(rest[0]);
+    var rightInner=rest.slice(1).map(function(g,i){
+      var extra=(g.title==='Pilots & Partnerships')?'<p class="mt-24"><a href="contact.html" class="link-arrow">Apply to be a design partner →</a></p>':'';
+      return col(g,extra).replace('<div><h3','<div'+(i>0?' class="mt-32"':'')+'><h3');
+    }).join('');
+    g2.innerHTML=left+'<div style="display:flex;flex-direction:column;gap:0">'+rightInner+'</div>';
+  }
+}).catch(function(e){console.error('status load failed',e)});
+</script>
 
 <section class="section panel-section">
   <div class="container">
@@ -169,6 +152,7 @@
       <a href="future-roadmap.html">Roadmap</a>
       <a href="research.html">Research</a>
       <a href="company.html">Company</a>
+      <a href="blog.html">Blog</a>
       <a href="contact.html">Contact</a>
     </div>
   </div>
