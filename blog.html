@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Blog — PureNetX</title>
+<title>Research &amp; Insights — PureNetX</title>
 <meta name="description" content="News, insights, and updates from PureNetX — context intelligence, AI safety, and privacy-first vision systems.">
-<meta property="og:title" content="Blog — PureNetX">
+<meta property="og:title" content="Research &amp; Insights — PureNetX">
 <meta property="og:description" content="News, insights, and updates from PureNetX — context intelligence, AI safety, and privacy-first vision systems.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://www.purenetx.com/og-image.png">
@@ -17,7 +17,8 @@
 <link rel="stylesheet" href="styles.css">
 <style>
 .post-card{display:block;text-decoration:none;color:inherit}
-.post-card .date{font-family:var(--mono);font-size:12px;color:var(--red);margin-bottom:10px;display:block}
+.post-card .date{font-family:var(--mono);font-size:12px;color:var(--ink-subtle);margin-bottom:10px;display:block}
+.cat-chip{display:inline-block;font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;color:var(--red);border:1px solid rgba(220,38,38,0.35);border-radius:20px;padding:4px 12px;margin-bottom:14px}
 .post-card h3{margin-bottom:10px;transition:color .15s}
 .post-card:hover h3{color:var(--red)}
 .post-body{max-width:760px}
@@ -80,9 +81,9 @@
 
 <header class="page-header">
   <div class="container">
-    <div class="label">Insights</div>
-    <h1 id="pageTitle">From the <span class="red">Blog</span></h1>
-    <p id="pageSub">News, insights, and updates on context intelligence, AI safety, and privacy-first vision systems.</p>
+    <div class="label">PureNetX Research</div>
+    <h1 id="pageTitle">Research &amp; <span class="red">Insights</span></h1>
+    <p id="pageSub">Notes on context intelligence, AI safety, and privacy-first vision systems — from the team building it.</p>
   </div>
 </header>
 
@@ -90,7 +91,8 @@
   <div class="container">
     <div class="grid-2" id="postList" style="display:none"></div>
     <article id="postView" style="display:none">
-      <div class="post-meta"><span id="postDate"></span> · PureNetX</div>
+      <div id="postCat"></div>
+      <div class="post-meta"><span id="postDate"></span> · <span id="postRead"></span> · PureNetX</div>
       <div class="post-body" id="postBody"></div>
       <p class="mt-48"><a href="blog.html" class="link-arrow">← All posts</a></p>
     </article>
@@ -132,13 +134,17 @@ fetch('content/posts.json').then(function(r){return r.json()}).then(function(dat
   var params=new URLSearchParams(location.search);
   var slug=params.get('p');
   var fmt=function(d){try{return new Date(d+'T00:00:00').toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'})}catch(e){return d}};
+  var esc=function(s){return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;')};
+  var readTime=function(body){return Math.max(1,Math.round((body||'').split(/\s+/).length/200))+' min read'};
   if(slug){
     var post=posts.find(function(p){return p.slug===slug});
     if(post){
       document.title=post.title+' — PureNetX';
-      document.getElementById('pageTitle').innerHTML=post.title.replace(/&/g,'&amp;').replace(/</g,'&lt;');
+      document.getElementById('pageTitle').innerHTML=esc(post.title);
       document.getElementById('pageSub').textContent=post.description||'';
+      if(post.category)document.getElementById('postCat').innerHTML='<span class="cat-chip">'+esc(post.category)+'</span>';
       document.getElementById('postDate').textContent=fmt(post.date);
+      document.getElementById('postRead').textContent=readTime(post.body);
       document.getElementById('postBody').innerHTML=marked.parse(post.body||'');
       document.getElementById('postView').style.display='block';
       return;
@@ -147,9 +153,9 @@ fetch('content/posts.json').then(function(r){return r.json()}).then(function(dat
   if(!posts.length){document.getElementById('emptyMsg').style.display='block';return}
   var list=document.getElementById('postList');
   list.innerHTML=posts.map(function(p){
-    var esc=function(s){return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;')};
     return '<a class="card post-card" href="blog.html?p='+encodeURIComponent(p.slug)+'">'+
-      '<span class="date">'+fmt(p.date)+'</span><h3>'+esc(p.title)+'</h3><p>'+esc(p.description)+'</p>'+
+      (p.category?'<span class="cat-chip">'+esc(p.category)+'</span><br>':'')+
+      '<span class="date">'+fmt(p.date)+' • '+readTime(p.body)+'</span><h3>'+esc(p.title)+'</h3><p>'+esc(p.description)+'</p>'+
       '<p class="mt-16" style="color:var(--red);font-weight:600;font-size:14px">Read more →</p></a>';
   }).join('');
   list.style.display='grid';
