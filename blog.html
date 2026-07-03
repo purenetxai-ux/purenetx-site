@@ -138,22 +138,12 @@ fetch('content/posts.json').then(function(r){return r.json()}).then(function(dat
   var readTime=function(body){return Math.max(1,Math.round((body||'').split(/\s+/).length/200))+' min read'};
   if(slug){
     var post=posts.find(function(p){return p.slug===slug});
-    if(post){
-      document.title=post.title+' — PureNetX';
-      document.getElementById('pageTitle').innerHTML=esc(post.title);
-      document.getElementById('pageSub').textContent=post.description||'';
-      if(post.category)document.getElementById('postCat').innerHTML='<span class="cat-chip">'+esc(post.category)+'</span>';
-      document.getElementById('postDate').textContent=fmt(post.date);
-      document.getElementById('postRead').textContent=readTime(post.body);
-      document.getElementById('postBody').innerHTML=marked.parse(post.body||'');
-      document.getElementById('postView').style.display='block';
-      return;
-    }
+    if(post){location.replace('posts/'+encodeURIComponent(post.slug)+'.html');return}
   }
   if(!posts.length){document.getElementById('emptyMsg').style.display='block';return}
   var list=document.getElementById('postList');
   list.innerHTML=posts.map(function(p){
-    return '<a class="card post-card" href="blog.html?p='+encodeURIComponent(p.slug)+'">'+
+    return '<a class="card post-card" href="posts/'+encodeURIComponent(p.slug)+'.html">'+
       (p.category?'<span class="cat-chip">'+esc(p.category)+'</span><br>':'')+
       '<span class="date">'+fmt(p.date)+' • '+readTime(p.body)+'</span><h3>'+esc(p.title)+'</h3><p>'+esc(p.description)+'</p>'+
       '<p class="mt-16" style="color:var(--red);font-weight:600;font-size:14px">Read more →</p></a>';
