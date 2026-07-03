@@ -142,7 +142,7 @@ ${bodyHtml}
   <div class="footer-inner">
     <div>
       <a href="/index.html" class="footer-brand">${LOGO_SVG('shieldClip2')}${WORDMARK}</a>
-      <p class="footer-tagline">Privacy-first, on-device Context Intelligence Layer for AI Vision Systems.</p>
+      <p class="footer-tagline">PureNetX's long-term vision is to bring context-aware intelligence into camera systems, enabling privacy-preserving, on-device decisions that help prevent harmful visual content before it is created.</p>
       <div class="footer-social">
         <a href="https://linkedin.com/company/purenetx" target="_blank" rel="noopener">LinkedIn</a>
         <a href="mailto:purenetx.ai@gmail.com">Email</a>
