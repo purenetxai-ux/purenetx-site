@@ -1,4 +1,4 @@
-// PureNetX — static blog post generator
+// PurenetX — static blog post generator
 // Runs on every Vercel deploy: reads content/posts.json, writes posts/<slug>.html
 // and regenerates sitemap.xml. Do not edit generated files by hand.
 const fs = require('fs');
@@ -26,7 +26,7 @@ function pageHtml(p) {
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>${esc(p.title)} — PureNetX</title>
+<title>${esc(p.title)} — PurenetX</title>
 <meta name="description" content="${esc(p.description)}">
 <link rel="canonical" href="${url}">
 <meta property="og:title" content="${esc(p.title)}">
@@ -75,7 +75,7 @@ ${JSON.stringify({
   url,
   image: `${SITE}/og-image.png`,
   author: { '@type': 'Person', name: 'Kaushik A.' },
-  publisher: { '@type': 'Organization', name: 'PureNetX', url: SITE }
+  publisher: { '@type': 'Organization', name: 'PurenetX', url: SITE }
 }, null, 2)}
 </script>
 </head>
@@ -117,7 +117,7 @@ ${JSON.stringify({
 
 <header class="page-header">
   <div class="container">
-    <div class="label">PureNetX Research</div>
+    <div class="label">PurenetX Research</div>
     <h1>${esc(p.title)}</h1>
     <p>${esc(p.description)}</p>
   </div>
@@ -127,7 +127,7 @@ ${JSON.stringify({
   <div class="container">
     <article>
       ${p.category ? `<div><span class="cat-chip">${esc(p.category)}</span></div>` : ''}
-      <div class="post-meta"><span>${fmtDate(p.date)}</span> · <span>${readTime(p.body)}</span> · PureNetX</div>
+      <div class="post-meta"><span>${fmtDate(p.date)}</span> · <span>${readTime(p.body)}</span> · PurenetX</div>
       <div class="post-body">
 ${bodyHtml}
       </div>
@@ -142,12 +142,12 @@ ${bodyHtml}
   <div class="footer-inner">
     <div>
       <a href="/index.html" class="footer-brand">${LOGO_SVG('shieldClip2')}${WORDMARK}</a>
-      <p class="footer-tagline">PureNetX's long-term vision is to bring context-aware intelligence into camera systems, enabling privacy-preserving, on-device decisions that help prevent harmful visual content before it is created.</p>
+      <p class="footer-tagline">PurenetX's long-term vision is to bring context-aware intelligence into camera systems, enabling privacy-preserving, on-device decisions that help prevent harmful visual content before it is created.</p>
       <div class="footer-social">
         <a href="https://linkedin.com/company/purenetx" target="_blank" rel="noopener">LinkedIn</a>
         <a href="mailto:purenetx.ai@gmail.com">Email</a>
       </div>
-      <div class="footer-legal">© 2026 PureNetX. All rights reserved. · <a href="/privacy-policy.html">Privacy Policy</a> · <a href="/terms.html">Terms of Service</a></div>
+      <div class="footer-legal">© 2026 PurenetX. All rights reserved. · <a href="/privacy-policy.html">Privacy Policy</a> · <a href="/terms.html">Terms of Service</a></div>
     </div>
     <div class="footer-links">
       <a href="/why-context.html">Why Context</a>
