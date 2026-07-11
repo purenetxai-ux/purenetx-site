@@ -26,6 +26,7 @@ function pageHtml(p) {
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<base href="/">
 <title>${esc(p.title)} — PurenetX</title>
 <meta name="description" content="${esc(p.description)}">
 <link rel="canonical" href="${url}">
@@ -172,7 +173,9 @@ ${bodyHtml}
 fs.mkdirSync('posts', { recursive: true });
 // remove stale generated pages (posts deleted in CMS disappear from site)
 for (const f of fs.readdirSync('posts')) {
-  if (f.endsWith('.html')) fs.unlinkSync(path.join('posts', f));
+  if (f.endsWith('.html')) {
+    try { fs.unlinkSync(path.join('posts', f)); } catch (e) { /* ignore — file will be overwritten */ }
+  }
 }
 for (const p of posts) {
   if (!p.slug) continue;
