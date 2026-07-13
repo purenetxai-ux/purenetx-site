@@ -4,48 +4,136 @@
     {
       "title": "Company",
       "items": [
-        { "state": "done", "title": "Incorporated and Registered", "desc": "Legal entity established" },
-        { "state": "done", "title": "Core Team In Place", "desc": "Founding team active" },
-        { "state": "done", "title": "Bootstrapped", "desc": "No external funding yet — founder-funded" },
-        { "state": "next", "title": "Pursuing Pre-seed / Seed", "desc": "Conversations in progress — Q3/Q4 2026" }
+        {
+          "state": "done",
+          "title": "Incorporated and Registered",
+          "desc": "Legal entity established"
+        },
+        {
+          "state": "done",
+          "title": "Core Team In Place",
+          "desc": "Founding team active"
+        },
+        {
+          "state": "done",
+          "title": "Bootstrapped",
+          "desc": "No external funding yet — founder-funded"
+        },
+        {
+          "state": "next",
+          "title": "Pursuing Pre-seed / Seed",
+          "desc": "Conversations in progress — Q3/Q4 2026"
+        }
       ]
     },
     {
       "title": "Technology",
       "items": [
-        { "state": "done", "title": "Context Intelligence Layer", "desc": "Prototype complete and tested" },
-        { "state": "done", "title": "Contextual Safety Assessment", "desc": "Generates explainable policy decisions" },
-        { "state": "done", "title": "Initial Validation", "desc": "Tested across diverse scenarios" },
-        { "state": "done", "title": "Architecture Validated", "desc": "Prototype designed for edge AI deployment" },
-        { "state": "next", "title": "Enterprise SDK", "desc": "In development — target Q3/Q4 2026" },
-        { "state": "next", "title": "Live Video Processing", "desc": "In development — target Q4 2026" },
-        { "state": "later", "title": "Edge Optimization", "desc": "Research phase — target Q2 2027" }
+        {
+          "state": "done",
+          "title": "Context Intelligence Framework",
+          "desc": "Six-dimension framework validated through 55-scenario research"
+        },
+        {
+          "state": "done",
+          "title": "Decision Logic",
+          "desc": "Demonstrated through prototype examples"
+        },
+        {
+          "state": "done",
+          "title": "CKB Research Database",
+          "desc": "55 professionally annotated scenarios complete"
+        },
+        {
+          "state": "done",
+          "title": "Architecture Design",
+          "desc": "Designed for on-device, privacy-first edge deployment"
+        },
+        {
+          "state": "next",
+          "title": "Inference Engine",
+          "desc": "Real ML model training begins Q4 2026 — seeking pre-seed + design partners"
+        },
+        {
+          "state": "next",
+          "title": "Model Validation",
+          "desc": "Pending design partner data — 8–12 weeks per partner"
+        },
+        {
+          "state": "later",
+          "title": "Edge Optimization",
+          "desc": "Research phase — 2027"
+        }
       ]
     },
     {
       "title": "SDK & Integration",
       "items": [
-        { "state": "done", "title": "Prototype SDK Available", "desc": "For evaluation with design partners under NDA" },
-        { "state": "next", "title": "Enterprise Production SDK", "desc": "In development — target Q4 2026" },
-        { "state": "next", "title": "Live Video Capabilities", "desc": "In development — target Q4 2026" },
-        { "state": "next", "title": "Mobile SDK (iOS/Android)", "desc": "In planning — target Q1/Q2 2027" }
+        {
+          "state": "done",
+          "title": "SDK Framework Available",
+          "desc": "Integration-ready framework for evaluation under NDA"
+        },
+        {
+          "state": "next",
+          "title": "Inference Engine Integration",
+          "desc": "After model training — Q1 2027"
+        },
+        {
+          "state": "next",
+          "title": "Enterprise Production SDK",
+          "desc": "Target Q2–Q3 2027, refined through pilots"
+        },
+        {
+          "state": "later",
+          "title": "Mobile SDK (iOS/Android)",
+          "desc": "Planning — 2027+"
+        }
       ]
     },
     {
       "title": "Pilots & Partnerships",
       "items": [
-        { "state": "seek", "title": "Seeking Design Partners", "desc": "Platform companies, robotics, enterprise vision, smart devices" },
-        { "state": "later", "title": "Alpha Pilot", "desc": "With first 2–3 design partners — target Q3/Q4 2026" },
-        { "state": "later", "title": "Beta Pilot", "desc": "With early customers — target 2027" }
+        {
+          "state": "seek",
+          "title": "Seeking Design Partners",
+          "desc": "12-week co-development partnerships — camera apps, platforms, robotics"
+        },
+        {
+          "state": "seek",
+          "title": "Seeking Research Partners",
+          "desc": "Universities and institutes for co-authored publications"
+        },
+        {
+          "state": "later",
+          "title": "Pilot Deployments (with real model)",
+          "desc": "Target Q2–Q3 2027"
+        }
       ]
     },
     {
       "title": "Research",
       "items": [
-        { "state": "done", "title": "Research Framework Established", "desc": "Context Intelligence Taxonomy defined" },
-        { "state": "done", "title": "Fairness Testing Methodology", "desc": "Framework defined — execution in progress" },
-        { "state": "next", "title": "Dataset Collection (CKB)", "desc": "In progress — target initial version Q4 2026" },
-        { "state": "later", "title": "Published Benchmarks", "desc": "Peer review process — target 2027" }
+        {
+          "state": "done",
+          "title": "Research Framework Established",
+          "desc": "Context Intelligence Taxonomy defined"
+        },
+        {
+          "state": "done",
+          "title": "Fairness Testing Methodology",
+          "desc": "Framework defined — execution in progress"
+        },
+        {
+          "state": "next",
+          "title": "Dataset Collection (CKB)",
+          "desc": "In progress — target initial version Q4 2026"
+        },
+        {
+          "state": "later",
+          "title": "Published Benchmarks",
+          "desc": "Peer review process — target 2027"
+        }
       ]
     }
   ]
