@@ -144,6 +144,7 @@ ${bodyHtml}
     <div>
       <a href="/index.html" class="footer-brand">${LOGO_SVG('shieldClip2')}${WORDMARK}</a>
       <p class="footer-tagline">PurenetX's long-term vision is to bring context-aware intelligence into camera systems, enabling privacy-preserving, on-device decisions that help prevent harmful visual content before it is created.</p>
+      <a href="https://www.startupindia.gov.in" target="_blank" rel="noopener" class="dpiit-badge"><b>DPIIT Recognized Startup</b> · Startup India · DIPP287982</a>
       <div class="footer-social">
         <a href="https://linkedin.com/company/purenetx" target="_blank" rel="noopener">LinkedIn</a>
         <a href="mailto:purenetx.ai@gmail.com">Email</a>
