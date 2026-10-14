@@ -1,5 +1,5 @@
 {
-  "last_updated": "July 2026",
+  "last_updated": "October 2026",
   "groups": [
     {
       "title": "Company",
@@ -8,6 +8,11 @@
           "state": "done",
           "title": "Incorporated and Registered",
           "desc": "Legal entity established"
+        },
+        {
+          "state": "done",
+          "title": "DPIIT-Recognized Startup",
+          "desc": "Startup India recognition — Certificate DIPP287982 (Oct 2026)"
         },
         {
           "state": "done",
