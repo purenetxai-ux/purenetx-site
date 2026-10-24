@@ -37,7 +37,7 @@
         {
           "state": "done",
           "title": "Context Intelligence Framework",
-          "desc": "Six-dimension framework validated through 55-scenario research"
+          "desc": "Six-dimension framework validated through 51-scenario research"
         },
         {
           "state": "done",
@@ -47,7 +47,7 @@
         {
           "state": "done",
           "title": "CKB Research Database",
-          "desc": "55 professionally annotated scenarios complete"
+          "desc": "51 research-annotated scenarios complete"
         },
         {
           "state": "done",
@@ -57,7 +57,7 @@
         {
           "state": "next",
           "title": "Inference Engine",
-          "desc": "Real ML model training begins once pre-seed funding and design partners are in place"
+          "desc": "Now: early on-device prototype working (image → context → explained decision). Testing in progress."
         },
         {
           "state": "next",
@@ -75,9 +75,9 @@
       "title": "SDK & Integration",
       "items": [
         {
-          "state": "done",
-          "title": "SDK Framework Available",
-          "desc": "Integration-ready framework for evaluation under NDA"
+          "state": "next",
+          "title": "SDK",
+          "desc": "In development"
         },
         {
           "state": "next",
@@ -132,7 +132,7 @@
         {
           "state": "next",
           "title": "Dataset Collection (CKB)",
-          "desc": "Expanding beyond the initial 55 scenarios — in progress"
+          "desc": "Expanding beyond the initial 51 scenarios — in progress"
         },
         {
           "state": "later",
