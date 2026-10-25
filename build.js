@@ -90,13 +90,12 @@ ${JSON.stringify({
       <li><a href="/technology.html">Technology</a></li>
       <li><a href="/who-we-build-for.html">Who We Build For</a></li>
       <li><a href="/research.html">Research</a></li>
-      <li><a href="/current-status.html">Current Status</a></li>
+      <li><a href="/current-status.html">Status</a></li>
       <li><a href="/future-roadmap.html">Roadmap</a></li>
       <li><a href="/company.html">Company</a></li>
       <li><a href="/blog.html" class="active">Blog</a></li>
     </ul>
     <div class="nav-cta">
-      <a href="/current-status.html" class="btn btn-ghost">Our Status</a>
       <a href="/contact.html" class="btn btn-red">Request Demo</a>
     </div>
     <button class="nav-menu-btn" id="menuBtn" aria-label="Menu">☰</button>
@@ -107,7 +106,7 @@ ${JSON.stringify({
   <a href="/technology.html">Technology</a>
   <a href="/who-we-build-for.html">Who We Build For</a>
   <a href="/research.html">Research</a>
-  <a href="/current-status.html">Current Status</a>
+  <a href="/current-status.html">Status</a>
   <a href="/future-roadmap.html">Roadmap</a>
   <a href="/company.html">Company</a>
   <a href="/blog.html">Blog</a>
@@ -154,7 +153,7 @@ ${bodyHtml}
     <div class="footer-links">
       <a href="/why-context.html">Why Context</a>
       <a href="/technology.html">Technology</a>
-      <a href="/current-status.html">Current Status</a>
+      <a href="/current-status.html">Status</a>
       <a href="/future-roadmap.html">Roadmap</a>
       <a href="/research.html">Research</a>
       <a href="/company.html">Company</a>

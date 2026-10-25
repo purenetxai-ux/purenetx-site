@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PurenetX — Context Intelligence Layer for AI Vision Systems</title>
+<title>PurenetX — Context Intelligence for On-Device Vision Systems</title>
 <meta name="description" content="Context-aware intelligence for camera systems. Privacy-preserving, on-device decisions that prevent harmful visual content before it's created.">
 <meta name="google-site-verification" content="2jvhR30-yckB5aoOnOEI3l0kvBfCkkpTNyTuUTuJl1Q">
-<meta property="og:title" content="PurenetX — Context Intelligence Layer">
+<meta property="og:title" content="PurenetX — Context Intelligence for On-Device Vision Systems">
 <meta property="og:description" content="Context Intelligence for On-Device Vision Systems. Understand what's happening. Make smarter decisions. Protect privacy.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://www.purenetx.com/og-image.png">
@@ -43,13 +43,12 @@
       <li><a href="technology.html">Technology</a></li>
       <li><a href="who-we-build-for.html">Who We Build For</a></li>
       <li><a href="research.html">Research</a></li>
-      <li><a href="current-status.html">Current Status</a></li>
+      <li><a href="current-status.html">Status</a></li>
       <li><a href="future-roadmap.html">Roadmap</a></li>
       <li><a href="company.html">Company</a></li>
       <li><a href="blog.html">Blog</a></li>
     </ul>
     <div class="nav-cta">
-      <a href="current-status.html" class="btn btn-ghost">Our Status</a>
       <a href="contact.html" class="btn btn-red">Request Demo</a>
     </div>
     <button class="nav-menu-btn" id="menuBtn" aria-label="Menu">☰</button>
@@ -60,7 +59,7 @@
   <a href="technology.html">Technology</a>
   <a href="who-we-build-for.html">Who We Build For</a>
   <a href="research.html">Research</a>
-  <a href="current-status.html">Current Status</a>
+  <a href="current-status.html">Status</a>
   <a href="future-roadmap.html">Future Roadmap</a>
   <a href="company.html">Company</a>
   <a href="blog.html">Blog</a>
@@ -83,7 +82,7 @@
       <div class="hero-feat"><b>01</b><strong>Context-aware scene understanding</strong><span>Not just pixel detection</span></div>
       <div class="hero-feat"><b>02</b><strong>Relationship, intent &amp; consent analysis</strong><span>On-device, zero uploads</span></div>
       <div class="hero-feat"><b>03</b><strong>Scenario-based validation</strong><span>Across medical, fitness, celebration, intimate and safety contexts</span></div>
-      <div class="hero-feat"><b>04</b><strong>Multi-signal ensemble detection</strong><span>Explainable policy decisions</span></div>
+      <div class="hero-feat"><b>04</b><strong>Combines several context signals before deciding</strong><span>Explainable policy decisions</span></div>
     </div>
   </div>
 </header>
@@ -163,7 +162,7 @@
         <div class="scen-list">
           <div class="scen-item is-fail"><span class="chip chip-block">BLOCKED</span><div><strong>Celebration moment</strong><span>Skin contact detected, proximity flagged</span></div></div>
           <div class="scen-item is-fail"><span class="chip chip-block">BLOCKED</span><div><strong>Medical exam</strong><span>Nudity detected, flagged automatically</span></div></div>
-          <div class="scen-item is-fail"><span class="chip chip-pass">PASSED</span><div><strong>Secret recording</strong><span>Low skin exposure, no trigger</span></div></div>
+          <div class="scen-item is-fail"><span class="chip chip-pass">NOT CAUGHT</span><div><strong>Secret recording</strong><span>Not caught — no nudity detected</span></div></div>
           <div class="scen-item is-fail"><span class="chip chip-block">BLOCKED</span><div><strong>Gym workout</strong><span>Skin exposure threshold exceeded</span></div></div>
           <div class="scen-item is-fail"><span class="chip chip-pass">PASSED</span><div><strong>Harassment</strong><span>No skin detected, no block triggered</span></div></div>
         </div>
@@ -174,7 +173,7 @@
         <div class="scen-list">
           <div class="scen-item"><span class="chip chip-allow">ALLOWED</span><div><strong>Celebration moment</strong><span>Event context detected, celebratory intent recognized</span></div></div>
           <div class="scen-item"><span class="chip chip-allow">ALLOWED</span><div><strong>Medical exam</strong><span>Clinical context confirmed, professional setting</span></div></div>
-          <div class="scen-item"><span class="chip chip-block">BLOCKED</span><div><strong>Secret recording</strong><span>Non-consensual intent flagged, covert capture detected</span></div></div>
+          <div class="scen-item"><span class="chip chip-block">BLOCK</span><div><strong>Secret recording</strong><span>Hidden-camera angle, people unaware</span></div></div>
           <div class="scen-item"><span class="chip chip-allow">ALLOWED</span><div><strong>Gym workout</strong><span>Fitness context confirmed, legitimate activity</span></div></div>
           <div class="scen-item"><span class="chip chip-warn">WARN</span><div><strong>Harassment</strong><span>Risk factors detected, behaviour pattern flagged</span></div></div>
         </div>
@@ -185,20 +184,20 @@
 </section>
 
 <!-- STATUS -->
-<section class="section" style="background:var(--panel);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+<section id="today" class="section" style="background:var(--panel);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
   <div class="container">
     <div class="reveal">
       <div class="label">Development Status</div>
       <h2>What We Have Today</h2>
-      <p style="max-width:640px;margin-top:16px">Our framework is designed and an early on-device prototype is working. Full model training begins with pre-seed funding. We're seeking design and research partners for co-development and validation.</p>
+      <p style="max-width:640px;margin-top:16px">Our framework is designed and an early on-device prototype is working. Model training on partner data begins after pre-seed funding (target 2027). We're seeking design and research partners for co-development and validation.</p>
     </div>
     <div class="grid-3 reveal" style="margin-top:48px">
-      <div class="card" style="background:#fff"><span class="pill pill-built">Validated</span><h4>Context Intelligence Framework</h4><p>Six-dimension analysis framework (scene, activity, relationship, consent, vulnerability, risk) validated through our 51-scenario research database.</p></div>
-      <div class="card" style="background:#fff"><span class="pill pill-built">Now</span><h4>Inference Engine</h4><p>Early on-device prototype working (image → context → explained decision). Testing in progress. Full model training follows pre-seed, co-developed with design partners.</p></div>
-      <div class="card" style="background:#fff"><span class="pill pill-dev">In Development</span><h4>SDK</h4><p>SDK in development. Design partners can begin data collection while the model develops in parallel.</p></div>
-      <div class="card" style="background:#fff"><span class="pill pill-built">Available</span><h4>Research Database (CKB)</h4><p>51 research-annotated scenarios across medical, fitness, celebration, intimate, and safety contexts. Available to research partners under NDA. <a href="posts/building-a-context-knowledge-base.html" class="link-arrow" style="font-size:13px">About the CKB →</a></p></div>
+      <div class="card" style="background:#fff"><span class="pill pill-built">Framework designed</span><h4>Context Intelligence Framework</h4><p>Six-dimension analysis framework (scene, activity, relationship, consent, vulnerability, risk), built on our 51-scenario research database.</p></div>
+      <div class="card" style="background:#fff"><span class="pill pill-built">Now</span><h4>On-Device Model</h4><p>Early on-device prototype working (image → context → explained decision). Testing in progress.</p></div>
+      <div class="card" style="background:#fff"><span class="pill pill-dev">In Development</span><h4>SDK</h4><p>SDK (a software kit apps and devices can build in) in development. Design partners can begin data collection while the model develops in parallel.</p></div>
+      <div class="card" style="background:#fff"><span class="pill pill-built">Available</span><h4>Context Knowledge Base</h4><p>Our labelled scenario database: 51 research-annotated scenarios across medical, fitness, celebration, intimate, and safety contexts. Available to research partners under NDA. <a href="posts/building-a-context-knowledge-base.html" class="link-arrow" style="font-size:13px">About the database →</a></p></div>
       <div class="card" style="background:#fff;border:1px solid rgba(220,38,38,0.3)"><span class="pill pill-open">Recruiting</span><h4>Design &amp; Research Partners</h4><p>Design partners (camera apps, platforms, robotics) for pilot validation — and research partners (universities, institutes) for co-authored publications.</p></div>
-      <div class="card" style="background:var(--ink);display:flex;flex-direction:column;justify-content:center;align-items:flex-start"><h4 style="color:#fff;margin-top:0">Think you're a fit?</h4><p style="color:#A3A3A3;margin-bottom:18px">We're recruiting for co-development of the inference engine (2027) and 12-week pilot partnerships. We review applications weekly.</p><a href="contact.html" class="btn btn-red">Get in touch →</a></div>
+      <div class="card" style="background:var(--ink);display:flex;flex-direction:column;justify-content:center;align-items:flex-start"><h4 style="color:#fff;margin-top:0">Think you're a fit?</h4><p style="color:#A3A3A3;margin-bottom:18px">We're recruiting for co-development of the on-device model (2027) and pilot partnerships. Pilot length agreed with each partner. We review applications weekly.</p><a href="contact.html" class="btn btn-red">Get in touch →</a></div>
     </div>
   </div>
 </section>
@@ -239,21 +238,26 @@
   <div class="container">
     <div class="band reveal">
       <div class="label">Our Development Stage</div>
-      <h2>Concept Proven. Now Building the Real Thing.</h2>
+      <h2>Early prototype working. Now building the real thing.</h2>
       <div class="grid-2" style="margin-top:40px;gap:16px 48px;position:relative">
         <div style="font-size:15px;line-height:2.1;color:#D4D4D4">
-          <span style="color:#F87171;font-family:var(--mono)">✓</span> Concept validated through 51-scenario research database<br>
+          <span style="color:#F87171;font-family:var(--mono)">✓</span> Framework designed, built on our 51-scenario research database<br>
           <span style="color:#F87171;font-family:var(--mono)">✓</span> Framework designed for on-device, privacy-first processing<br>
           <span style="color:#F87171;font-family:var(--mono)">✓</span> Early on-device prototype working (image → context → explained decision)
         </div>
         <div style="font-size:15px;line-height:2.1;color:#D4D4D4">
-          <span style="color:#8A8A8A;font-family:var(--mono)">→</span> Full model training: after pre-seed (2027)<br>
+          <span style="color:#8A8A8A;font-family:var(--mono)">→</span> Model training on partner data begins after pre-seed funding (target 2027).<br>
           <span style="color:#8A8A8A;font-family:var(--mono)">→</span> Model validation: pending design partner data<br>
           <span style="color:#8A8A8A;font-family:var(--mono)">→</span> Production deployment: after pilots (2027–2028)
         </div>
       </div>
       <p style="margin-top:32px;max-width:760px;position:relative;color:#fff;font-weight:600">In early testing on 63 everyday photos, a skin-colour approach wrongly flagged 27 as high-risk. Our context engine flagged none, running entirely on a laptop with no cloud.</p>
-      <p style="margin-top:20px;max-width:760px;position:relative">We're early. We say so. Transparency builds better partnerships than hype. That's why we're recruiting design partners and researchers to build this with us — not to deploy a finished product.</p>
+      <p class="test-note">63 safe everyday photos (stock + our own phone photos), each labelled by us before testing. Compared against our earlier skin-colour prototype. This measures false alarms on safe photos only; testing on harmful scenarios is in progress.</p>
+      <figure class="demo-fig">
+        <img src="prototype-demo.jpg" alt="PurenetX prototype demo showing context analysis of a yoga photo" class="demo-shot" width="1600" height="963" loading="lazy">
+        <figcaption>Our working prototype, running locally on a laptop with no internet. A pixel-only skin-colour approach rates this yoga photo CRITICAL risk; PurenetX reads the context and allows it, with a reason. (~20–25 s per image on a MacBook Air.)</figcaption>
+      </figure>
+      <p style="margin-top:28px;max-width:760px;position:relative">That's why we're recruiting design partners and researchers to build this with us — not to deploy a finished product.</p>
     </div>
   </div>
 </section>
@@ -268,16 +272,13 @@
     <div class="road-grid cols-4 reveal">
       <div class="road-col is-now">
         <div class="road-when">Today (Q4 2026)</div>
-        <h4>Framework Validation</h4>
-        <div class="road-item done"><i>✓</i>Context intelligence framework</div>
-        <div class="road-item done"><i>✓</i>51-scenario CKB database</div>
-        <div class="road-item done"><i>✓</i>Decision logic validated</div>
-        <div class="road-item done"><i>✓</i>Early on-device prototype working</div>
+        <h4>Early Prototype Working</h4>
+        <p style="font-size:14px;margin-top:10px"><a href="#today" class="link-arrow" style="font-size:14px">See what we have today ↑</a></p>
       </div>
       <div class="road-col">
-        <div class="road-when">Q1 – Q2 2027</div>
+        <div class="road-when">2027 · after pre-seed</div>
         <h4>Model Development &amp; Research</h4>
-        <div class="road-item next"><i>→</i>Inference engine training begins</div>
+        <div class="road-item next"><i>→</i>Model training on partner data begins</div>
         <div class="road-item next"><i>→</i>Research partnerships recruited</div>
         <div class="road-item next"><i>→</i>Co-authored paper outlined</div>
         <div class="road-item next"><i>→</i>Design partner data collection starts</div>
@@ -285,21 +286,20 @@
       <div class="road-col">
         <div class="road-when">Q2 – Q3 2027</div>
         <h4>Enterprise Pilots &amp; Publication</h4>
-        <div class="road-item next"><i>→</i>Design partner pilots (with real model)</div>
         <div class="road-item next"><i>→</i>Research paper submitted &amp; published</div>
         <div class="road-item next"><i>→</i>Enterprise SDK refined</div>
-        <div class="road-item next"><i>→</i>Revenue pilots begin</div>
+        <div class="road-item next"><i>→</i>First design-partner pilots</div>
       </div>
       <div class="road-col">
         <div class="road-when">2028 +</div>
         <h4>Broader Integration</h4>
         <div class="road-item later"><i>◇</i>Mobile SDK (iOS / Android)</div>
-        <div class="road-item later"><i>◇</i>OEM partnerships</div>
+        <div class="road-item later"><i>◇</i>Device-maker partnerships</div>
         <div class="road-item later"><i>◇</i>Platform integrations</div>
         <div class="road-item later"><i>◇</i>Production deployment at scale</div>
       </div>
     </div>
-    <p style="margin-top:28px"><a href="current-status.html" class="link-arrow">See Current Status →</a> &nbsp;&nbsp; <a href="future-roadmap.html" class="link-arrow">See Full Roadmap →</a></p>
+    <p style="margin-top:28px"><a href="current-status.html" class="link-arrow">See Status →</a> &nbsp;&nbsp; <a href="future-roadmap.html" class="link-arrow">See Full Roadmap →</a></p>
   </div>
 </section>
 
@@ -308,11 +308,11 @@
   <div class="container">
     <div class="cta reveal">
       <div class="label" style="justify-content:center;width:100%">Ready to See It?</div>
-      <h2>See How It Works <span style="font-size:.55em;font-weight:600;color:var(--ink-subtle)">(Concept Demonstration)</span></h2>
-      <p>Our concept prototype demo shows the framework and decision logic in action. Real model training: 8–12 weeks with design partner data. We review applications weekly — if your use case is a strong fit, you'll hear from us within 2 weeks.</p>
+      <h2>See How It Works <span style="font-size:.55em;font-weight:600;color:var(--ink-subtle)">(Prototype Demo)</span></h2>
+      <p>Our working prototype shows the framework and decision logic in action. Model training on partner data begins after pre-seed funding (target 2027). We review applications weekly — if your use case is a strong fit, you'll hear from us within 2 weeks.</p>
       <div class="cta-btns">
         <a href="contact.html" class="btn btn-red btn-lg">Request Demo</a>
-        <a href="current-status.html" class="btn btn-ghost btn-lg">See Our Current Status</a>
+        <a href="current-status.html" class="btn btn-ghost btn-lg">See Our Status</a>
       </div>
       <div class="cta-note">We're honest about where we are. No hype, no vaporware. See exactly what's built today.</div>
     </div>
@@ -336,7 +336,7 @@
     <div class="footer-links">
       <a href="why-context.html">Why Context</a>
       <a href="technology.html">Technology</a>
-      <a href="current-status.html">Current Status</a>
+      <a href="current-status.html">Status</a>
       <a href="future-roadmap.html">Roadmap</a>
       <a href="research.html">Research</a>
       <a href="company.html">Company</a>
