@@ -37,7 +37,7 @@
         {
           "state": "done",
           "title": "Context Intelligence Framework",
-          "desc": "Six-dimension framework validated through 51-scenario research"
+          "desc": "Framework designed — six dimensions, built on 51-scenario research"
         },
         {
           "state": "done",
@@ -46,8 +46,8 @@
         },
         {
           "state": "done",
-          "title": "CKB Research Database",
-          "desc": "51 research-annotated scenarios complete"
+          "title": "Context Knowledge Base",
+          "desc": "Our labelled scenario database — 51 research-annotated scenarios"
         },
         {
           "state": "done",
@@ -56,13 +56,13 @@
         },
         {
           "state": "next",
-          "title": "Inference Engine",
-          "desc": "Now: early on-device prototype working (image → context → explained decision). Testing in progress."
+          "title": "On-Device Model",
+          "desc": "Now: early on-device prototype working (image → context → explained decision). Testing in progress. Model training on partner data begins after pre-seed funding (target 2027)."
         },
         {
           "state": "next",
           "title": "Model Validation",
-          "desc": "Pending design partner data — 8–12 weeks per partner"
+          "desc": "With design partner data — after model training (2027)"
         },
         {
           "state": "later",
@@ -77,11 +77,11 @@
         {
           "state": "next",
           "title": "SDK",
-          "desc": "In development"
+          "desc": "In development — a software kit apps and devices can build in"
         },
         {
           "state": "next",
-          "title": "Inference Engine Integration",
+          "title": "On-Device Model Integration",
           "desc": "After model training — 2027"
         },
         {
@@ -102,7 +102,7 @@
         {
           "state": "seek",
           "title": "Seeking Design Partners",
-          "desc": "12-week co-development partnerships — camera apps, platforms, robotics"
+          "desc": "Co-development partnerships — camera apps, platforms, robotics. Pilot length agreed with each partner."
         },
         {
           "state": "seek",
@@ -131,7 +131,7 @@
         },
         {
           "state": "next",
-          "title": "Dataset Collection (CKB)",
+          "title": "Context Knowledge Base Expansion",
           "desc": "Expanding beyond the initial 51 scenarios — in progress"
         },
         {
