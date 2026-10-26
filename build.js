@@ -58,7 +58,7 @@ function pageHtml(p) {
 .post-body code{font-family:var(--mono);font-size:.9em;background:var(--panel);padding:2px 6px;border-radius:4px}
 .post-body pre{background:var(--ink);color:#D4D4D4;padding:20px;border-radius:var(--r);overflow-x:auto;margin-bottom:18px}
 .post-body pre code{background:none;color:inherit;padding:0}
-.post-body img{max-width:100%;border-radius:var(--r-lg)}
+.post-body img{max-width:100%;height:auto;border-radius:var(--r-lg);border:1px solid var(--line);display:block;margin:28px 0 12px}
 .post-body table{border-collapse:collapse;margin:24px 0;width:100%;max-width:520px;font-size:14.5px}
 .post-body th{text-align:left;padding:10px 16px;background:var(--ink);color:#fff;font-weight:600}
 .post-body th:first-child{border-radius:8px 0 0 0}
@@ -127,7 +127,7 @@ ${JSON.stringify({
   <div class="container">
     <article>
       ${p.category ? `<div><span class="cat-chip">${esc(p.category)}</span></div>` : ''}
-      <div class="post-meta"><span>${fmtDate(p.date)}</span> · <span>${readTime(p.body)}</span> · PurenetX</div>
+      <div class="post-meta"><span>${fmtDate(p.date)}</span> · <span>${p.read_time ? p.read_time + ' min read' : readTime(p.body)}</span> · PurenetX</div>
       <div class="post-body">
 ${bodyHtml}
       </div>

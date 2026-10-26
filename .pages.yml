@@ -1,3 +1,4 @@
+# Pages CMS configuration — admin panel at https://app.pagescms.org
 media:
   input: media
   output: media
@@ -21,6 +22,17 @@ content:
             label: Slug (URL id — lowercase, hyphens, no spaces)
             type: string
             required: true
+          - name: category
+            label: Category
+            type: select
+            options:
+              values:
+                - Research
+                - Engineering
+                - Company Update
+                - AI Safety
+                - Privacy
+                - Business
           - name: date
             label: Date
             type: date
@@ -28,8 +40,11 @@ content:
           - name: description
             label: Short description (shown on the blog list)
             type: text
+          - name: read_time
+            label: Read time in minutes (optional — leave empty to calculate automatically)
+            type: string
           - name: body
-            label: Body (Markdown supported)
+            label: Body (Markdown supported — ## headings, **bold**, - lists, [links](url))
             type: text
 
   - name: status

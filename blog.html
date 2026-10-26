@@ -145,7 +145,7 @@ fetch('content/posts.json').then(function(r){return r.json()}).then(function(dat
   list.innerHTML=posts.map(function(p){
     return '<a class="card post-card" href="posts/'+encodeURIComponent(p.slug)+'.html">'+
       (p.category?'<span class="cat-chip">'+esc(p.category)+'</span><br>':'')+
-      '<span class="date">'+fmt(p.date)+' • '+readTime(p.body)+'</span><h3>'+esc(p.title)+'</h3><p>'+esc(p.description)+'</p>'+
+      '<span class="date">'+fmt(p.date)+' • '+(p.read_time?p.read_time+' min read':readTime(p.body))+'</span><h3>'+esc(p.title)+'</h3><p>'+esc(p.description)+'</p>'+
       '<p class="mt-16" style="color:var(--red);font-weight:600;font-size:14px">Read more →</p></a>';
   }).join('');
   list.style.display='grid';
