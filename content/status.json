@@ -16,8 +16,8 @@
         },
         {
           "state": "done",
-          "title": "Core Team In Place",
-          "desc": "Founding team active"
+          "title": "Founder Full-Time",
+          "desc": "Building the product and running the company"
         },
         {
           "state": "done",
@@ -37,7 +37,7 @@
         {
           "state": "done",
           "title": "Context Intelligence Framework",
-          "desc": "Framework designed — six dimensions, built on 51-scenario research"
+          "desc": "Framework designed — six dimensions, built on 50-scenario research"
         },
         {
           "state": "done",
@@ -47,7 +47,7 @@
         {
           "state": "done",
           "title": "Context Knowledge Base",
-          "desc": "Our labelled scenario database — 51 research-annotated scenarios"
+          "desc": "Our labelled scenario database — 50 research-annotated scenarios"
         },
         {
           "state": "done",
@@ -57,7 +57,7 @@
         {
           "state": "next",
           "title": "On-Device Model",
-          "desc": "Now: early on-device prototype working (image → context → explained decision). Testing in progress. Model training on partner data begins after pre-seed funding (target 2027)."
+          "desc": "Now: early on-device prototype working (image → context → explained decision). First unseen test complete (31 Oct 2026); more testing in progress. Model training on partner data begins after pre-seed funding (target 2027)."
         },
         {
           "state": "next",
@@ -132,7 +132,7 @@
         {
           "state": "next",
           "title": "Context Knowledge Base Expansion",
-          "desc": "Expanding beyond the initial 51 scenarios — in progress"
+          "desc": "Expanding beyond the initial 50 scenarios — in progress"
         },
         {
           "state": "later",
