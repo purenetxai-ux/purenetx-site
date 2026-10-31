@@ -96,17 +96,18 @@
       <div>
         <h3 class="mb-24">What It Analyzes</h3>
         <div class="status-list">
-          <div class="status-item st-done"><i>✓</i><div><strong>Scene type and setting</strong><span>Wedding, gym, office, hospital, street, bedroom</span></div></div>
-          <div class="status-item st-done"><i>✓</i><div><strong>Activity and event context</strong><span>Celebration, sport, medical, recreation, education</span></div></div>
-          <div class="status-item st-done"><i>✓</i><div><strong>Relationship type inference</strong><span>Couple, family, professional, strangers</span></div></div>
-          <div class="status-item st-done"><i>✓</i><div><strong>Intent signal detection</strong><span>Documentation, art, intimacy, surveillance indicators</span></div></div>
-          <div class="status-item st-done"><i>✓</i><div><strong>Age and safety factors</strong><span>Vulnerability indicators, consent context</span></div></div>
+          <div class="status-item st-done"><i>✓</i><div><strong>Scene</strong><span>Wedding, gym, office, hospital, street, bedroom</span></div></div>
+          <div class="status-item st-done"><i>✓</i><div><strong>Activity</strong><span>Celebration, sport, medical, recreation, education</span></div></div>
+          <div class="status-item st-done"><i>✓</i><div><strong>Relationship</strong><span>Couple, family, professional, strangers</span></div></div>
+          <div class="status-item st-done"><i>✓</i><div><strong>Intent &amp; Consent</strong><span>Documentation, art, intimacy, surveillance indicators; consent context</span></div></div>
+          <div class="status-item st-done"><i>✓</i><div><strong>Vulnerability</strong><span>Age and other vulnerability indicators</span></div></div>
+          <div class="status-item st-done"><i>✓</i><div><strong>Risk Signals</strong><span>Covert capture, distress, exposure in context</span></div></div>
         </div>
       </div>
       <div>
         <h3 class="mb-24">Current vs. In Development</h3>
         <div class="status-list">
-          <div class="status-item st-done"><i>✓</i><div><strong>Framework dimensions defined</strong><span>Scene, activity, relationship, intent, platform, risk</span></div></div>
+          <div class="status-item st-done"><i>✓</i><div><strong>Framework dimensions defined</strong><span>Scene · Activity · Relationship · Intent &amp; Consent · Vulnerability · Risk Signals (platform is a policy setting, not a dimension)</span></div></div>
           <div class="status-item st-done"><i>✓</i><div><strong>Annotation schema</strong><span>13 fields per scenario in our Context Knowledge Base (our labelled scenario database)</span></div></div>
           <div class="status-item st-done"><i>✓</i><div><strong>Decision logic</strong><span>Demonstrated through prototype examples</span></div></div>
           <div class="status-item st-next"><i>→</i><div><strong>On-device model</strong><span>Early prototype working — training on partner data after pre-seed (target 2027)</span></div></div>
@@ -130,8 +131,11 @@
       <div class="card on-white"><b class="mono red">R.03</b><h4>Policy-Driven Thresholds</h4><p>What counts as harmful is defined by platform policy — not by a single universal threshold applied to all contexts.</p></div>
     </div>
     <div class="note mt-32 reveal">
-      <strong>Why We're Not Publishing Numbers Yet</strong>
-      <p>We have tested our approach on prototype scenarios. We are not publishing specific accuracy, latency, or false-positive rate numbers until we have validated at scale with enterprise design partners and completed peer review. Numbers without context mislead. Fairness validation requires diverse populations. Benchmarks should be peer-reviewed.</p>
+      <strong>What We've Measured So Far</strong>
+      <p><b style="color:var(--ink)">Unseen test, 31 Oct 2026:</b> 105 photos never used in development, labels written first, engine frozen, one run. 88 of 105 correct (84%). 49 of 55 safe photos left alone (6 false alarms); 26 of 35 harmful photos flagged (9 missed). Main weakness: telling whether people behind windows know they are being seen. Child-safety rules tested only on policy and text cases, never on real child images.</p>
+      <p class="mt-16"><b style="color:var(--ink)">Early false-alarm test (safe photos only):</b> on 63 everyday photos, a skin-colour approach wrongly flagged 27 as high-risk; our context engine (earlier prototype version) flagged none.</p>
+      <p class="mt-16"><b style="color:var(--ink)">Speed:</b> About 67 seconds per photo on a laptop (Apple M4), fully offline. Target: under 2 seconds on phones.</p>
+      <p class="mt-16">First unseen-photo test published above; independent validation planned. Fairness validation requires diverse populations, and benchmarks should be peer-reviewed.</p>
     </div>
   </div>
 </section>
@@ -151,7 +155,8 @@
           <div class="status-item st-done"><i>✓</i><div><strong>Decision logic</strong><span>Demonstrated through prototype examples</span></div></div>
           <div class="status-item st-done"><i>✓</i><div><strong>Explainable decision format</strong><span>Reasoning output designed and demonstrated</span></div></div>
           <div class="status-item st-done"><i>✓</i><div><strong>On-device architecture</strong><span>Zero-transmission design — implementation with real model</span></div></div>
-          <div class="status-item st-done"><i>✓</i><div><strong>Early testing — 63 everyday photos</strong><span>Skin-colour approach: 27 wrongly flagged as high-risk. Our context engine: 0. Run entirely on a laptop, no cloud.</span></div></div>
+          <div class="status-item st-done"><i>✓</i><div><strong>Early false-alarm test (safe photos only)</strong><span>63 everyday photos — skin-colour approach: 27 wrongly flagged as high-risk. Our context engine (earlier prototype version): 0. Run entirely on a laptop, no cloud.</span></div></div>
+          <div class="status-item st-done"><i>✓</i><div><strong>Unseen test — 31 Oct 2026</strong><span>105 photos never used in development: 88 of 105 correct (84%). 6 false alarms on 55 safe photos; 9 missed of 35 harmful photos.</span></div></div>
         </div>
       </div>
       <div>

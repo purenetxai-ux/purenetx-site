@@ -131,17 +131,20 @@
     <div class="grid-2 reveal mt-48">
       <div class="card"><span class="pill pill-dev">Research phase</span><h4>Camera System Integration</h4><p>Integrate the Context Intelligence Layer into live camera workflows, enabling privacy-preserving safety decisions before capture occurs. Requires camera API partnerships with device manufacturers.</p></div>
       <div class="card"><span class="pill pill-dev">Partnership discussions</span><h4>Camera-Level OS Integration</h4><p>Integration into mainstream phone camera apps as a default safety layer. Requires deep device-maker and platform partnerships that do not yet exist.</p></div>
-      <div class="card"><span class="pill pill-dev">Designing</span><h4>Policy Engine</h4><p>Customizable decision policies allowing platform operators to define their own safety thresholds and responses: Allow, Warn, Blur, Block, Escalate.</p></div>
+      <div class="card"><span class="pill pill-dev">Designing</span><h4>Policy Engine</h4><p>Customizable decision policies allowing platform operators to define their own safety thresholds. Today's prototype makes four decisions: Allow · Warn · Confirm · Block. Blur and Escalate are future design ideas, not current decisions.</p></div>
       <div class="card"><span class="pill pill-dev">Strategic planning</span><h4>Device-Maker Partnerships</h4><p>Integration into device cameras at the hardware level. Over two billion devices ship with cameras annually — the long-term TAM, not the near-term go-to-market.</p></div>
     </div>
     <div class="code-panel is-dark mt-32 reveal">
       <div class="code-head">Long-term vision — policy output <span class="tag">research direction</span></div>
       <div class="code-body">
-        <span class="c-red">ALLOW</span> &nbsp;→ Safe, consensual, in-context<br>
-        <span class="c-red">WARN</span> &nbsp;&nbsp;→ Risky — inform user<br>
-        <span class="c-red">BLUR</span> &nbsp;&nbsp;→ Reduce visibility<br>
-        <span class="c-red">BLOCK</span> &nbsp;→ Harmful content<br>
-        <span class="c-red">ESCALATE</span> → Report to platform trust &amp; safety<br><br>
+        <span class="c-com">// Current decisions (four)</span><br>
+        <span class="c-red">ALLOW</span> &nbsp;&nbsp;→ Safe, consensual, in-context<br>
+        <span class="c-red">WARN</span> &nbsp;&nbsp;&nbsp;→ Risky — inform user<br>
+        <span class="c-red">CONFIRM</span> → Ask the user to confirm first<br>
+        <span class="c-red">BLOCK</span> &nbsp;&nbsp;→ Harmful content<br><br>
+        <span class="c-com">// Future design ideas — not current decisions</span><br>
+        <span class="c-w">BLUR</span> &nbsp;&nbsp;&nbsp;→ Reduce visibility<br>
+        <span class="c-w">ESCALATE</span> → Report to platform trust &amp; safety<br><br>
         <span class="c-com">// Today, the CIL operates as a standalone decision engine.</span><br>
         <span class="c-com">// Direct camera integration is our research direction.</span>
       </div>

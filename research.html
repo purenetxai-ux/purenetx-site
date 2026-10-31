@@ -67,7 +67,7 @@
     </div>
     <div class="grid-2 reveal mt-48">
       <div class="card"><span class="pill pill-dev">Framework defined (draft)</span><h4>Context Intelligence Taxonomy</h4>
-        <p>A structured classification of contextual signals relevant to visual safety decisions. Covers scene type, activity, relationship, intent, platform, and risk dimensions.</p>
+        <p>A structured classification of contextual signals relevant to visual safety decisions. Covers six dimensions: scene, activity, relationship, intent &amp; consent, vulnerability, and risk signals.</p>
         <ul><li>Taxonomy of contextual signals across 6 dimensions</li><li>Why context-aware decisions outperform pixel-only detection — <a href="posts/we-said-pixels-arent-enough-so-we-tested-it.html" style="color:var(--red)">see our first test: We Said Pixels Aren't Enough. So We Tested It.</a></li><li>Signal interaction and weighting methodology</li></ul>
         <p class="mt-16" style="font-size:12.5px;color:var(--ink-subtle)">Publication status: In preparation. Targeting arXiv pre-print after pilot validation.</p></div>
       <div class="card"><span class="pill pill-dev">In Progress</span><h4>PurenetX Context Knowledge Base (CKB) — our labelled scenario database</h4>
@@ -119,7 +119,7 @@
       <div>
         <h3 class="mb-24">Fairness Testing Commitments</h3>
         <div class="status-list">
-          <div class="status-item st-done"><i>✓</i><div><strong>Gender bias check</strong><span>Found and fixed (Oct 2026)</span></div></div>
+          <div class="status-item st-done"><i>✓</i><div><strong>Gender bias check — found and fixed (Oct 2026)</strong><span>The early model judged 5 adult women in sportswear or swimwear as minors (0 men). After the fix, 4 of 4 adult women on a new unseen set were judged correctly. A larger check is planned.</span></div></div>
           <div class="status-item st-later"><i>○</i><div><strong>Skin tone and cultural diversity testing</strong><span>In progress</span></div></div>
           <div class="status-item st-next"><i>→</i><div><strong>Large-scale demographic study</strong><span>Requires pilot data — planned</span></div></div>
           <div class="status-item st-next"><i>→</i><div><strong>Public fairness report</strong><span>Planned after pilot validation</span></div></div>
@@ -129,7 +129,7 @@
         <h3 class="mb-24">Known Limitations (As of October 2026)</h3>
         <div class="status-list">
           <div class="status-item st-warn"><i>!</i><div><strong>No large-scale validation yet</strong><span>Prototype tested, enterprise scale pending</span></div></div>
-          <div class="status-item st-warn"><i>!</i><div><strong>No peer-reviewed accuracy numbers</strong><span>Will publish after independent review</span></div></div>
+          <div class="status-item st-warn"><i>!</i><div><strong>No peer-reviewed accuracy numbers</strong><span>First unseen-photo test published on our <a href="technology.html">Technology page</a>; independent validation planned.</span></div></div>
           <div class="status-item st-warn"><i>!</i><div><strong>No mobile SDK (app software kit) yet</strong><span>iOS/Android planned 2027</span></div></div>
           <div class="status-item st-warn"><i>!</i><div><strong>Edge cases under investigation</strong><span>Adversarial robustness in testing</span></div></div>
         </div>

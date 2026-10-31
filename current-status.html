@@ -75,7 +75,8 @@
 
     <div class="note mt-48 reveal">
       <strong>Important Context — Where We Actually Are</strong>
-      <p>We have a designed framework and an early on-device prototype that works end to end (image → context → explained decision) — not a production model. Testing is in progress. Model training on partner data begins after pre-seed funding (target 2027), in co-development with design partners. We say this plainly because partners who join us now are building with us, not buying a finished product.</p>
+      <p>We have a designed framework and an early on-device prototype that works end to end (image → context → explained decision) — not a production model. Testing is in progress. Model training on partner data begins after pre-seed funding (target 2027), in co-development with the design partners we are recruiting. We say this plainly because partners who join us now are building with us, not buying a finished product.</p>
+      <p class="mt-16"><strong style="display:inline;color:var(--ink)">Latest test — Unseen test, 31 Oct 2026:</strong> 105 photos never used in development, labels written first, engine frozen, one run. 88 of 105 correct (84%). 49 of 55 safe photos left alone (6 false alarms); 26 of 35 harmful photos flagged (9 missed). Main weakness: telling whether people behind windows know they are being seen. Child-safety rules tested only on policy and text cases, never on real child images. Speed: about 67 seconds per photo on a laptop (Apple M4), fully offline. Target: under 2 seconds on phones.</p>
       <p class="mt-16">The path to production requires: training the on-device model on real partner data, model validation, refining the enterprise SDK (a software kit apps and devices can build in), and — longer term — camera API integration and device-maker partnerships. These are Phase 2–3 roadmap items.</p>
     </div>
 
@@ -116,21 +117,19 @@ fetch('content/status.json').then(function(r){return r.json()}).then(function(da
   <div class="container">
     <div class="reveal">
       <div class="label">Funding Status</div>
-      <h2>Bootstrapped — Raising Pre-Seed / Seed</h2>
+      <h2>Bootstrapped — Planning a Seed Raise</h2>
     </div>
     <div class="grid-2 reveal mt-48">
       <div class="card on-white">
         <h4 style="margin-top:0">Current Position</h4>
         <div class="status-list mt-16">
           <div class="status-item st-done"><i>✓</i><div><strong>Bootstrapped</strong><span>Founder-funded to date</span></div></div>
-          <div class="status-item st-next"><i>→</i><div><strong>Stage</strong><span>Pre-seed / Seed round conversations</span></div></div>
-          <div class="status-item st-next"><i>→</i><div><strong>Timeline</strong><span>Target close Q1 2027</span></div></div>
+          <div class="status-item st-next"><i>→</i><div><strong>Next</strong><span>Planning a seed raise in 2027; currently bootstrapped.</span></div></div>
         </div>
       </div>
       <div class="card is-dark">
         <h4 style="margin-top:0">Round Details</h4>
         <div class="mt-16" style="display:flex;flex-direction:column;gap:14px">
-          <p><strong style="color:#fff">Target raise</strong><br>$500K – $2M seed round</p>
           <p><strong style="color:#fff">Use of funds</strong><br>Engineering, partnerships, validation</p>
           <p><strong style="color:#fff">Investor fit</strong><br>Deep-tech, privacy, AI safety focus</p>
         </div>
